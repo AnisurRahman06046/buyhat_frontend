@@ -1,14 +1,31 @@
 "use client";
 
+import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 
 import { RatingStars } from "@/components/shared/rating-stars";
 import { Spinner } from "@/components/shared/spinner";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { queryKeys } from "@/config/query-keys";
+import { routes } from "@/config/routes";
+import { useSession } from "@/features/auth/hooks/use-session";
+import { ReviewForm } from "@/features/reviews/components/review-form";
 import { formatDate } from "@/lib/formatters";
 import { reviewService } from "@/services/review.service";
 import type { ProductDetail } from "@/types/catalog";
+
+function ReviewsAuthGate({ productId }: { productId: string }) {
+  const { isAuthenticated } = useSession();
+  if (isAuthenticated) return <ReviewForm productId={productId} />;
+  return (
+    <div className="border-border bg-muted/30 text-muted-foreground rounded-md border px-4 py-3 text-sm">
+      <Link href={routes.auth.login} className="text-primary font-medium hover:underline">
+        Sign in
+      </Link>{" "}
+      to write a review.
+    </div>
+  );
+}
 
 function ReviewsTab({ productId }: { productId: string }) {
   const { data, isLoading } = useQuery({
@@ -17,44 +34,47 @@ function ReviewsTab({ productId }: { productId: string }) {
       reviewService.getProductReviews(productId, { page: 1, limit: 10 }, signal),
   });
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center py-8">
-        <Spinner />
-      </div>
-    );
-  }
-
   const reviews = data?.items ?? [];
-  if (reviews.length === 0) {
-    return (
-      <p className="text-body-sm text-muted-foreground">
-        No reviews yet. Be the first to review this product.
-      </p>
-    );
-  }
 
   return (
-    <ul className="space-y-6">
-      {reviews.map((review) => (
-        <li key={review.id} className="border-border space-y-1.5 border-b pb-5 last:border-0">
-          <div className="flex items-center justify-between">
-            <RatingStars rating={review.rating} size="sm" />
-            <span className="text-muted-foreground text-xs">{formatDate(review.createdAt)}</span>
-          </div>
-          {review.title ? (
-            <p className="text-foreground text-sm font-semibold">{review.title}</p>
-          ) : null}
-          {review.body ? <p className="text-body-sm text-muted-foreground">{review.body}</p> : null}
-          {review.authorName ? (
-            <p className="text-muted-foreground text-xs">
-              — {review.authorName}
-              {review.verifiedPurchase ? " · Verified Purchase" : ""}
-            </p>
-          ) : null}
-        </li>
-      ))}
-    </ul>
+    <div className="space-y-6">
+      <ReviewsAuthGate productId={productId} />
+
+      {isLoading ? (
+        <div className="flex justify-center py-8">
+          <Spinner />
+        </div>
+      ) : reviews.length === 0 ? (
+        <p className="text-body-sm text-muted-foreground">
+          No reviews yet. Be the first to review this product.
+        </p>
+      ) : (
+        <ul className="space-y-6">
+          {reviews.map((review) => (
+            <li key={review.id} className="border-border space-y-1.5 border-b pb-5 last:border-0">
+              <div className="flex items-center justify-between">
+                <RatingStars rating={review.rating} size="sm" />
+                <span className="text-muted-foreground text-xs">
+                  {formatDate(review.createdAt)}
+                </span>
+              </div>
+              {review.title ? (
+                <p className="text-foreground text-sm font-semibold">{review.title}</p>
+              ) : null}
+              {review.body ? (
+                <p className="text-body-sm text-muted-foreground">{review.body}</p>
+              ) : null}
+              {review.authorName ? (
+                <p className="text-muted-foreground text-xs">
+                  — {review.authorName}
+                  {review.verifiedPurchase ? " · Verified Purchase" : ""}
+                </p>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }
 

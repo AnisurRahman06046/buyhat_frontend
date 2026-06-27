@@ -60,7 +60,7 @@ export function ProductCard({
 
         <button
           type="button"
-          onClick={() => wishlist.toggle(product.id)}
+          onClick={() => wishlist.toggle(product)}
           aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
           aria-pressed={wished}
           className="bg-card/90 text-foreground shadow-card hover:text-cta absolute top-2 right-2 flex size-8 items-center justify-center rounded-full backdrop-blur-sm transition-colors"

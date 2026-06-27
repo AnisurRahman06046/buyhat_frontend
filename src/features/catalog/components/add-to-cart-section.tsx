@@ -78,7 +78,7 @@ export function AddToCartSection({
           size="icon-lg"
           aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
           aria-pressed={wished}
-          onClick={() => wishlist.toggle(product.id)}
+          onClick={() => wishlist.toggle(product)}
         >
           <Heart className={cn("size-5", wished && "fill-cta text-cta")} />
         </Button>

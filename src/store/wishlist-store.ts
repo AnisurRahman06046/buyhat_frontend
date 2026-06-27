@@ -1,31 +1,36 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
+import type { ProductSummary } from "@/types/catalog";
+
 interface WishlistState {
-  ids: string[];
-  toggle: (id: string) => void;
-  add: (id: string) => void;
+  items: ProductSummary[];
+  toggle: (item: ProductSummary) => void;
   remove: (id: string) => void;
+  has: (id: string) => boolean;
   clear: () => void;
 }
 
 /**
- * Wishlist is a client-only convenience (product ids), persisted to
- * localStorage. The full wishlist page hydrates these ids into products in
- * Phase 9. Read via `useWishlist` (mount-guarded to avoid hydration flash).
+ * Wishlist is a client-only convenience. It persists a product *snapshot*
+ * (not just the id) so the wishlist page renders instantly from localStorage —
+ * there is no batch get-products-by-ids endpoint. Read via `useWishlist`
+ * (mount-guarded to avoid hydration flash).
  */
 export const useWishlistStore = create<WishlistState>()(
   persist(
-    (set) => ({
-      ids: [],
-      toggle: (id) =>
-        set((s) => ({
-          ids: s.ids.includes(id) ? s.ids.filter((x) => x !== id) : [...s.ids, id],
-        })),
-      add: (id) => set((s) => (s.ids.includes(id) ? s : { ids: [...s.ids, id] })),
-      remove: (id) => set((s) => ({ ids: s.ids.filter((x) => x !== id) })),
-      clear: () => set({ ids: [] }),
+    (set, get) => ({
+      items: [],
+      toggle: (item) =>
+        set((s) =>
+          s.items.some((i) => i.id === item.id)
+            ? { items: s.items.filter((i) => i.id !== item.id) }
+            : { items: [...s.items, item] },
+        ),
+      remove: (id) => set((s) => ({ items: s.items.filter((i) => i.id !== id) })),
+      has: (id) => get().items.some((i) => i.id === id),
+      clear: () => set({ items: [] }),
     }),
-    { name: "buyhat-wishlist" },
+    { name: "buyhat-wishlist", version: 2 },
   ),
 );
