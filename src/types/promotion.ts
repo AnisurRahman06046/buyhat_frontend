@@ -41,6 +41,7 @@ export interface FlashSaleItem {
   salePrice: number;
   quantityLimit?: number | null;
   productName?: string;
+  productSlug?: string;
   imageUrl?: string | null;
   originalPrice?: number;
 }

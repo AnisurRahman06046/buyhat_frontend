@@ -1,6 +1,7 @@
 import { AnnouncementBar } from "@/components/layout/announcement-bar";
 import { ShopFooter } from "@/components/layout/shop-footer";
 import { ShopHeaderContainer } from "@/components/layout/shop-header-container";
+import { PromotionPopup } from "@/features/cms/components/promotion-popup";
 
 export default function ShopLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export default function ShopLayout({ children }: { children: React.ReactNode }) 
       <ShopHeaderContainer />
       <main className="flex-1">{children}</main>
       <ShopFooter />
+      <PromotionPopup />
     </div>
   );
 }

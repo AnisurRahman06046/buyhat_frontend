@@ -1,5 +1,5 @@
 import { serverApi } from "@/lib/server/backend";
-import type { Category, ProductDetail, ProductSummary } from "@/types/catalog";
+import type { Brand, Category, ProductDetail, ProductSummary } from "@/types/catalog";
 import type { Paginated } from "@/types/common";
 
 /** Build a query string from a params bag, dropping empty values. */
@@ -28,4 +28,8 @@ export function getProductBySlugServer(slug: string): Promise<ProductDetail> {
 
 export function getCategoriesServer(): Promise<Category[]> {
   return serverApi<Category[]>("/categories", { revalidate: 300 });
+}
+
+export function getBrandsServer(): Promise<Brand[]> {
+  return serverApi<Brand[]>("/brands", { revalidate: 300 });
 }

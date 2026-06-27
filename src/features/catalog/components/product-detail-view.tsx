@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { PriceTag } from "@/components/shared/price-tag";
 import { RatingStars } from "@/components/shared/rating-stars";
 import { StockStatus } from "@/components/shared/stock-status";
+import { useRecentlyViewedStore } from "@/store/recently-viewed-store";
 import type { ProductDetail } from "@/types/catalog";
 
 import { AddToCartSection } from "./add-to-cart-section";
@@ -13,6 +14,11 @@ import { ProductTabs } from "./product-tabs";
 import { optionsFromVariant, resolveVariant, VariantSelector } from "./variant-selector";
 
 export function ProductDetailView({ product }: { product: ProductDetail }) {
+  const recordRecentlyViewed = useRecentlyViewedStore((s) => s.add);
+  useEffect(() => {
+    recordRecentlyViewed(product);
+  }, [product, recordRecentlyViewed]);
+
   const variants = useMemo(() => product.variants ?? [], [product.variants]);
   const variantAttributes = useMemo(
     () =>
