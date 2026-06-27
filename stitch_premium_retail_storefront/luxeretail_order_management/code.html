@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Management | LuxeRetail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e1e2ed;
+            border-radius: 10px;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        .drawer-animate {
+            animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#eeefff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-surface": "#191b23",
+                        "surface-container": "#ededf9",
+                        "on-secondary-fixed": "#131b2e",
+                        "surface-container-highest": "#e1e2ed",
+                        "on-error": "#ffffff",
+                        "surface": "#faf8ff",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "secondary-fixed": "#dae2fd",
+                        "tertiary-fixed": "#ffddb8",
+                        "secondary-container": "#dae2fd",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-tint": "#0053db",
+                        "on-tertiary-container": "#ffeedd",
+                        "secondary": "#565e74",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e1e2ed",
+                        "on-surface-variant": "#434655",
+                        "on-background": "#191b23",
+                        "on-primary": "#ffffff",
+                        "outline-variant": "#c3c6d7",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "surface-dim": "#d9d9e5",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface-container-low": "#f3f3fe",
+                        "on-secondary-container": "#5c647a",
+                        "tertiary-container": "#996100",
+                        "inverse-surface": "#2e3039",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#faf8ff",
+                        "on-primary-fixed": "#00174b",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-container-high": "#e7e7f3",
+                        "primary-container": "#2563eb",
+                        "tertiary": "#784b00",
+                        "primary": "#004ac6",
+                        "background": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "3xl": "64px",
+                        "container-max": "1280px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "base": "4px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "gutter": "24px",
+                        "xl": "32px",
+                        "md": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-64 border-r border-outline-variant/30 bg-surface flex flex-col h-screen shrink-0">
+<div class="h-20 flex items-center px-lg shrink-0">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">LuxeRetail</span>
+</div>
+<nav class="flex-1 px-md py-lg space-y-1">
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg bg-primary-container text-on-primary-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shopping_bag</span>
+<span class="font-label-md">Orders</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md">Customers</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">bar_chart</span>
+<span class="font-label-md">Analytics</span>
+</a>
+</nav>
+<div class="p-lg border-t border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed">
+<span class="font-label-sm">JS</span>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="font-label-md truncate">Jordan Smith</p>
+<p class="text-xs text-on-surface-variant truncate">Store Admin</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer">settings</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Wrapper -->
+<main class="flex-1 flex flex-col relative overflow-hidden">
+<!-- Top App Bar -->
+<header class="h-20 flex items-center justify-between px-xl border-b border-outline-variant/30 bg-surface/80 backdrop-blur-md sticky top-0 z-10">
+<h1 class="font-headline-md text-headline-md text-on-surface">Order Management</h1>
+<div class="flex items-center gap-lg">
+<button class="px-md h-10 rounded-lg border border-outline-variant hover:bg-surface-container-low transition-all font-label-md flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">file_download</span>
+                    Export
+                </button>
+<button class="bg-primary text-on-primary px-lg h-10 rounded-lg hover:brightness-110 transition-all font-label-md shadow-sm">
+                    Create Order
+                </button>
+</div>
+</header>
+<!-- Content Area -->
+<div class="flex-1 overflow-y-auto p-xl custom-scrollbar space-y-lg">
+<!-- Filter and Search Bar -->
+<div class="bg-surface-container-lowest rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-wrap items-center gap-md">
+<div class="flex-1 min-w-[300px] relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg border border-outline-variant/30 bg-surface-container-low focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-body-sm outline-none" placeholder="Search orders, customers, or tracking numbers..." type="text"/>
+</div>
+<div class="flex items-center gap-sm">
+<select class="px-md py-2.5 rounded-lg border border-outline-variant/30 bg-surface-container-low text-body-sm focus:ring-primary/20 focus:border-primary outline-none min-w-[140px]">
+<option>Payment Status</option>
+<option>Paid</option>
+<option>Pending</option>
+<option>Refunded</option>
+</select>
+<select class="px-md py-2.5 rounded-lg border border-outline-variant/30 bg-surface-container-low text-body-sm focus:ring-primary/20 focus:border-primary outline-none min-w-[140px]">
+<option>Fulfillment</option>
+<option>Fulfilled</option>
+<option>Unfulfilled</option>
+<option>Partial</option>
+</select>
+<button class="p-2.5 rounded-lg border border-outline-variant/30 hover:bg-surface-container-low text-on-surface-variant transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">filter_list</span>
+<span class="font-label-md">Advanced</span>
+</button>
+</div>
+</div>
+<!-- Bulk Actions (Conditional) -->
+<div class="hidden animate-in fade-in slide-in-from-top-2 duration-300 bg-primary-fixed rounded-xl p-md flex items-center justify-between border border-primary/20" id="bulk-actions">
+<div class="flex items-center gap-md">
+<span class="font-label-md text-on-primary-fixed-variant" id="selected-count">3 orders selected</span>
+<div class="h-6 w-px bg-on-primary-fixed-variant/20 mx-sm"></div>
+<button class="flex items-center gap-xs text-on-primary-fixed-variant hover:underline font-label-sm">
+<span class="material-symbols-outlined text-[18px]">print</span>
+                        Print Slips
+                    </button>
+<button class="flex items-center gap-xs text-on-primary-fixed-variant hover:underline font-label-sm">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+                        Mark as Fulfilled
+                    </button>
+</div>
+<button class="text-on-primary-fixed-variant" onclick="toggleBulkActions(false)">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Data Table Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="border-b border-outline-variant/20 bg-surface-container-low/50">
+<th class="p-md w-12">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20" onclick="handleSelectAll(this)" type="checkbox"/>
+</th>
+<th class="p-md font-label-sm text-on-secondary-fixed-variant uppercase tracking-wider">Order</th>
+<th class="p-md font-label-sm text-on-secondary-fixed-variant uppercase tracking-wider">Customer</th>
+<th class="p-md font-label-sm text-on-secondary-fixed-variant uppercase tracking-wider">Date</th>
+<th class="p-md font-label-sm text-on-secondary-fixed-variant uppercase tracking-wider">Payment</th>
+<th class="p-md font-label-sm text-on-secondary-fixed-variant uppercase tracking-wider">Fulfillment</th>
+<th class="p-md font-label-sm text-on-secondary-fixed-variant uppercase tracking-wider text-right">Total</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer group" onclick="openDrawer('ORD-8829')">
+<td class="p-md" onclick="event.stopPropagation()">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20" name="order-select" type="checkbox"/>
+</td>
+<td class="p-md font-label-md text-primary hover:underline">#8829</td>
+<td class="p-md">
+<div>
+<p class="font-label-md">Eleanor Pena</p>
+<p class="text-xs text-on-surface-variant">eleanor.p@example.com</p>
+</div>
+</td>
+<td class="p-md">
+<div>
+<p class="text-body-sm">Today, 2:45 PM</p>
+<p class="text-xs text-on-surface-variant">Oct 24, 2024</p>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Paid</span>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Unfulfilled</span>
+</td>
+<td class="p-md font-label-md text-right">$1,240.00</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer group" onclick="openDrawer('ORD-8828')">
+<td class="p-md" onclick="event.stopPropagation()">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20" name="order-select" type="checkbox"/>
+</td>
+<td class="p-md font-label-md text-primary hover:underline">#8828</td>
+<td class="p-md">
+<div>
+<p class="font-label-md">Guy Hawkins</p>
+<p class="text-xs text-on-surface-variant">guy.h@company.com</p>
+</div>
+</td>
+<td class="p-md">
+<div>
+<p class="text-body-sm">Yesterday, 9:12 AM</p>
+<p class="text-xs text-on-surface-variant">Oct 23, 2024</p>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">Paid</span>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Fulfilled</span>
+</td>
+<td class="p-md font-label-md text-right">$450.50</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer group" onclick="openDrawer('ORD-8827')">
+<td class="p-md" onclick="event.stopPropagation()">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20" name="order-select" type="checkbox"/>
+</td>
+<td class="p-md font-label-md text-primary hover:underline">#8827</td>
+<td class="p-md">
+<div>
+<p class="font-label-md">Jane Cooper</p>
+<p class="text-xs text-on-surface-variant">jane_c@lifestyle.net</p>
+</div>
+</td>
+<td class="p-md">
+<div>
+<p class="text-body-sm">2 days ago</p>
+<p class="text-xs text-on-surface-variant">Oct 22, 2024</p>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-surface-container-highest text-on-surface-variant">Pending</span>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">Unfulfilled</span>
+</td>
+<td class="p-md font-label-md text-right">$89.00</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors cursor-pointer group" onclick="openDrawer('ORD-8826')">
+<td class="p-md" onclick="event.stopPropagation()">
+<input class="rounded border-outline-variant text-primary focus:ring-primary/20" name="order-select" type="checkbox"/>
+</td>
+<td class="p-md font-label-md text-primary hover:underline">#8826</td>
+<td class="p-md">
+<div>
+<p class="font-label-md">Jacob Jones</p>
+<p class="text-xs text-on-surface-variant">jacob.j@mail.com</p>
+</div>
+</td>
+<td class="p-md">
+<div>
+<p class="text-body-sm">Oct 21, 2024</p>
+<p class="text-xs text-on-surface-variant">11:30 PM</p>
+</div>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-error-container text-on-error-container">Refunded</span>
+</td>
+<td class="p-md">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-surface-container-highest text-on-surface-variant">Cancelled</span>
+</td>
+<td class="p-md font-label-md text-right">$2,400.00</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-md py-lg border-t border-outline-variant/20 flex items-center justify-between bg-surface-container-low/30">
+<p class="text-body-sm text-on-surface-variant">Showing 1 to 10 of 2,450 orders</p>
+<div class="flex items-center gap-xs">
+<button class="p-2 rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors disabled:opacity-50">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 rounded-lg bg-primary text-on-primary font-label-md">1</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-low transition-colors font-label-md">2</button>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-low transition-colors font-label-md">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded-lg hover:bg-surface-container-low transition-colors font-label-md">245</button>
+<button class="p-2 rounded-lg border border-outline-variant/30 hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Order Detail Drawer (Hidden by default) -->
+<div class="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 hidden transition-opacity duration-300" id="drawer-overlay" onclick="closeDrawer()"></div>
+<aside class="fixed top-0 right-0 h-screen w-full md:w-[480px] bg-surface shadow-2xl z-50 translate-x-full transition-transform duration-300 ease-out flex flex-col" id="order-drawer">
+<!-- Drawer Header -->
+<div class="h-20 flex items-center justify-between px-xl border-b border-outline-variant/30 shrink-0">
+<div>
+<h2 class="font-headline-sm text-headline-sm" id="drawer-title">Order #8829</h2>
+<p class="text-xs text-on-surface-variant">Placed on Oct 24, 2024 at 2:45 PM</p>
+</div>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-colors" onclick="closeDrawer()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Drawer Content -->
+<div class="flex-1 overflow-y-auto custom-scrollbar p-xl space-y-3xl">
+<!-- Quick Actions -->
+<div class="grid grid-cols-2 gap-md">
+<button class="flex flex-col items-center justify-center p-md rounded-xl bg-primary-container text-on-primary-container hover:brightness-105 transition-all gap-xs">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="font-label-sm">Fulfill Items</span>
+</button>
+<button class="flex flex-col items-center justify-center p-md rounded-xl border border-outline-variant/30 hover:bg-surface-container-low transition-all gap-xs">
+<span class="material-symbols-outlined">undo</span>
+<span class="font-label-sm">Issue Refund</span>
+</button>
+</div>
+<!-- Customer Details -->
+<section class="space-y-md">
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider">Customer Information</h3>
+<div class="bg-surface-container-low rounded-xl p-lg space-y-md">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">person</span>
+<div>
+<p class="font-label-md">Eleanor Pena</p>
+<p class="text-body-sm text-on-surface-variant">Customer since 2022</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">mail</span>
+<p class="text-body-sm">eleanor.p@example.com</p>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">location_on</span>
+<p class="text-body-sm">
+                            2972 Westheimer Rd.<br/>
+                            Santa Ana, Illinois 85486<br/>
+                            United States
+                        </p>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">call</span>
+<p class="text-body-sm">(603) 555-0123</p>
+</div>
+</div>
+</section>
+<!-- Line Items -->
+<section class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider">Line Items</h3>
+<span class="text-body-sm text-on-surface-variant">3 items</span>
+</div>
+<div class="space-y-lg">
+<!-- Item 1 -->
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-highest overflow-hidden border border-outline-variant/10 shrink-0">
+<img alt="Product" class="w-full h-full object-cover" data-alt="A premium minimalist white smartwatch with a sleek silver metallic bezel and a smooth white silicone strap. The watch is presented against a clean, soft-lit background that emphasizes its high-end tech aesthetic. The lighting is diffused and modern, creating gentle shadows that give the object depth and a luxurious, enterprise-ready feel." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAd4T4Mos5Qgl0VA6COj2YAdDtngRDo8N7MW2W8-vhmYJQHlzZjjM2Meqos40j1yrH95BzkoaSw-DNIy3UDTtKtH4sJw1FzvcNvRbbU3WfZw723wMaa7dIDjq6mag74WmWhbmdLg8h9xS2I0dS1_JD-o26XYLw1S5xrMDkmGRLNoL12Dv5bOApbW7LIySeYXpDd9wFhzCZpsk4f7at6zf5hI8VZZ1uIF7TSBPSkQqZj_2qcDZdB9uLrHRfTCd75k4g0Ipx5GsME0Sc"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md">Core Precision Watch v2</p>
+<p class="text-xs text-on-surface-variant">SKU: WA-CORE-WH-SM</p>
+<div class="flex justify-between items-end mt-xs">
+<p class="text-body-sm text-on-surface-variant">Qty: 1</p>
+<p class="font-label-md">$899.00</p>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex gap-md">
+<div class="w-16 h-16 rounded-lg bg-surface-container-highest overflow-hidden border border-outline-variant/10 shrink-0">
+<img alt="Product" class="w-full h-full object-cover" data-alt="Sophisticated professional over-ear noise-cancelling headphones in a matte black finish. The design is sleek and ergonomic, featuring high-quality leather ear cushions and a streamlined headband. It is staged in a professional product photography style with controlled studio lighting that highlights the premium texture and build quality, fitting a luxury retail interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGokzTRD-SpidhoKs76FdVofsPxiQput55lW102iCFcHoxNAVLBVIV9OpRvwjQ78srkMWK7T1qVmNaCwxRiiDxJm2yTZcnBWscdpVFOnjJ1Jylisluw3STv8dBKOe1mbOZkyzhzPkoyO3xdgpknjBRb4yk7qOZ021KRtOYvnF58ApXWC_UY2QZoIM0MJcnZBEySmBLfniycXPzHCnIoie84_G7b6WYWN77OUCMOxEqarZGD36WgbSam9AQtj6Sh8IR0hjUt0S-lYQ"/>
+</div>
+<div class="flex-1">
+<p class="font-label-md">Studio Pro Headphones</p>
+<p class="text-xs text-on-surface-variant">SKU: AU-STPRO-BK</p>
+<div class="flex justify-between items-end mt-xs">
+<p class="text-body-sm text-on-surface-variant">Qty: 1</p>
+<p class="font-label-md">$341.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Financial Summary -->
+<div class="pt-lg border-t border-outline-variant/20 space-y-sm">
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface-variant">Subtotal</span>
+<span>$1,240.00</span>
+</div>
+<div class="flex justify-between text-body-sm">
+<span class="text-on-surface-variant">Shipping (Express)</span>
+<span>$0.00</span>
+</div>
+<div class="flex justify-between font-headline-sm text-headline-sm pt-sm">
+<span>Total</span>
+<span class="text-primary">$1,240.00</span>
+</div>
+</div>
+</section>
+<!-- Order Timeline -->
+<section class="space-y-md pb-xl">
+<h3 class="font-label-md text-on-surface-variant uppercase tracking-wider">Order History</h3>
+<div class="relative pl-lg space-y-lg border-l-2 border-outline-variant/20 ml-2">
+<div class="relative">
+<div class="absolute -left-[27px] top-0 w-3 h-3 rounded-full bg-primary border-2 border-surface"></div>
+<p class="font-label-sm">Payment Confirmed</p>
+<p class="text-xs text-on-surface-variant">Today, 2:48 PM • Via Visa Card (....4242)</p>
+</div>
+<div class="relative">
+<div class="absolute -left-[27px] top-0 w-3 h-3 rounded-full bg-primary border-2 border-surface"></div>
+<p class="font-label-sm">Order Placed</p>
+<p class="text-xs text-on-surface-variant">Today, 2:45 PM • Online Store</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Drawer Footer -->
+<div class="p-lg border-t border-outline-variant/30 bg-surface shrink-0">
+<button class="w-full py-md border border-error text-error rounded-xl hover:bg-error-container/20 transition-all font-label-md">
+                Cancel Order
+            </button>
+</div>
+</aside>
+<script>
+        function openDrawer(orderId) {
+            const drawer = document.getElementById('order-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            const title = document.getElementById('drawer-title');
+            
+            title.innerText = `Order ${orderId}`;
+            overlay.classList.remove('hidden');
+            drawer.classList.remove('translate-x-full');
+            
+            // Add animation classes
+            setTimeout(() => {
+                overlay.style.opacity = '1';
+            }, 10);
+        }
+
+        function closeDrawer() {
+            const drawer = document.getElementById('order-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            
+            drawer.classList.add('translate-x-full');
+            overlay.style.opacity = '0';
+            
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 300);
+        }
+
+        function toggleBulkActions(show) {
+            const bulkBar = document.getElementById('bulk-actions');
+            if (show) {
+                bulkBar.classList.remove('hidden');
+            } else {
+                bulkBar.classList.add('hidden');
+                // Uncheck all when closing
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            }
+        }
+
+        function handleSelectAll(source) {
+            const checkboxes = document.getElementsByName('order-select');
+            let count = 0;
+            for(let i=0, n=checkboxes.length; i<n; i++) {
+                checkboxes[i].checked = source.checked;
+                if(source.checked) count++;
+            }
+            
+            const countText = document.getElementById('selected-count');
+            countText.innerText = `${count} orders selected`;
+            toggleBulkActions(source.checked);
+        }
+
+        // Add event listeners to individual checkboxes to toggle bulk bar
+        document.querySelectorAll('input[name="order-select"]').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checkedCount = document.querySelectorAll('input[name="order-select"]:checked').length;
+                const countText = document.getElementById('selected-count');
+                countText.innerText = `${checkedCount} ${checkedCount === 1 ? 'order' : 'orders'} selected`;
+                toggleBulkActions(checkedCount > 0);
+            });
+        });
+    </script>
+</body></html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LuxeRetail Merchant Admin - Create Product</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-primary-container": "#eeefff",
+                        "primary-container": "#2563eb",
+                        "outline": "#737686",
+                        "surface-variant": "#e1e2ed",
+                        "secondary-container": "#dae2fd",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary": "#784b00",
+                        "secondary": "#565e74",
+                        "on-surface": "#191b23",
+                        "on-surface-variant": "#434655",
+                        "surface-dim": "#d9d9e5",
+                        "background": "#faf8ff",
+                        "secondary-fixed": "#dae2fd",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-background": "#191b23",
+                        "tertiary-container": "#996100",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "outline-variant": "#c3c6d7",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "primary": "#004ac6",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-container-high": "#e7e7f3",
+                        "on-primary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "surface-tint": "#0053db",
+                        "on-secondary-container": "#5c647a",
+                        "inverse-surface": "#2e3039",
+                        "surface": "#faf8ff",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e1e2ed",
+                        "on-primary-fixed": "#00174b",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface-container": "#ededf9",
+                        "surface-container-low": "#f3f3fe",
+                        "tertiary-fixed": "#ffddb8",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-bright": "#faf8ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sm": "8px",
+                        "3xl": "64px",
+                        "md": "16px",
+                        "base": "4px",
+                        "lg": "24px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "2xl": "48px",
+                        "xl": "32px",
+                        "container-max": "1280px",
+                        "xs": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "display-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .editor-toolbar button { padding: 4px; border-radius: 4px; transition: background 0.2s; }
+        .editor-toolbar button:hover { background: #e2e8f0; }
+        .glass-nav { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .shadow-soft { shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05); }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Persistent Sidebar (Admin Logic) -->
+<aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-lowest border-r border-outline-variant/30 z-50 hidden md:flex flex-col">
+<div class="p-lg">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">LuxeRetail</h1>
+</div>
+<nav class="flex-1 px-md space-y-base">
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg bg-primary-container text-on-primary-container" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md">Customers</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<a class="flex items-center gap-md p-md rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</nav>
+<div class="p-lg border-t border-outline-variant/30">
+<div class="flex items-center gap-md">
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim flex items-center justify-center font-bold text-on-primary-fixed">JD</div>
+<div>
+<p class="font-label-sm text-label-sm font-bold">John Doe</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-wider">Merchant Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:ml-64 min-h-screen">
+<!-- Header Section -->
+<header class="sticky top-0 z-40 bg-surface/80 glass-nav border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl h-20 flex items-center justify-between">
+<div class="flex items-center gap-lg">
+<button class="flex items-center justify-center w-10 h-10 rounded-full hover:bg-surface-container transition-colors text-on-surface-variant">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<div>
+<div class="flex items-center gap-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Create Product</h2>
+<span class="px-sm py-1 bg-surface-container-high rounded text-[10px] font-bold uppercase tracking-widest text-on-surface-variant border border-outline-variant/50">Draft</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unsaved changes</p>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="px-lg py-md rounded-lg font-label-md text-label-md text-on-surface-variant border border-outline-variant hover:bg-surface-container transition-all">Discard</button>
+<button class="px-lg py-md rounded-lg font-label-md text-label-md bg-primary text-on-primary shadow-sm hover:bg-primary-container transition-all active:scale-95">Save Product</button>
+</div>
+</div>
+</header>
+<!-- Content Grid -->
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl py-xl grid grid-cols-1 lg:grid-cols-12 gap-lg">
+<!-- Left Column: Primary Information -->
+<div class="lg:col-span-8 space-y-lg">
+<!-- General Information -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<h3 class="font-headline-sm text-headline-sm mb-lg">General Information</h3>
+<div class="space-y-lg">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Product Name</label>
+<input class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md text-body-md" oninput="updateSlug(this.value)" placeholder="e.g. Minimalist Leather Tote" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">URL Slug</label>
+<div class="flex items-center bg-surface-container-low rounded-lg border border-outline-variant px-md py-lg">
+<span class="text-on-surface-variant font-body-sm text-body-sm mr-1">luxeretail.com/products/</span>
+<input class="flex-1 bg-transparent border-none p-0 focus:ring-0 font-body-md text-body-md text-primary" id="slug-preview" placeholder="minimalist-leather-tote" type="text"/>
+</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Description</label>
+<div class="rounded-lg border border-outline-variant overflow-hidden">
+<div class="bg-surface-container-low px-md py-sm border-b border-outline-variant flex items-center gap-md editor-toolbar">
+<button class="material-symbols-outlined text-on-surface-variant">format_bold</button>
+<button class="material-symbols-outlined text-on-surface-variant">format_italic</button>
+<button class="material-symbols-outlined text-on-surface-variant">format_list_bulleted</button>
+<button class="material-symbols-outlined text-on-surface-variant">link</button>
+<div class="w-px h-6 bg-outline-variant mx-sm"></div>
+<button class="material-symbols-outlined text-on-surface-variant">image</button>
+</div>
+<textarea class="w-full border-none focus:ring-0 p-lg font-body-md text-body-md" placeholder="Describe your product in detail..." rows="6"></textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- Media Upload -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-sm text-headline-sm">Media</h3>
+<button class="text-primary font-label-sm text-label-sm hover:underline">Add from URL</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="col-span-2 md:col-span-2 aspect-square rounded-xl border-2 border-dashed border-outline-variant flex flex-col items-center justify-center gap-md hover:bg-surface-container-low transition-colors cursor-pointer bg-surface-container-lowest group">
+<span class="material-symbols-outlined text-3xl text-outline group-hover:text-primary transition-colors">add_photo_alternate</span>
+<div class="text-center">
+<p class="font-label-md text-label-md text-on-surface">Click to upload</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">or drag and drop</p>
+</div>
+</div>
+<!-- Placeholder Thumbnails -->
+<div class="relative aspect-square rounded-xl overflow-hidden group">
+<img alt="Thumbnail" class="w-full h-full object-cover" data-alt="A premium close-up of a handcrafted minimalist leather tote bag in a soft cream color. The lighting is diffused and professional, highlighting the fine pebble grain of the leather. The background is a clean, neutral studio setting consistent with a high-end luxury merchant dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYyXJEhbDcO-16NtmDipA8T76Xd1I0bYZscSgP0UvYG87J6tiI2TpQYd8EBlVzjiSHydXwjWs5fw7vmFddiBvTY6pPx-JgDj_uLw2iTOfbgkeBSDLgRYAJJdhDBBQrMOeczPYjaQGKxVHE5-OhAtsO4qxhXABpvkaiVvQctNhpwpikaB_z2awdOGtPK3-wMX7UjHmqkaYyc6Vlx1z6_dkpqyZORLoEXBH0mGzTlyugvPL9-iwhKZ4Fpo8BQzFoy4aF7HzYNjLeWyY"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-md">
+<button class="w-8 h-8 rounded-full bg-white text-on-surface flex items-center justify-center hover:scale-110 transition-transform"><span class="material-symbols-outlined text-sm">delete</span></button>
+<button class="w-8 h-8 rounded-full bg-white text-on-surface flex items-center justify-center hover:scale-110 transition-transform"><span class="material-symbols-outlined text-sm">visibility</span></button>
+</div>
+<div class="absolute top-2 left-2 px-2 py-1 bg-primary text-on-primary text-[10px] font-bold rounded uppercase">Primary</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden group">
+<img alt="Thumbnail" class="w-full h-full object-cover" data-alt="A detailed shot showing the brass hardware and interior stitching of a luxury leather bag. The shot is well-lit with soft shadows, emphasizing the metallic texture of the zipper and the artisan quality of the construction in a professional studio environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-XFI077MSYS4SbEWDGTMIhkhkcDa_iFQRmG_bWcgE8k2y4f1Z8kYKuOt175n0oo_xK_PQLCvYG03MSWfBlqgUlywbahTPAMbZcnOxrkqirujhdHT2kjNBbbmn1VL6FvWc-oWX7lkRxnUMG_Szfau7pevp3d3eRXsuexbnc-zsvPE6QTqGwzUVfwYJy4JIhgf6SL-VKKNAWOrRVTeuNELX7Y_QGxM1qrIryoG_sopXvCAbE_jo0C-zqhCJlBHlmKq1nNjR5G4RnCA"/>
+<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-md">
+<button class="w-8 h-8 rounded-full bg-white text-on-surface flex items-center justify-center hover:scale-110 transition-transform"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing & Inventory -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Pricing Card -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<h3 class="font-headline-sm text-headline-sm mb-lg">Pricing</h3>
+<div class="space-y-md">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Price</label>
+<div class="relative">
+<span class="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full pl-lg pr-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Compare at Price</label>
+<div class="relative">
+<span class="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">$</span>
+<input class="w-full pl-lg pr-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" placeholder="0.00" type="number"/>
+</div>
+<p class="text-[10px] text-on-surface-variant italic">Shows a "Sale" price to customers</p>
+</div>
+</div>
+</section>
+<!-- Inventory Card -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<h3 class="font-headline-sm text-headline-sm mb-lg">Inventory</h3>
+<div class="space-y-md">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">SKU (Stock Keeping Unit)</label>
+<input class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" placeholder="LR-TOT-001" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Quantity Available</label>
+<input class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" placeholder="0" type="number"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Variants Section -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<div class="flex items-center justify-between mb-lg">
+<h3 class="font-headline-sm text-headline-sm">Variants</h3>
+<button class="text-primary font-label-md text-label-md flex items-center gap-base"><span class="material-symbols-outlined text-sm">add</span> Add Variant Option</button>
+</div>
+<div class="space-y-lg">
+<!-- Variant Row -->
+<div class="p-lg bg-surface-container-low rounded-lg border border-outline-variant/40 space-y-md">
+<div class="flex items-center justify-between">
+<h4 class="font-label-md text-label-md">Size</h4>
+<button class="text-error material-symbols-outlined text-sm">delete</button>
+</div>
+<div class="flex flex-wrap gap-sm">
+<span class="flex items-center gap-sm px-md py-1 bg-surface-container-highest rounded-full font-label-sm text-label-sm">Small <button class="material-symbols-outlined text-xs">close</button></span>
+<span class="flex items-center gap-sm px-md py-1 bg-surface-container-highest rounded-full font-label-sm text-label-sm">Medium <button class="material-symbols-outlined text-xs">close</button></span>
+<span class="flex items-center gap-sm px-md py-1 bg-surface-container-highest rounded-full font-label-sm text-label-sm">Large <button class="material-symbols-outlined text-xs">close</button></span>
+<input class="bg-transparent border-none focus:ring-0 p-0 ml-md font-body-sm text-body-sm w-32" placeholder="Add value..." type="text"/>
+</div>
+</div>
+<!-- Variant Row -->
+<div class="p-lg bg-surface-container-low rounded-lg border border-outline-variant/40 space-y-md">
+<div class="flex items-center justify-between">
+<h4 class="font-label-md text-label-md">Color</h4>
+<button class="text-error material-symbols-outlined text-sm">delete</button>
+</div>
+<div class="flex flex-wrap gap-sm">
+<span class="flex items-center gap-sm px-md py-1 bg-surface-container-highest rounded-full font-label-sm text-label-sm">Toscana Tan <button class="material-symbols-outlined text-xs">close</button></span>
+<span class="flex items-center gap-sm px-md py-1 bg-surface-container-highest rounded-full font-label-sm text-label-sm">Midnight Black <button class="material-symbols-outlined text-xs">close</button></span>
+<input class="bg-transparent border-none focus:ring-0 p-0 ml-md font-body-sm text-body-sm w-32" placeholder="Add value..." type="text"/>
+</div>
+</div>
+</div>
+</section>
+<!-- SEO Section -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<h3 class="font-headline-sm text-headline-sm mb-lg">Search Engine Optimization</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+<div class="space-y-lg">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Page Title</label>
+<input class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" placeholder="Product Page Title" type="text"/>
+<p class="text-[10px] text-on-surface-variant">70 characters remaining</p>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Meta Description</label>
+<textarea class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" placeholder="Briefly summarize for search results..." rows="3"></textarea>
+<p class="text-[10px] text-on-surface-variant">160 characters remaining</p>
+</div>
+</div>
+<div class="space-y-md">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Search Engine Preview</label>
+<div class="p-lg rounded-xl bg-surface-container-low border border-outline-variant/30">
+<p class="text-[#1a0dab] font-medium text-lg leading-tight mb-1 hover:underline cursor-pointer">Minimalist Leather Tote | LuxeRetail Official Store</p>
+<p class="text-[#006621] text-sm mb-1 truncate">https://luxeretail.com/products/minimalist-leather-tote</p>
+<p class="text-[#4d5156] text-sm line-clamp-2">Shop our handcrafted minimalist leather tote bag. Premium Italian leather, versatile design for daily essentials. Free shipping on orders over $150.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Sidebar Settings -->
+<div class="lg:col-span-4 space-y-lg">
+<!-- Visibility -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-wider text-on-surface-variant mb-lg">Publishing</h3>
+<div class="space-y-md">
+<label class="flex items-start gap-md cursor-pointer group">
+<input checked="" class="mt-1 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div>
+<p class="font-label-md text-label-md font-medium text-on-surface">Online Store</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Available for public customers</p>
+</div>
+</label>
+<label class="flex items-start gap-md cursor-pointer group">
+<input class="mt-1 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div>
+<p class="font-label-md text-label-md font-medium text-on-surface">Point of Sale</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Available for retail locations</p>
+</div>
+</label>
+</div>
+<div class="mt-xl pt-lg border-t border-outline-variant/30">
+<label class="font-label-sm text-label-sm text-on-surface-variant mb-sm block">Publishing Date</label>
+<button class="w-full flex items-center justify-between px-md py-lg rounded-lg border border-outline-variant font-body-md text-body-md text-on-surface-variant">
+                            Immediately
+                            <span class="material-symbols-outlined">calendar_today</span>
+</button>
+</div>
+</section>
+<!-- Product Organization -->
+<section class="bg-surface-container-lowest rounded-xl p-xl shadow-soft border border-outline-variant/10">
+<h3 class="font-label-md text-label-md font-bold uppercase tracking-wider text-on-surface-variant mb-lg">Organization</h3>
+<div class="space-y-lg">
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Product Category</label>
+<select class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary font-body-md text-body-md">
+<option>Select a category</option>
+<option>Accessories</option>
+<option>Bags &amp; Totes</option>
+<option>Footwear</option>
+<option>Apparel</option>
+</select>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Product Type</label>
+<input class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary font-body-md text-body-md" placeholder="e.g. Tote Bag" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Vendor</label>
+<input class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary font-body-md text-body-md" placeholder="LuxeRetail Internal" type="text"/>
+</div>
+<div class="space-y-base">
+<label class="font-label-sm text-label-sm text-on-surface-variant">Tags</label>
+<input class="w-full px-md py-lg rounded-lg border-outline-variant focus:ring-2 focus:ring-primary font-body-md text-body-md" placeholder="Add tags..." type="text"/>
+<div class="flex flex-wrap gap-xs mt-md">
+<span class="px-sm py-[2px] bg-surface-container-low border border-outline-variant rounded text-[10px] uppercase font-bold text-on-surface-variant">Leather</span>
+<span class="px-sm py-[2px] bg-surface-container-low border border-outline-variant rounded text-[10px] uppercase font-bold text-on-surface-variant">Premium</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Help Card -->
+<section class="bg-primary/5 rounded-xl p-xl border border-primary/10">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+<div>
+<h4 class="font-label-md text-label-md font-bold text-primary mb-1">Conversion Tip</h4>
+<p class="font-body-sm text-body-sm text-primary/80">Adding a "Compare at Price" often increases sales by 15% by showcasing value to customers.</p>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<!-- Success Toast (Hidden by default) -->
+<div class="fixed bottom-lg right-lg bg-inverse-surface text-inverse-on-surface px-xl py-md rounded-lg shadow-xl translate-y-24 transition-transform duration-300 flex items-center gap-md" id="toast">
+<span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+<span class="font-label-md text-label-md">Draft saved successfully</span>
+</div>
+<script>
+        function updateSlug(val) {
+            const slug = val.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+            document.getElementById('slug-preview').value = slug;
+        }
+
+        // Simple Save Interaction
+        document.querySelector('button.bg-primary').addEventListener('click', () => {
+            const toast = document.getElementById('toast');
+            toast.classList.remove('translate-y-24');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24');
+            }, 3000);
+        });
+
+        // Sticky Header Transition
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body></html>

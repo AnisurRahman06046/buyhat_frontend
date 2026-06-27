@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Home Essentials | LuxeRetail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error": "#ba1a1a",
+                    "secondary-container": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "surface-container-high": "#e7e7f3",
+                    "surface-dim": "#d9d9e5",
+                    "surface-bright": "#faf8ff",
+                    "on-primary-fixed": "#00174b",
+                    "surface-tint": "#0053db",
+                    "surface": "#faf8ff",
+                    "on-surface": "#191b23",
+                    "inverse-on-surface": "#f0f0fb",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#ededf9",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e1e2ed",
+                    "surface-container-low": "#f3f3fe",
+                    "secondary-fixed": "#dae2fd",
+                    "outline-variant": "#c3c6d7",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "on-secondary-container": "#5c647a",
+                    "background": "#faf8ff",
+                    "primary-container": "#2563eb",
+                    "error-container": "#ffdad6",
+                    "outline": "#737686",
+                    "on-tertiary-fixed": "#2a1700",
+                    "primary": "#004ac6",
+                    "on-tertiary-container": "#ffeedd",
+                    "on-secondary-fixed-variant": "#3f465c",
+                    "secondary": "#565e74",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-highest": "#e1e2ed",
+                    "on-secondary-fixed": "#131b2e",
+                    "on-background": "#191b23",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "on-error": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "tertiary-container": "#996100",
+                    "on-surface-variant": "#434655",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "tertiary-fixed": "#ffddb8",
+                    "tertiary": "#784b00",
+                    "inverse-surface": "#2e3039",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "16px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "2xl": "48px",
+                    "md": "16px",
+                    "xl": "32px",
+                    "container-max": "1280px",
+                    "xs": "4px",
+                    "3xl": "64px",
+                    "gutter": "24px",
+                    "sm": "8px"
+            },
+            "fontFamily": {
+                    "body-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "display-xl": ["Inter"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        .product-card-shadow { shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05); transition: shadow 0.3s ease; }
+        .product-card-shadow:hover { box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Navigation Bar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<a class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface" href="#">LuxeRetail</a>
+<nav class="hidden md:flex gap-lg">
+<a class="font-body-md text-body-md font-medium text-primary border-b-2 border-primary pb-1" href="#">Shop All</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Best Sellers</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Categories</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Sale</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all scale-95 active:scale-90 duration-200">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all scale-95 active:scale-90 duration-200">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all scale-95 active:scale-90 duration-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-3xl pb-2xl px-margin-mobile md:px-xl max-w-container-max mx-auto mt-20">
+<div class="flex flex-col md:flex-row gap-gutter">
+<!-- Sidebar Filters -->
+<aside class="hidden md:block w-[300px] flex-shrink-0">
+<div class="bg-surface-container-lowest rounded-xl p-lg sticky top-28 shadow-sm border border-outline-variant/10">
+<div class="space-y-xl">
+<!-- Categories -->
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-secondary mb-md">Categories</h3>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-primary font-bold block" href="#">Modern Home Essentials</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors block" href="#">Luxury Bedding</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors block" href="#">Artisanal Decor</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors block" href="#">Kitchenware</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors block" href="#">Lighting Solutions</a></li>
+</ul>
+</div>
+<!-- Brand Checkboxes -->
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-secondary mb-md">Brand</h3>
+<div class="space-y-sm">
+<label class="flex items-center gap-sm cursor-pointer group">
+<input checked="" class="rounded text-primary focus:ring-primary border-outline-variant transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary">Elysian Design</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-outline-variant transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary">Nordic Nest</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-outline-variant transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary">Lumina Glass</span>
+</label>
+<label class="flex items-center gap-sm cursor-pointer group">
+<input class="rounded text-primary focus:ring-primary border-outline-variant transition-all" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary">Terra Craft</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-secondary mb-md">Price Range</h3>
+<div class="px-2 pt-2">
+<div class="relative h-1 bg-surface-variant rounded-full">
+<div class="absolute h-full bg-primary rounded-full" style="left: 20%; right: 40%;"></div>
+<div class="absolute w-4 h-4 bg-primary border-2 border-white rounded-full shadow -top-1.5 -left-1 cursor-pointer" style="left: 20%;"></div>
+<div class="absolute w-4 h-4 bg-primary border-2 border-white rounded-full shadow -top-1.5 -left-1 cursor-pointer" style="left: 60%;"></div>
+</div>
+<div class="flex justify-between mt-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">$50</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">$500+</span>
+</div>
+</div>
+</div>
+<!-- Ratings -->
+<div>
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-secondary mb-md">Ratings</h3>
+<div class="space-y-sm">
+<label class="flex items-center gap-sm cursor-pointer">
+<input class="text-primary focus:ring-primary border-outline-variant" name="rating" type="radio"/>
+<div class="flex text-[#F59E0B]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="ml-sm font-body-sm text-body-sm text-on-surface-variant">&amp; Up</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Availability -->
+<div>
+<div class="flex items-center justify-between">
+<h3 class="font-label-md text-label-md uppercase tracking-wider text-secondary">Availability</h3>
+<button aria-checked="true" class="relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none bg-primary" role="switch" type="button">
+<span class="translate-x-5 pointer-events-none inline-block h-5 w-5 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">Show in-stock only</p>
+</div>
+<button class="w-full py-md px-lg bg-surface-variant text-on-surface-variant font-label-md text-label-md rounded-lg hover:bg-outline-variant transition-colors">Clear All Filters</button>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<div class="flex-1">
+<!-- Breadcrumbs -->
+<nav class="mb-md flex items-center gap-xs font-body-sm text-body-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Shop</a>
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+<span class="text-on-surface font-medium">Categories</span>
+</nav>
+<!-- Category Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md mb-xl">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Modern Home Essentials</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Curated contemporary designs for the sophisticated dwelling. (42 items)</p>
+</div>
+<div class="flex items-center gap-md">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sort by:</span>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant/30 rounded-lg py-sm pl-md pr-xl font-label-md text-label-md text-on-surface focus:ring-2 focus:ring-primary focus:border-primary cursor-pointer">
+<option>Featured</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Newest Arrivals</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Product Card 1 -->
+<div class="group bg-white rounded-xl overflow-hidden product-card-shadow border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A premium minimalist oak wood chair with soft grey upholstery placed in a brightly lit, high-end showroom. The lighting is diffused and professional, casting soft shadows on the polished floor. The aesthetic is modern and clean, utilizing a palette of natural wood tones and muted greys to create a sophisticated, editorial atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8zJi0u1-q2G0ePuLGHssSdGIiXb_1_ytuyEJgMjoIU_1L_AZcqocVPdApybvmUKnxswNbpxOsBQLh7fx_w0SWC8JLa7Orip1Fc5wqB5BBxbQ2gKO9O8wgoZ1J5iI4salGFSkUj8GNOGpXFnkNONUMVLiibrzvjvnNcNIU8543eU483dQgxVY-TR0CogpQjaDbHo1Hfzljka4I-s6EPCv2nHrjjBuhzgMQ-sKXc-950JdErmowiS9FEcWqmni6PQpjxLVlOL2UjkM"/>
+<div class="absolute top-md right-md bg-[#F59E0B] text-white px-sm py-1 rounded font-label-sm text-label-sm font-bold shadow-lg">20% OFF</div>
+<button class="absolute bottom-md right-md bg-white/90 backdrop-blur p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-all translate-y-4 group-hover:translate-y-0">
+<span class="material-symbols-outlined text-primary">favorite</span>
+</button>
+</div>
+<div class="p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Nordic Nest</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm group-hover:text-primary transition-colors">Sculpted Oak Side Chair</h3>
+<div class="flex items-center gap-xs mb-md">
+<div class="flex text-[#F59E0B]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(124)</span>
+</div>
+<div class="flex items-center justify-between gap-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$150.00</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$120.00</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md font-bold transition-all hover:shadow-lg active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-white rounded-xl overflow-hidden product-card-shadow border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A designer ceramic table lamp with a pleated fabric shade on a minimalist marble console table. The background is a soft-focus interior with neutral walls and a hint of green foliage. The scene is illuminated with warm, ambient evening light, emphasizing the refined textures and premium craftsmanship of the luxury home decor item." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABWv8ZXmpGkTZKTr98d3K43yJJbMk9qyXGXuacHGXPwZZPddhL8wJhzZpVbWaht7DKMfmb7KT2DChiizKRqpPAQecYwRsospxbZsrWuG2wzWevJFWy30IqkmbwNT-KGq_JWamv7xaNNA2BXHf9__C_6IilZEiUrJpeS6wQtQy7vvvyeKLvY8MRLXsfBCfxGEZYbWoBOu3NxT6nmup8ZJ4gKop7QOHTN2rgLXYNsL26-40lUWJtQQubKE0G-KrHDfdPhQeyEIVH49o"/>
+<div class="absolute top-md right-md bg-[#F59E0B] text-white px-sm py-1 rounded font-label-sm text-label-sm font-bold shadow-lg">20% OFF</div>
+</div>
+<div class="p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Lumina Glass</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm group-hover:text-primary transition-colors">Minimalist Ceramic Lamp</h3>
+<div class="flex items-center gap-xs mb-md">
+<div class="flex text-[#F59E0B]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(86)</span>
+</div>
+<div class="flex items-center justify-between gap-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$150.00</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$120.00</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md font-bold transition-all hover:shadow-lg active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-white rounded-xl overflow-hidden product-card-shadow border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A set of handcrafted porcelain vases with organic, asymmetric shapes displayed on a sleek floating shelf. The vases feature subtle matte finishes in shades of cream and soft charcoal. The background is a clean white wall with sharp geometric shadows, creating a high-fashion architectural vibe that speaks to minimalist luxury and artisanal quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOla_Mcia8lzolFrHNpA3KOt7f_xJkNJRy0cyjuYJXG1NQjknM3JvwvUTlFcyg8s_8mp3nWuZ2ktz2Q5BhW9GljofivepoSamj5X1_RVBJOgD3vEdVjOWYuOcS7VrvFjLKEFATTToyAP7P0eEC5QRY98UViuWdCB7jfzWXtDy7VhMRPCInGXNP4yJa3NjnoWMHOL1uwjt0U7ynsloZLw-7GQ9pHPT-dlg6YGNpoCv7_z5n14ZkiMd6og1tjEK8N50PNVnoA2hYdGc"/>
+<div class="absolute top-md right-md bg-[#F59E0B] text-white px-sm py-1 rounded font-label-sm text-label-sm font-bold shadow-lg">20% OFF</div>
+</div>
+<div class="p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Terra Craft</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm group-hover:text-primary transition-colors">Artisanal Vessel Set</h3>
+<div class="flex items-center gap-xs mb-md">
+<div class="flex text-[#F59E0B]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(42)</span>
+</div>
+<div class="flex items-center justify-between gap-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$150.00</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$120.00</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md font-bold transition-all hover:shadow-lg active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-white rounded-xl overflow-hidden product-card-shadow border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A modern geometric wool rug featuring a sophisticated pattern of intersecting lines in navy blue and cream. The rug is positioned in a sun-drenched living area with floor-to-ceiling windows. The lighting is natural and bright, highlighting the premium weave and rich texture of the material, consistent with a high-end luxury retail experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvlo2pCQHnPQtBjQj5gmRys1bilYWPJefEMrMjcgMuJGRr1YMfm8f_eLhBlZc3c8Rj6UbyVHiIrGvmd5eHJvw8TemNMcFPD9qYYpnhomzLaSKBLIlOSue5zXzjmE2PSLAKjEjLdNu3UgGIKxeO-5ELdzWDxTcwmwKj1cP57zNgYd67GPYRNtJ191p0oa6wAwrmxzkHJTANvrvw5cry6QCWvGS3Qx9hSSJ0z8GXwmGE948GLKONRgJC5TtGABdkqD3tgvi3GZ72BQQ"/>
+<div class="absolute top-md right-md bg-[#F59E0B] text-white px-sm py-1 rounded font-label-sm text-label-sm font-bold shadow-lg">20% OFF</div>
+</div>
+<div class="p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Elysian Design</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm group-hover:text-primary transition-colors">Geometric Wool Rug</h3>
+<div class="flex items-center gap-xs mb-md">
+<div class="flex text-[#F59E0B]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(215)</span>
+</div>
+<div class="flex items-center justify-between gap-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$150.00</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$120.00</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md font-bold transition-all hover:shadow-lg active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group bg-white rounded-xl overflow-hidden product-card-shadow border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A set of brushed gold and black matte candle holders of varying heights arranged on a dark wood table. The candlelight creates a warm, flickering glow that reflects off the metallic surfaces. The mood is intimate and luxurious, set against a dark, textured background that emphasizes the high-end retail styling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdWn0NixlPZngRoSIzkX3jMcl3OHuq2tPfmp0bZ0QDJZMQRqG7X9Bni-8CzCbz0Cnjvrkuc47M1oFesrVdiG9tS8LvfEhw4YeYx2e7jQnBy5d_u-0CTu6fXJjkCTUvc1M7jz6hD_qgMQKqJz5kqUkTd-eDmS3e8OiKNgaoaOjP6sBMfv8Fd0oI9Gh7aZ5ltO99icKDYZWD2EpINLi2UlXW0Vg11RAUVMSnGJP7ZS3ECLsPUbJCtZgM_UDFulXFrZidR38jxQPvmew"/>
+<div class="absolute top-md right-md bg-[#F59E0B] text-white px-sm py-1 rounded font-label-sm text-label-sm font-bold shadow-lg">20% OFF</div>
+</div>
+<div class="p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Lumina Glass</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm group-hover:text-primary transition-colors">Tapered Metallic Holders</h3>
+<div class="flex items-center gap-xs mb-md">
+<div class="flex text-[#F59E0B]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(67)</span>
+</div>
+<div class="flex items-center justify-between gap-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$150.00</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$120.00</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md font-bold transition-all hover:shadow-lg active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-white rounded-xl overflow-hidden product-card-shadow border border-outline-variant/10">
+<div class="relative aspect-square overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A minimalist linen throw pillow in a soft sage green color resting on a white bouclé fabric sofa. The texture of the linen is crisp and visible. The setting is a bright, airy living room with soft morning light streaming through sheer curtains, creating a tranquil and high-end lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjjtE8mmqANAg1nFbeFeUAUdU_tlO-kMfz_Dckmm4tkLPf8RMMhOXQyluuRnf4NEQJuy3QPh6nRF4TigYOXLeWHzuYqTjYUIEJ9FhkiMF3xxpYHHHpfWvSBk-5iIyavfKSv010XD7lw_6LI2BusKx-_-Jlw2XrCTweBsgNE9NbZMbdeX4AEtvhQKz3eRyWxpe6XWpxxr8pgO1G_K7Ctk6HCNvBk50makwXrsyBYmKhopI-Q7YNcU4M4pKfb_eoSXUlxFKSuvIMEK4"/>
+<div class="absolute top-md right-md bg-[#F59E0B] text-white px-sm py-1 rounded font-label-sm text-label-sm font-bold shadow-lg">20% OFF</div>
+</div>
+<div class="p-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-xs">Elysian Design</p>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-sm group-hover:text-primary transition-colors">Pure Linen Throw Pillow</h3>
+<div class="flex items-center gap-xs mb-md">
+<div class="flex text-[#F59E0B]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">(153)</span>
+</div>
+<div class="flex items-center justify-between gap-md">
+<div class="flex flex-col">
+<span class="font-body-sm text-body-sm text-on-surface-variant line-through">$150.00</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">$120.00</span>
+</div>
+<button class="bg-primary-container text-on-primary-container px-lg py-sm rounded-lg font-label-md text-label-md font-bold transition-all hover:shadow-lg active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[20px]">shopping_bag</span>
+                                    Add to Cart
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-3xl flex justify-center items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-label-md text-label-md shadow-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface hover:bg-surface-container transition-colors font-label-md text-label-md">12</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/30 text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant/20 w-full pt-3xl pb-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="space-y-md">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">LuxeRetail</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-[240px]">Exceptional quality curated for modern living. Elevate your everyday with our premium collections.</p>
+<div class="flex gap-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-md">Company</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Sustainability</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-md">Support</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Contact Support</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">FAQs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-md">Newsletter</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Join for exclusive updates and early access.</p>
+<form class="flex gap-2">
+<input class="flex-1 bg-surface border border-outline-variant/30 rounded-lg px-md py-sm focus:ring-2 focus:ring-primary focus:border-primary outline-none font-body-sm text-body-sm" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white px-lg py-sm rounded-lg font-label-md text-label-md hover:shadow-lg transition-all active:scale-95">Join</button>
+</form>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl mt-2xl pt-lg border-t border-outline-variant/10 flex flex-col md:flex-row justify-between gap-md items-center">
+<span class="font-body-sm text-body-sm text-on-surface-variant">© 2024 LuxeRetail. All rights reserved.</span>
+<div class="flex gap-xl">
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Micro-interaction for Add to Cart buttons
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Add to Cart')) {
+                btn.addEventListener('click', function() {
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<span class="material-symbols-outlined text-[20px]">check</span> Added';
+                    this.classList.remove('bg-primary-container', 'text-on-primary-container');
+                    this.classList.add('bg-green-600', 'text-white');
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.add('bg-primary-container', 'text-on-primary-container');
+                        this.classList.remove('bg-green-600', 'text-white');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body></html>

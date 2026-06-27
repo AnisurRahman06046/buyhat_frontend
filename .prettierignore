@@ -1,0 +1,15 @@
+# Build output
+.next/
+out/
+build/
+coverage/
+node_modules/
+
+# Lockfiles & generated
+package-lock.json
+next-env.d.ts
+
+# Read-only design-reference assets (not part of the app)
+buyhat_e_commerce_design_system/
+stitch_premium_retail_storefront/
+*.docx

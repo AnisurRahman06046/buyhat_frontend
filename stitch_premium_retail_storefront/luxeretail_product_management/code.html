@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Products | LuxeRetail Admin Suite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#dae2fd",
+                        "secondary-fixed": "#dae2fd",
+                        "primary-fixed": "#dbe1ff",
+                        "surface-dim": "#d9d9e5",
+                        "primary": "#004ac6",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "on-surface": "#191b23",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#e7e7f3",
+                        "surface-container": "#ededf9",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface-container-highest": "#e1e2ed",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "on-background": "#191b23",
+                        "surface": "#faf8ff",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-bright": "#faf8ff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#eeefff",
+                        "on-surface-variant": "#434655",
+                        "secondary": "#565e74",
+                        "on-secondary-fixed": "#131b2e",
+                        "tertiary": "#784b00",
+                        "on-secondary-container": "#5c647a",
+                        "inverse-primary": "#b4c5ff",
+                        "inverse-surface": "#2e3039",
+                        "on-primary-fixed": "#00174b",
+                        "background": "#faf8ff",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "outline": "#737686",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f3f3fe",
+                        "tertiary-fixed": "#ffddb8",
+                        "tertiary-container": "#996100",
+                        "outline-variant": "#c3c6d7",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#2563eb",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "surface-variant": "#e1e2ed",
+                        "surface-tint": "#0053db"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "4px",
+                        "margin-mobile": "16px",
+                        "lg": "24px",
+                        "sm": "8px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "base": "4px",
+                        "3xl": "64px",
+                        "2xl": "48px",
+                        "gutter": "24px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body class="text-on-background">
+<div class="flex h-screen overflow-hidden">
+<!-- Persistent Admin Sidebar -->
+<aside class="w-64 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col z-40">
+<div class="h-20 flex items-center px-lg">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">LuxeRetail</span>
+</div>
+<nav class="flex-1 px-md py-sm overflow-y-auto custom-scrollbar">
+<div class="space-y-1">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                        Dashboard
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">inventory_2</span>
+                        Products
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">category</span>
+                        Categories
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">warehouse</span>
+                        Inventory
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+                        Orders
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">group</span>
+                        Customers
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+                        Coupons
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">article</span>
+                        CMS
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">star</span>
+                        Reviews
+                    </a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                        Analytics
+                    </a>
+</div>
+<div class="mt-xl pt-lg border-t border-outline-variant/20">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined">settings</span>
+                        Settings
+                    </a>
+</div>
+</nav>
+<div class="p-lg border-t border-outline-variant/20 flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden">
+<img alt="Admin User" class="w-full h-full object-cover" data-alt="A professional headshot of a senior retail executive in a modern workspace environment. The man is wearing a tailored grey suit with a clean, confident expression. Soft, natural light falls from a large window in a high-end office background, maintaining a premium and professional corporate atmosphere consistent with the LuxeRetail brand's high-standard aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqyKTsCnHKzyxsrxsZiLTRPxskBzpLlClxi7O2JzucNJnx2_4eRyfb6NSDVlaEe11GGnKQCSyfnNxBDZJi9hW5UZ1mQv7uOp0PM2cXaif18OSR7Y6ectmAdhpl37ytj7JHJ0CkVRZdICZEjM5RcAwkt_YHParx329T7RZMOmNga6CegCeDnFspzeTktGWIYfVHDaxy4ahpohtTHYQ1PLxn_KKh5_yeIJ11MkcvgTB7Cfjz8DqCzzB_zzrJr_tqa3n_kb6vGXCavgg"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Julian Vane</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Admin Suite</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-hidden bg-slate-50">
+<!-- Header -->
+<header class="h-20 glass-header border-b border-outline-variant/30 flex items-center justify-between px-xl shrink-0">
+<div class="flex items-baseline gap-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Products</h1>
+<span class="font-body-sm text-body-sm text-on-surface-variant px-sm py-xs bg-surface-container-high rounded-full">1,240 Total</span>
+</div>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-sm px-md py-sm rounded-lg border border-outline-variant hover:bg-white transition-all font-label-md text-label-md text-on-surface shadow-sm">
+<span class="material-symbols-outlined">file_download</span>
+                        Export
+                    </button>
+<button class="flex items-center gap-sm px-lg py-sm rounded-lg bg-primary text-on-primary hover:bg-primary/90 active:scale-95 transition-all font-label-md text-label-md shadow-md">
+<span class="material-symbols-outlined">add</span>
+                        + Add Product
+                    </button>
+</div>
+</header>
+<!-- Content Workspace -->
+<div class="flex-1 overflow-y-auto p-xl custom-scrollbar space-y-lg">
+<!-- Search & Filters -->
+<div class="bg-white rounded-xl p-md border border-outline-variant/20 shadow-sm flex flex-wrap gap-md items-center">
+<div class="relative flex-1 min-w-[300px]">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-md py-sm bg-slate-50 border border-outline-variant/40 rounded-lg focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all font-body-md text-body-md" placeholder="Search products..." type="text"/>
+</div>
+<div class="flex gap-sm items-center">
+<select class="bg-slate-50 border border-outline-variant/40 rounded-lg px-md py-sm font-label-md text-label-md text-on-surface outline-none focus:border-primary cursor-pointer">
+<option>Category</option>
+<option>Electronics</option>
+<option>Apparel</option>
+<option>Home &amp; Living</option>
+</select>
+<select class="bg-slate-50 border border-outline-variant/40 rounded-lg px-md py-sm font-label-md text-label-md text-on-surface outline-none focus:border-primary cursor-pointer">
+<option>Status</option>
+<option>Active</option>
+<option>Draft</option>
+<option>Archived</option>
+</select>
+<select class="bg-slate-50 border border-outline-variant/40 rounded-lg px-md py-sm font-label-md text-label-md text-on-surface outline-none focus:border-primary cursor-pointer">
+<option>Stock</option>
+<option>In Stock</option>
+<option>Low Stock</option>
+<option>Out of Stock</option>
+</select>
+<button class="p-sm rounded-lg hover:bg-slate-100 text-on-surface-variant transition-colors" title="Clear Filters">
+<span class="material-symbols-outlined">filter_alt_off</span>
+</button>
+</div>
+</div>
+<!-- Product Table -->
+<div class="bg-white rounded-xl border border-outline-variant/20 shadow-sm overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 border-b border-outline-variant/30">
+<th class="py-md px-lg w-12">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</th>
+<th class="py-md px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Product</th>
+<th class="py-md px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Category</th>
+<th class="py-md px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Price</th>
+<th class="py-md px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Inventory</th>
+<th class="py-md px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="py-md px-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="py-md px-lg">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-slate-100 flex-shrink-0 overflow-hidden border border-outline-variant/10">
+<img alt="Minimal Watch" class="w-full h-full object-cover" data-alt="A macro studio photograph of a premium minimalist wristwatch with a brushed silver case and a genuine black leather strap. The watch is positioned against a clean, architectural concrete background with soft, diffused top-down lighting. The overall aesthetic is professional, sharp, and high-end, reflecting a premium retail catalog style with neutral tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnCV40yF1Gdw8P2ouuQZVs42KkUR3wYiMChjt3MjyYF-3vfcYpyqCkQ77VsGn8VHX9zRoZ92t1kt4j3eeqqWLVrC4ldbym0E0lggfrpD4vgl6pbpd0l5JZ--jFP0jLXa-1bWJXdUNk6xHUKg-vt0aRrLzB2ES6KmzHwA4Grs_oyHfaZ-2kjoNTN8Qz2qTMqkmULK8J8ZFQQ7wSMLPR4khD8Lc9IOHs7v9onGWSo_qmYvX0GOCvOOOebqk6zlIChUzLqsqgdFWmzHY"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Minimalist Series 4 Watch</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SKU: WCH-MS4-BLK</span>
+</div>
+</div>
+</td>
+<td class="py-md px-md font-body-md text-body-md text-on-surface-variant">Accessories</td>
+<td class="py-md px-md font-label-md text-label-md text-on-surface font-medium">$249.00</td>
+<td class="py-md px-md">
+<div class="flex flex-col gap-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">142 units</span>
+<span class="text-on-surface-variant">80%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 80%"></div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="px-sm py-xs bg-green-100 text-green-700 rounded-full font-label-sm text-label-sm font-bold">Active</span>
+</td>
+<td class="py-md px-md text-right">
+<div class="flex items-center justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">content_copy</span></button>
+<button class="p-sm rounded-lg hover:bg-error/10 text-error"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="py-md px-lg">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-slate-100 flex-shrink-0 overflow-hidden border border-outline-variant/10">
+<img alt="Headphones" class="w-full h-full object-cover" data-alt="Close-up of premium wireless noise-canceling headphones in a sleek matte navy finish. The headphones are resting on a white marble surface, captured with soft-box lighting that highlights the metallic accents and leather ear cups. The scene is bright and airy, communicating high-fidelity sound and luxury build quality in a clean minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs4syVsb-mdzF-Tq8eyzlskO5tVKrvmL5gHXTLXKxKCPcd6o0nPh-7KkqY5VTuJZ5OJcRFHmEANj_M3Ko94xtT5AkhUcIdkfxij_-QxLlhJBZQ908lTMlQVuJajRhD5LEy0NaBHUPZe0aIV95iYvQbXCbbFN0CHZya3q8zsnBDk4nEhBQRxHyZBpOROURJ1wzGjZiV7FVl39dgD69r7YrZnUpQRKzzJ1wswQ-_JZ2KJYVlABWV0jSHTYuJBpscsVzUP9RvmywP89g"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Sonic Studio Pro</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SKU: AUD-SSP-NVY</span>
+</div>
+</div>
+</td>
+<td class="py-md px-md font-body-md text-body-md text-on-surface-variant">Electronics</td>
+<td class="py-md px-md font-label-md text-label-md text-on-surface font-medium">$399.00</td>
+<td class="py-md px-md">
+<div class="flex flex-col gap-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-error font-semibold">12 units</span>
+<span class="text-on-surface-variant">5%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-error" style="width: 5%"></div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="px-sm py-xs bg-yellow-100 text-yellow-700 rounded-full font-label-sm text-label-sm font-bold">Draft</span>
+</td>
+<td class="py-md px-md text-right">
+<div class="flex items-center justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">content_copy</span></button>
+<button class="p-sm rounded-lg hover:bg-error/10 text-error"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="py-md px-lg">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-slate-100 flex-shrink-0 overflow-hidden border border-outline-variant/10">
+<img alt="Shoes" class="w-full h-full object-cover" data-alt="A professional product shot of vibrant red performance running shoes. The sneakers are angled dynamically in front of a neutral grey backdrop, lit with high-key lighting to emphasize the texture of the breathable mesh and the cushioned white sole. The image exudes energy and professional sports apparel standards, maintaining a clean, commercial look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjW4dM7YgnhDeiUA9ee7hSS4ybW3Qiy0FmMgWRFmXgRIorWDXxnsVllcvj9DlaEUOvt_God3ya9cEJyblR0W_IKXGg9jPVbHoH58AkJBDMuSMveQPLQRMhW5JkUwht7KYx2f5Id5PpvZuWhmqYtQ35dSlXvx3bPYDf-Kl-Iux3P8GkevF_CtW2kyQAjU31u94uPRu5C6Rs7vbcNZHNHoCP10j4SwiRg7YBwVJkDZ2WR1Jm9IfCpeQHVXifxJj-PYDnyIZJprPFC0k"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Vanguard Sprint Runner</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SKU: FTW-VSR-RED</span>
+</div>
+</div>
+</td>
+<td class="py-md px-md font-body-md text-body-md text-on-surface-variant">Apparel</td>
+<td class="py-md px-md font-label-md text-label-md text-on-surface font-medium">$120.00</td>
+<td class="py-md px-md">
+<div class="flex flex-col gap-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">0 units</span>
+<span class="text-on-surface-variant">0%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-slate-300" style="width: 0%"></div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="px-sm py-xs bg-slate-100 text-slate-500 rounded-full font-label-sm text-label-sm font-bold">Archived</span>
+</td>
+<td class="py-md px-md text-right">
+<div class="flex items-center justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">content_copy</span></button>
+<button class="p-sm rounded-lg hover:bg-error/10 text-error"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 transition-colors group">
+<td class="py-md px-lg">
+<input class="rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+</td>
+<td class="py-md px-md">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-slate-100 flex-shrink-0 overflow-hidden border border-outline-variant/10">
+<img alt="Lamp" class="w-full h-full object-cover" data-alt="A chic mid-century modern desk lamp with a brass finish and a soft white opal glass globe. The lamp is placed on a dark wooden desk in a warm, cozy home office setting. The lighting is low-key and ambient, highlighting the elegant curves of the brass and the soft glow from the globe. The shot is composed with a shallow depth of field for a premium interior design look." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGeA5SbqJpJvhvZUS80Hpt5_ja1SBboRq6Qmhss-Jk3BoEKooiRZdOOmSmU6XeqCuafm7JMn1cnrWuIaQAoip-vmTo5YwIHIXf7F1ByrdMDuGn8wwsHzJKWFn7OeyNhZ3aNhixy8tZK_UanmiesN1Kn_KYG4Q_v3Srja5vUF7ysk3XaI8p-wp0n_A2eMTnjxXSn_O4thjHSHXpZedAzLuWQnz8B_8USUrUToNSUiyJCBuYmejM3dfMSnWDV3d5edTrRIv-Ony2acw"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Lunar Table Lamp</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">SKU: HME-LTL-BRS</span>
+</div>
+</div>
+</td>
+<td class="py-md px-md font-body-md text-body-md text-on-surface-variant">Home &amp; Living</td>
+<td class="py-md px-md font-label-md text-label-md text-on-surface font-medium">$85.00</td>
+<td class="py-md px-md">
+<div class="flex flex-col gap-xs w-32">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface">54 units</span>
+<span class="text-on-surface-variant">45%</span>
+</div>
+<div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+<div class="h-full bg-primary" style="width: 45%"></div>
+</div>
+</div>
+</td>
+<td class="py-md px-md">
+<span class="px-sm py-xs bg-green-100 text-green-700 rounded-full font-label-sm text-label-sm font-bold">Active</span>
+</td>
+<td class="py-md px-md text-right">
+<div class="flex items-center justify-end gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">edit</span></button>
+<button class="p-sm rounded-lg hover:bg-surface-container-low text-on-surface-variant"><span class="material-symbols-outlined">content_copy</span></button>
+<button class="p-sm rounded-lg hover:bg-error/10 text-error"><span class="material-symbols-outlined">delete</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="p-lg bg-slate-50 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Showing 1 to 10 of 1,240 results</span>
+<div class="flex gap-xs">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/40 hover:bg-white text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-on-primary font-label-md text-label-md">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant font-label-md text-label-md transition-colors">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant font-label-md text-label-md transition-colors">3</button>
+<span class="w-10 h-10 flex items-center justify-center text-on-surface-variant">...</span>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-white text-on-surface-variant font-label-md text-label-md transition-colors">124</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant/40 hover:bg-white text-on-surface-variant transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bulk Actions Floating Bar (Hidden by default, triggered by JS) -->
+<div class="fixed bottom-lg left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface px-xl py-md rounded-full shadow-2xl flex items-center gap-xl transition-all translate-y-24 opacity-0" id="bulkActions">
+<div class="flex items-center gap-md">
+<span class="font-label-md text-label-md font-semibold"><span id="selectedCount">0</span> selected</span>
+</div>
+<div class="h-6 w-px bg-outline/30"></div>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-sm px-md py-sm rounded-lg hover:bg-white/10 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined">publish</span> Publish
+                        </button>
+<button class="flex items-center gap-sm px-md py-sm rounded-lg hover:bg-white/10 transition-colors font-label-md text-label-md">
+<span class="material-symbols-outlined">archive</span> Archive
+                        </button>
+<button class="flex items-center gap-sm px-md py-sm rounded-lg hover:bg-error/20 text-error-container font-label-md text-label-md">
+<span class="material-symbols-outlined">delete</span> Delete
+                        </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+        // Simple Micro-interaction: Table Row Selection
+        const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+        const bulkBar = document.getElementById('bulkActions');
+        const countSpan = document.getElementById('selectedCount');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checked = Array.from(checkboxes).filter(c => c.checked).length;
+                if (checked > 0) {
+                    countSpan.textContent = checked;
+                    bulkBar.classList.remove('translate-y-24', 'opacity-0');
+                } else {
+                    bulkBar.classList.add('translate-y-24', 'opacity-0');
+                }
+            });
+        });
+
+        // Global Select All
+        const selectAll = document.querySelector('thead input[type="checkbox"]');
+        selectAll.addEventListener('change', () => {
+            checkboxes.forEach(c => c.checked = selectAll.checked);
+            const checked = Array.from(checkboxes).filter(c => c.checked).length;
+            if (checked > 0) {
+                countSpan.textContent = checked;
+                bulkBar.classList.remove('translate-y-24', 'opacity-0');
+            } else {
+                bulkBar.classList.add('translate-y-24', 'opacity-0');
+            }
+        });
+    </script>
+</body></html>

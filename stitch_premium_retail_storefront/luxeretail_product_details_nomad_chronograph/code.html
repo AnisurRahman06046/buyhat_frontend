@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nomad Chronograph | LuxeRetail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "background": "#faf8ff",
+                    "on-tertiary-fixed": "#2a1700",
+                    "on-secondary-container": "#5c647a",
+                    "on-secondary": "#ffffff",
+                    "on-background": "#191b23",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#b4c5ff",
+                    "on-error-container": "#93000a",
+                    "secondary-container": "#dae2fd",
+                    "surface-container": "#ededf9",
+                    "primary-container": "#2563eb",
+                    "surface": "#faf8ff",
+                    "outline-variant": "#c3c6d7",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "secondary": "#565e74",
+                    "on-tertiary-container": "#ffeedd",
+                    "on-surface-variant": "#434655",
+                    "surface-variant": "#e1e2ed",
+                    "surface-container-high": "#e7e7f3",
+                    "inverse-on-surface": "#f0f0fb",
+                    "inverse-surface": "#2e3039",
+                    "surface-dim": "#d9d9e5",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed": "#dae2fd",
+                    "on-primary-container": "#eeefff",
+                    "error-container": "#ffdad6",
+                    "on-error": "#ffffff",
+                    "outline": "#737686",
+                    "tertiary": "#784b00",
+                    "on-secondary-fixed": "#131b2e",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-container-highest": "#e1e2ed",
+                    "on-secondary-fixed-variant": "#3f465c",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "primary-fixed": "#dbe1ff",
+                    "on-primary-fixed": "#00174b",
+                    "surface-tint": "#0053db",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "tertiary-container": "#996100",
+                    "on-surface": "#191b23",
+                    "surface-container-low": "#f3f3fe",
+                    "surface-bright": "#faf8ff",
+                    "primary": "#004ac6",
+                    "tertiary-fixed": "#ffddb8",
+                    "on-primary-fixed-variant": "#003ea8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "sm": "8px",
+                    "3xl": "64px",
+                    "xl": "32px",
+                    "md": "16px",
+                    "2xl": "48px",
+                    "margin-mobile": "16px",
+                    "container-max": "1280px",
+                    "base": "4px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "xs": "4px"
+            },
+            "fontFamily": {
+                    "label-md": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "display-xl": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "body-sm": ["Inter"]
+            },
+            "fontSize": {
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-effect { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .product-thumb:hover { border-color: #0053db; }
+        .active-thumb { border-color: #0053db; border-width: 2px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<nav class="flex justify-between items-center h-20 px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<a class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface" href="#">LuxeRetail</a>
+<div class="hidden md:flex items-center gap-lg font-body-md text-body-md font-medium">
+<a class="text-primary border-b-2 border-primary pb-1" href="#">Shop All</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Best Sellers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Sale</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="hidden md:flex items-center bg-surface-container rounded-full px-md py-xs border border-outline-variant/20 focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-body-sm w-48" placeholder="Search..." type="text"/>
+</div>
+<button class="p-sm rounded-full hover:bg-surface-container-low transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+<button class="p-sm rounded-full hover:bg-surface-container-low transition-all scale-95 active:scale-90 relative">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-primary text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+<button class="p-sm rounded-full hover:bg-surface-container-low transition-all scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-3xl">
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-xl py-xl">
+<!-- Breadcrumbs -->
+<nav class="flex items-center gap-xs text-label-sm text-on-surface-variant mb-xl">
+<a class="hover:text-primary" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary" href="#">Watches</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-semibold">Nomad Chronograph</span>
+</nav>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-xl">
+<!-- Left Column: Gallery -->
+<div class="md:col-span-7 lg:col-span-8 flex gap-md">
+<!-- Thumbnails -->
+<div class="hidden md:flex flex-col gap-sm w-20 shrink-0">
+<button class="product-thumb active-thumb w-20 h-20 rounded-lg overflow-hidden border border-outline-variant/30 transition-all">
+<img alt="Thumbnail 1" class="w-full h-full object-cover" data-alt="A close-up photographic shot of a premium silver-finished Nomad Chronograph watch with a sleek navy blue leather strap. The watch is presented on a clean, white marble surface with soft, natural morning light casting gentle shadows. The design aesthetic is ultra-minimalist and professional, mirroring the sophisticated luxury of high-end watch retail environments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjv9wTKnHNm2ZwiYKTPnCdHjLCv9LIygBZxybvqVvPrpHm__Lvr_BcfHkcmwXZFdBXPq9_5sUJ14r5PiRnqydLwVk_hDROy6hE3xrnER6BwbcLO_zkhXQOCZM4LZy4Izr_0O_zXIdORx3zbAWzCDd8xcEvNbjJGalS9H8-vSVmVhkJQuCg98JmLasdYl0w2t7nDxaSscEnU-6eEJ_CYtCpEC63Q0u4Kuqkw2JdZ7J_DeK0hgVTHfCwSnLum7mmhQTWCxdZbSzYIsc"/>
+</button>
+<button class="product-thumb w-20 h-20 rounded-lg overflow-hidden border border-outline-variant/30 transition-all">
+<img alt="Thumbnail 2" class="w-full h-full object-cover" data-alt="A detailed macro view of the watch face of a Nomad Chronograph, showcasing the intricate silver dials and subtle engravings. The lighting is crisp and cool-toned, emphasizing the metallic textures and high-quality craftsmanship of the timepiece. The setting is a bright, airy professional studio space with a focus on precision and minimalist elegance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUxNNrcUxTXoth1uv9gXxt9x_9ha8yNPPCjqwyjFvvaLNsRr5-4dBgjmvkcjL9TKE_kxfjT4s1oZ_2SUz1ScFQZBgwL9uRejfqJgOXbvvXgmcUdX4ymmItF1dRvtx5z5Y-jWT8-oEed9etAzRBwERR6_iOTnCb5rme4mkCE2pAUx7FWzAMrV7OfCU_31MumuMo0VnSh8M82hDmE28m6uoSyiujlhjLUAA-fkzTcViI6Rqez6d6mY_6jowWs8_1NnN-HyaDw7eWDsE"/>
+</button>
+<button class="product-thumb w-20 h-20 rounded-lg overflow-hidden border border-outline-variant/30 transition-all">
+<img alt="Thumbnail 3" class="w-full h-full object-cover" data-alt="A profile view of a luxury watch resting on a minimalist display stand, highlighting the slim profile and the premium leather strap texture. The background is a soft, out-of-focus white and grey studio setting. The lighting is diffused and high-key, creating a clean, high-end commercial aesthetic consistent with premium retail branding." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqjlIw3qsOaIn_KEU8uW6an_tTFNFg-9G_x_iKe2qaMHYnwmnZyx4derucASa71opi2gujnwisHnWfLl6yFg-2lqBfeSYysFRUXzYed3FmNzf38IAhchs_mmafHfvhhKU5xO_-u5njoz7vc8VFj4_0pb2ne7k9X0B4Uice0mfXrawyfaE5as3FrKEM_xXx7zs7MrfKK0h9GLPYbIpdrI-tzirl-qSj2Bbjf9rVBUz0o8anmp5i_-Z6Ly3V_BKXozUtwaFxs0RYooY"/>
+</button>
+<button class="w-20 h-20 rounded-lg overflow-hidden bg-surface-container-low border border-outline-variant/30 flex flex-col items-center justify-center gap-xs hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined text-primary">360</span>
+<span class="text-[10px] font-bold">360°</span>
+</button>
+</div>
+<!-- Main Image Viewport -->
+<div class="relative w-full aspect-square md:aspect-auto md:h-[640px] bg-white rounded-xl overflow-hidden shadow-sm border border-outline-variant/10 group">
+<img alt="Nomad Chronograph Main" class="w-full h-full object-contain p-xl" data-alt="A high-resolution, full-frame commercial photograph of the Nomad Chronograph watch. The watch features a polished silver case, a deep navy dial with silver markers, and a premium navy blue leather strap. It sits centered in a vast, white minimalist studio space with soft, directional lighting that creates subtle highlights on the metallic surfaces. The overall mood is luxurious, sophisticated, and modern." id="main-product-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSe60pGu3BEIyeRwBv7J1IEAErS-QZsqNuYRKKW-WnWbqa_0wwvo-TJckIQs8KWWs2eMTInTlMik8ac68aXmQdKFVQ9h0en1hlXAb6783g0tttw0GKTcHQJ92GtGJ0gbQkJmaJm3koYahu69B6W-Exycengk6V_u73BGlU5OZczavkg8pSKq9Ss0etsZlyDlPt6P1b-hNJKIWlIz5YVlgI9DwIumik24FUashSpzq-Vp81NPxeF6J5j3zUOvFqHdQY6r_DBwGUo8A"/>
+<div class="absolute bottom-md right-md flex gap-sm">
+<button class="bg-surface/80 backdrop-blur-md p-sm rounded-full shadow-sm hover:bg-surface transition-all">
+<span class="material-symbols-outlined text-on-surface">zoom_in</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Right Column: Product Info -->
+<div class="md:col-span-5 lg:col-span-4 flex flex-col gap-lg">
+<div>
+<span class="text-label-md font-bold text-primary tracking-widest uppercase mb-xs block">Nomad</span>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Nomad Chronograph</h1>
+<div class="flex items-center gap-md mb-md">
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+<span class="ml-sm text-body-sm font-medium text-on-surface-variant">4.8 (124 reviews)</span>
+</div>
+<span class="h-4 w-[1px] bg-outline-variant"></span>
+<span class="text-green-600 text-label-sm flex items-center gap-xs">
+<span class="w-2 h-2 rounded-full bg-green-600"></span> In Stock
+                            </span>
+</div>
+<div class="flex items-end gap-md">
+<span class="font-display-lg text-display-lg text-on-surface">$240.00</span>
+<span class="font-body-lg text-body-lg text-on-surface-variant line-through mb-1">$300.00</span>
+<span class="bg-error-container text-on-error-container text-label-sm px-sm py-1 rounded-full font-bold mb-2">20% OFF</span>
+</div>
+</div>
+<hr class="border-outline-variant/30"/>
+<!-- Variants -->
+<div class="flex flex-col gap-lg">
+<!-- Color -->
+<div>
+<span class="text-label-md font-bold mb-md block">Color: <span class="font-medium text-on-surface-variant">Midnight Blue</span></span>
+<div class="flex gap-md">
+<button class="w-10 h-10 rounded-full bg-blue-900 ring-2 ring-primary ring-offset-4 ring-offset-background transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-slate-300 hover:ring-2 hover:ring-outline-variant hover:ring-offset-2 transition-all"></button>
+<button class="w-10 h-10 rounded-full bg-orange-200 hover:ring-2 hover:ring-outline-variant hover:ring-offset-2 transition-all"></button>
+</div>
+</div>
+<!-- Size -->
+<div>
+<div class="flex justify-between mb-md">
+<span class="text-label-md font-bold">Case Size</span>
+<button class="text-primary text-label-sm font-bold hover:underline">Size Guide</button>
+</div>
+<div class="flex gap-md">
+<button class="px-xl py-md rounded-lg border border-outline-variant bg-surface hover:border-primary hover:text-primary transition-all font-medium">40mm</button>
+<button class="px-xl py-md rounded-lg border-2 border-primary bg-primary/5 text-primary transition-all font-bold">44mm</button>
+</div>
+</div>
+<!-- Material -->
+<div>
+<span class="text-label-md font-bold mb-md block">Strap Material</span>
+<select class="w-full bg-surface-container rounded-lg border-outline-variant/30 px-md py-md focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-body-md">
+<option>Italian Leather</option>
+<option>Stainless Mesh</option>
+<option>Sport Nylon</option>
+</select>
+</div>
+</div>
+<!-- Purchase Actions -->
+<div class="flex flex-col gap-md mt-md">
+<div class="flex items-center gap-md">
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-outline-variant/20">
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high rounded-md transition-all">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-12 text-center font-bold">1</span>
+<button class="w-10 h-10 flex items-center justify-center hover:bg-surface-container-high rounded-md transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="flex-1 bg-primary text-on-primary py-md rounded-xl font-bold hover:bg-primary/90 transition-all shadow-md active:scale-[0.98]">
+                                Add to Cart
+                            </button>
+<button class="p-md rounded-xl border border-outline-variant/30 hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<button class="w-full bg-on-background text-white py-md rounded-xl font-bold hover:opacity-90 transition-all active:scale-[0.98]">
+                            Buy Now
+                        </button>
+</div>
+<!-- Trust Badges -->
+<div class="grid grid-cols-2 gap-md mt-md">
+<div class="flex items-center gap-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">local_shipping</span>
+<span>Free Express Shipping</span>
+</div>
+<div class="flex items-center gap-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-primary">verified_user</span>
+<span>2-Year Warranty</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Tabs Section -->
+<section class="max-w-container-max mx-auto px-margin-mobile md:px-xl py-3xl">
+<div class="border-b border-outline-variant/20 mb-xl flex items-center gap-xl overflow-x-auto no-scrollbar">
+<button class="pb-md text-primary border-b-2 border-primary font-bold whitespace-nowrap">Description</button>
+<button class="pb-md text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">Specifications</button>
+<button class="pb-md text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">Reviews (124)</button>
+<button class="pb-md text-on-surface-variant hover:text-on-surface font-medium whitespace-nowrap transition-colors">Shipping &amp; Returns</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3xl">
+<div class="space-y-md">
+<h3 class="font-headline-sm text-headline-sm">Engineered Precision</h3>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                        The Nomad Chronograph isn't just a timepiece; it's a statement of functional elegance. Inspired by the minimalism of mid-century aviation instruments, we've stripped away the noise to leave only what matters. 
+                    </p>
+<p class="text-body-md text-on-surface-variant leading-relaxed">
+                        Featuring a surgical-grade 316L stainless steel case and a scratch-resistant sapphire crystal lens, this watch is built to withstand the rigors of global travel while maintaining a silhouette that fits perfectly under a dress cuff.
+                    </p>
+<ul class="space-y-sm mt-xl">
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="text-body-md">Japanese Quartz Miyota Movement</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="text-body-md">5 ATM Water Resistance (50 Meters)</span>
+</li>
+<li class="flex items-start gap-md">
+<span class="material-symbols-outlined text-primary text-[20px] mt-1">check_circle</span>
+<span class="text-body-md">Interchangeable Quick-Release Straps</span>
+</li>
+</ul>
+</div>
+<div class="bg-surface-container rounded-2xl overflow-hidden min-h-[300px]">
+<img alt="Lifestyle Watch" class="w-full h-full object-cover" data-alt="A lifestyle photograph of a person wearing the Nomad Chronograph watch while working in a modern, sun-drenched architectural office. The person's arm rests on a clean, light oak desk next to a sleek laptop. The lighting is soft and golden, highlighting the watch's metallic accents and the premium texture of the navy leather strap. The atmosphere is professional, tranquil, and high-end." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYa77Xk3lc8b5oOMLN84OqWBR5znqcPXCeAeqt4PEECQDXDhFNosrjly6bm4BfKFozfq-Cp1WUsqCrRg5NuYXIlGzCBYNuv2Qcv9FzSCEtsUz_u2d5HFszdO30l56ZWSghej_kNUGw0MB5q7ivWAIESlrT5cyVLZBb2HGue6LVCK_uGK990oPtZL1xzERwMoYHSlstnrtjzUkG-DsHDMXwMoBF2iB1fPX-ZcJ1ABHkpTtMupXZxG3M3d9E8x6OlOJjb7svINFuyXI"/>
+</div>
+</div>
+</section>
+<!-- Related Products -->
+<section class="bg-surface-container-lowest py-3xl border-t border-outline-variant/10">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="flex justify-between items-end mb-2xl">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">You Might Also Like</h2>
+<p class="text-body-md text-on-surface-variant">Curated essentials to complement your style.</p>
+</div>
+<button class="text-primary font-bold flex items-center gap-xs hover:gap-md transition-all">
+                        View All <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Card 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface relative mb-md">
+<img alt="Acoustic Pro One" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A high-end studio shot of the Acoustic Pro One wireless headphones in a sleek charcoal grey finish. The headphones are showcased against a soft, gradient background of light and dark greys, illuminated by professional rim lighting that emphasizes the ergonomic curves and premium padding. The style is minimalist and tech-focused, fitting for a luxury electronics brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlP_OO0QAZp9FmkOQwSS23wwjVLgImosxat6ln7qAc8J7G00E5K5clyzdLQupvWsCEXCRXMPD27ro3Co6DcuAofj3gnuXTVbOtMYkrN3juUUH3Coy6BdB2KBURpgn8HJkECEgpuMIhXK_2ZlD6Hcgxn31w3IHxN46porgyIUHDb-rXRK0kR3p7oSjxI5yWi6PaGPpViU5P4jQkYLYhbaTkmGA8Z0_hqc777qevEDQP7cGqMdLx41yO0Ud01ofWt43V62TwHwKiF0g"/>
+<button class="absolute top-md right-md bg-white/80 backdrop-blur p-xs rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface">favorite</span>
+</button>
+</div>
+<h3 class="font-body-md font-bold mb-xs">Acoustic Pro One</h3>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">$349.00</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm">4.9</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface relative mb-md">
+<img alt="Swift-Core Runner" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A dynamic, high-contrast photograph of a vibrant red Swift-Core Runner performance sneaker. The shoe is angled to show its aerodynamic design and textured sole. The background is a clean, neutral studio grey, allowing the bold color to pop. The lighting is sharp and athletic, highlighting the high-performance fabrics and modern construction." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ_Zi_75Noy8AKsZiaWOCKCLuRAqOl4-aIdIH3huTPlBYmHh7BuESdn9ihGC1L80ScqTEYEulOzi5Up79Q51668Kvwj0xyd6orVkhP3dmIVYAG4yALjUvBi6OaXXi0SPQAaUXG5YExivjbq0m943CxtEYHWSwPVSGh1OPhxEm11EOoj-3xYxRUA0L51oDvjRVmWSJ_Ou66TGUfduQJoa7egjK0dEV3V97SA5DDts2Ycjtpeu9QDGvu0ABJ6hm6tDWXa8BoQ9ftEGM"/>
+<button class="absolute top-md right-md bg-white/80 backdrop-blur p-xs rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface">favorite</span>
+</button>
+</div>
+<h3 class="font-body-md font-bold mb-xs">Swift-Core Runner</h3>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">$160.00</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm">4.7</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface relative mb-md">
+<img alt="Classic Canvas" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A minimalist photograph of a pairs of classic white canvas sneakers against a crisp, white background. The lighting is even and bright, emphasizing the clean lines and simple textures of the shoes. The overall aesthetic is fresh, modern, and aligned with premium minimalist retail branding, focusing on timeless design and essential style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAW8kBOLEANu4tfbpnmvMEcKgT4wuy3fAvCzWYqEi-2yNTeTgLsKCDMbZ37fBCHb94JPeUDp1zkciXproHq5EmU8RaDThuFwF8kZ9_aOyuqIv0bw23vX7jOmhxCeGuOBoHvA1cvMX7gGPo3EXJ9zrOFWybZnR_tpOsnn7zh6bvfT2YF2BjpCNCg8cvOs1FdB7a1sGhxOTTqc6auRsuBCGzi7uZ66W-kSNc2tG5revJR2kz3r1kHwz-YUUdyc4PuFnGxecsOMcVQbdU"/>
+<button class="absolute top-md right-md bg-white/80 backdrop-blur p-xs rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface">favorite</span>
+</button>
+</div>
+<h3 class="font-body-md font-bold mb-xs">Classic Canvas</h3>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">$85.00</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm">4.8</span>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-xl overflow-hidden bg-surface relative mb-md">
+<img alt="Essential Tee" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A professional studio product shot of a folded, high-quality white cotton essential t-shirt. The fabric texture is clearly visible, suggesting premium softness and durability. It sits on a light grey surface with soft, diffused shadows. The composition is extremely clean and minimalist, highlighting the quality of the material and the simplicity of the design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0idxkemccd_1b7RA1l8Sn47hTXhk5NVn_IC18UOYBnZQFphQyWrJk2BYyzeU2GKXUUYj0XpWVdG4zGZn4spkV-2SqlnM04HX-AfXzwo7lSbsq0XQajGoqAi2jMJ72VPAsxKje81v0DqvSBTIqz-gn_iF47jknTreYIrUcusjz3Op7VjnL2cwJvVr_fFNGfMR1Z1DPtnT4ttGcPAp0_piq2R2ckVBRigyKlx2_cBGDem7QkwHBzmctOXfMhi39wadcbTLjuEvuFlo"/>
+<button class="absolute top-md right-md bg-white/80 backdrop-blur p-xs rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-surface">favorite</span>
+</button>
+</div>
+<h3 class="font-body-md font-bold mb-xs">Essential Tee</h3>
+<div class="flex items-center justify-between">
+<span class="text-on-surface-variant">$45.00</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-label-sm">5.0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 w-full pt-3xl pb-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="flex flex-col gap-md">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">LuxeRetail</span>
+<p class="text-body-sm text-on-surface-variant">Elevating everyday essentials through curated design and exceptional craftsmanship. Join our journey toward sustainable luxury.</p>
+<div class="flex gap-md mt-md">
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary hover:text-white transition-all">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-md">
+<span class="font-label-md font-bold text-on-surface">Shop</span>
+<ul class="flex flex-col gap-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">All Products</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">New Arrivals</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-md">
+<span class="font-label-md font-bold text-on-surface">Support</span>
+<ul class="flex flex-col gap-sm">
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Contact Support</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Shipping &amp; Returns</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant hover:text-primary transition-colors text-body-sm" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-md">
+<span class="font-label-md font-bold text-on-surface">Newsletter</span>
+<p class="text-body-sm text-on-surface-variant">Get 10% off your first order when you subscribe.</p>
+<div class="flex gap-xs mt-sm">
+<input class="flex-1 bg-surface-container border-none rounded-lg px-md text-body-sm focus:ring-2 focus:ring-primary/20" placeholder="Email Address" type="email"/>
+<button class="bg-primary text-white px-md py-md rounded-lg font-bold text-label-sm">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl mt-3xl pt-xl border-t border-outline-variant/10 text-center text-body-sm text-on-surface-variant">
+            © 2024 LuxeRetail. All rights reserved.
+        </div>
+</footer>
+<script>
+        // Simple micro-interaction for gallery
+        const thumbs = document.querySelectorAll('.product-thumb');
+        const mainImage = document.getElementById('main-product-image');
+
+        thumbs.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                thumbs.forEach(t => t.classList.remove('active-thumb'));
+                thumb.classList.add('active-thumb');
+                const newSrc = thumb.querySelector('img').src;
+                mainImage.style.opacity = '0.5';
+                setTimeout(() => {
+                    mainImage.src = newSrc;
+                    mainImage.style.opacity = '1';
+                }, 150);
+            });
+        });
+
+        // Add to cart animation
+        const addToCartBtn = document.querySelector('.bg-primary.text-on-primary');
+        addToCartBtn.addEventListener('click', () => {
+            const originalText = addToCartBtn.innerText;
+            addToCartBtn.innerText = 'Added to Cart ✓';
+            addToCartBtn.classList.replace('bg-primary', 'bg-green-600');
+            setTimeout(() => {
+                addToCartBtn.innerText = originalText;
+                addToCartBtn.classList.replace('bg-green-600', 'bg-primary');
+            }, 2000);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | LuxeRetail Premium Experience</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "secondary": "#565e74",
+                      "on-primary": "#ffffff",
+                      "surface-bright": "#faf8ff",
+                      "surface-container-high": "#e7e7f3",
+                      "on-primary-container": "#eeefff",
+                      "surface-container": "#ededf9",
+                      "on-primary-fixed": "#00174b",
+                      "outline-variant": "#c3c6d7",
+                      "primary": "#004ac6",
+                      "primary-fixed-dim": "#b4c5ff",
+                      "on-secondary-container": "#5c647a",
+                      "surface-tint": "#0053db",
+                      "surface-dim": "#d9d9e5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "on-secondary-fixed-variant": "#3f465c",
+                      "on-secondary": "#ffffff",
+                      "on-surface": "#191b23",
+                      "on-error-container": "#93000a",
+                      "on-secondary-fixed": "#131b2e",
+                      "primary-fixed": "#dbe1ff",
+                      "on-surface-variant": "#434655",
+                      "on-primary-fixed-variant": "#003ea8",
+                      "primary-container": "#2563eb",
+                      "error-container": "#ffdad6",
+                      "inverse-primary": "#b4c5ff",
+                      "secondary-container": "#dae2fd",
+                      "on-background": "#191b23",
+                      "surface-container-low": "#f3f3fe",
+                      "secondary-fixed-dim": "#bec6e0",
+                      "tertiary-fixed": "#ffddb8",
+                      "outline": "#737686",
+                      "surface-variant": "#e1e2ed",
+                      "background": "#faf8ff",
+                      "on-error": "#ffffff",
+                      "inverse-on-surface": "#f0f0fb",
+                      "tertiary": "#784b00",
+                      "on-tertiary-fixed": "#2a1700",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "surface": "#faf8ff",
+                      "on-tertiary": "#ffffff",
+                      "tertiary-container": "#996100",
+                      "secondary-fixed": "#dae2fd",
+                      "surface-container-highest": "#e1e2ed",
+                      "inverse-surface": "#2e3039",
+                      "on-tertiary-container": "#ffeedd",
+                      "error": "#ba1a1a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-max": "1280px",
+                      "sm": "8px",
+                      "2xl": "48px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "lg": "24px",
+                      "3xl": "64px",
+                      "md": "16px",
+                      "margin-mobile": "16px",
+                      "xl": "32px",
+                      "base": "4px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "display-xl": ["Inter"],
+                      "body-md": ["Inter"],
+                      "headline-lg-mobile": ["Inter"],
+                      "body-sm": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .checkout-shadow {
+            box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+        }
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #fff, 0 0 0 4px #004ac6;
+        }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- Top Bar Navigation (LuxeRetail Branding Only) -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">LuxeRetail</span>
+<div class="flex gap-md items-center">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-surface-container-low p-2 rounded-full transition-all">lock</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest">Secure Checkout</span>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-24 px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<!-- Multi-step Progress Indicator -->
+<div class="mb-3xl max-w-3xl mx-auto">
+<div class="relative flex items-center justify-between">
+<!-- Progress Line -->
+<div class="absolute top-1/2 left-0 w-full h-0.5 bg-outline-variant/30 -translate-y-1/2"></div>
+<div class="absolute top-1/2 left-0 w-1/4 h-0.5 bg-primary -translate-y-1/2 transition-all duration-500"></div>
+<!-- Steps -->
+<div class="relative z-10 flex flex-col items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-sm shadow-lg shadow-primary/20">1</div>
+<span class="font-label-sm text-label-sm text-primary">Shipping</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm">2</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Delivery</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm">3</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Payment</span>
+</div>
+<div class="relative z-10 flex flex-col items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center font-bold text-sm">4</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Review</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start">
+<!-- Left Column: Checkout Form -->
+<div class="lg:col-span-7 space-y-lg">
+<!-- Shipping Address Section -->
+<section class="bg-surface-container-lowest p-lg md:p-2xl rounded-xl checkout-shadow border border-outline-variant/10">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-md mb-xl">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Shipping Address</h2>
+<!-- Toggle -->
+<div class="flex p-1 bg-surface-container-low rounded-full border border-outline-variant/20">
+<button class="px-md py-1.5 rounded-full text-label-sm font-medium transition-all bg-white shadow-sm text-primary">Add New</button>
+<button class="px-md py-1.5 rounded-full text-label-sm font-medium transition-all text-on-surface-variant hover:text-on-surface">Saved Addresses</button>
+</div>
+</div>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="md:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="full_name">Full Name</label>
+<input class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all" id="full_name" placeholder="Johnathan Doe" type="text"/>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="email">Email Address</label>
+<input class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all" id="email" placeholder="john@example.com" type="email"/>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="street">Street Address</label>
+<input class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all" id="street" placeholder="123 Luxury Lane" type="text"/>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="apt">Apartment, Suite, etc. (Optional)</label>
+<input class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all" id="apt" placeholder="Penthouse A" type="text"/>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="city">City</label>
+<input class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all" id="city" placeholder="New York" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="state">State</label>
+<select class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all appearance-none" id="state">
+<option>NY</option>
+<option>CA</option>
+<option>TX</option>
+<option>FL</option>
+</select>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="zip">ZIP Code</label>
+<input class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all" id="zip" placeholder="10001" type="text"/>
+</div>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-xs" for="country">Country</label>
+<select class="w-full px-md py-3 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all appearance-none" id="country">
+<option>United States</option>
+<option>United Kingdom</option>
+<option>Canada</option>
+<option>France</option>
+</select>
+</div>
+<div class="md:col-span-2 space-y-md pt-sm">
+<label class="flex items-center gap-md cursor-pointer group">
+<div class="relative flex items-center">
+<input checked="" class="w-5 h-5 rounded border-outline-variant/60 text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Save this address for future purchases</span>
+</label>
+<label class="flex items-center gap-md cursor-pointer group">
+<div class="relative flex items-center">
+<input checked="" class="w-5 h-5 rounded border-outline-variant/60 text-primary focus:ring-primary/20" type="checkbox"/>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface group-hover:text-primary transition-colors">Use as billing address</span>
+</label>
+</div>
+</form>
+</section>
+<!-- Trust Indicators -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg mt-xl">
+<div class="flex items-start gap-md p-lg bg-white/50 rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">verified_user</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">30-Day Money Back</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Not satisfied? Return it within 30 days for a full refund, no questions asked.</p>
+</div>
+</div>
+<div class="flex items-start gap-md p-lg bg-white/50 rounded-xl border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary p-2 bg-primary/10 rounded-lg">local_shipping</span>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Free Premium Shipping</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Enjoy complimentary express shipping on all orders over $500, insured and tracked.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary Sidebar -->
+<aside class="lg:col-span-5 sticky top-28 space-y-lg">
+<div class="bg-surface-container-lowest p-lg md:p-xl rounded-xl checkout-shadow border border-outline-variant/10">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-lg">Order Summary</h3>
+<!-- Product List -->
+<div class="space-y-lg mb-xl">
+<!-- Product 1 -->
+<div class="flex items-center gap-md">
+<div class="relative flex-shrink-0">
+<img alt="Product Image" class="w-20 h-20 object-cover rounded-lg bg-surface-container" data-alt="A premium close-up studio photograph of a sleek, minimalist red designer sneaker with white accents. The lighting is crisp and editorial, casting soft shadows against a neutral, high-end gray background. The overall aesthetic is professional, sophisticated, and aligns with a luxury retail environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzfTtikV2PVYP1MTAdZln-2aRi-sX_GOn10ffG6bh8T22dJ22EZJjg6iHkZUTz9XEFbW11ctX1RxNHoFwZKv9qIeyBfi03P1qLwgWdGreCDa4NPD3HJH4qMVooLNxO2HKtgnUoEKaC2h3UOMx1LBJ6CqVaD_pFidmGL3f6NDEoyW8RL0kvgY516jSpq-WQaBwUJ9MTkhQ3iJREd0_g2uuEEX7GMQBxnnGL0veNE8h2c5wwWYfqV9urb87N076wM3ADI6xqNqsKsiw"/>
+<span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center font-bold">1</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface">Heritage Low-Top</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cardinal Red / Size 10</p>
+</div>
+<span class="font-label-md text-label-md text-on-surface">$245.00</span>
+</div>
+<!-- Product 2 -->
+<div class="flex items-center gap-md">
+<div class="relative flex-shrink-0">
+<img alt="Product Image" class="w-20 h-20 object-cover rounded-lg bg-surface-container" data-alt="A luxury white smartwatch with a minimalist circular face, displayed on a pristine white marble surface. The lighting is bright and airy, reflecting a clean and modern minimalist brand identity. Subtle blue reflections hint at a premium digital display. The composition is balanced and elegant for high-end commerce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjJL1L5Llp78RXUIpM7nPFKOcXu1ZCskP3oRavj7IpS8qGbCESKTvYbkSW7hTXcM-Fh7oUEae-M0gqAsogSn-x2_u9JWfBj55gFkqbFPl1SDOMPj1RH7LkenjSTA_dJKWghaqlraFNvp2NSrgFNgSMeXLoaVyHwSKBujk0jUnB6yEH6i1-kxhBPGmPSerGEW12gcuE49rKMrZYrzKQyNSqpcQGG9SMa02qtbt0mxn4FYFjVE8HKsJMGWmwqn5-C4uLQ0ATAATijkE"/>
+<span class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-primary text-white text-[10px] flex items-center justify-center font-bold">1</span>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface">Luxe Chrono V2</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Alpine White / OS</p>
+</div>
+<span class="font-label-md text-label-md text-on-surface">$590.00</span>
+</div>
+</div>
+<!-- Promo Code -->
+<div class="flex gap-sm mb-xl">
+<input class="flex-grow px-md py-2.5 rounded-lg border border-outline-variant/40 bg-surface-bright focus:border-primary transition-all text-sm" placeholder="Promo code" type="text"/>
+<button class="px-lg py-2.5 bg-secondary text-on-secondary rounded-lg font-label-sm text-label-sm hover:bg-secondary/90 transition-all">Apply</button>
+</div>
+<!-- Pricing Breakdown -->
+<div class="space-y-md border-t border-outline-variant/20 pt-xl mb-xl">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Subtotal</span>
+<span class="font-body-md text-body-md text-on-surface">$835.00</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Shipping</span>
+<span class="font-body-md text-body-md text-secondary font-medium italic">Calculated at next step</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Tax</span>
+<span class="font-body-md text-body-md text-on-surface">$66.80</span>
+</div>
+<div class="flex justify-between items-center pt-md border-t border-outline-variant/20">
+<span class="font-headline-sm text-headline-sm text-on-surface">Total</span>
+<span class="font-headline-sm text-headline-sm text-primary">$901.80</span>
+</div>
+</div>
+<button class="w-full py-4 bg-primary text-on-primary rounded-xl font-headline-sm text-headline-sm shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all active:scale-[0.98] duration-200">
+                        Continue to Shipping
+                    </button>
+<!-- Secure Badges -->
+<div class="mt-xl flex flex-wrap justify-center gap-lg opacity-60">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span class="font-label-sm text-[10px] uppercase tracking-tighter">PCI-DSS Compliant</span>
+</div>
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">encrypted</span>
+<span class="font-label-sm text-[10px] uppercase tracking-tighter">SSL Secure</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim w-full pt-3xl pb-xl border-t border-outline-variant/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="col-span-1 md:col-span-2">
+<span class="font-headline-sm text-headline-sm font-bold text-primary mb-md block">LuxeRetail</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs mb-lg">Redefining the digital shopping experience through precision craft and premium service.</p>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">alternate_email</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">chat</span>
+</div>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-on-surface mb-sm">Company</h5>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors" href="#">About Us</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors" href="#">Sustainability</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors" href="#">Contact Support</a>
+</div>
+<div class="flex flex-col gap-sm">
+<h5 class="font-label-md text-label-md text-on-surface mb-sm">Legal</h5>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors" href="#">Shipping &amp; Returns</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline underline-offset-4 transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl mt-2xl pt-lg border-t border-outline-variant/10 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 LuxeRetail. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        // Simple Micro-interaction for inputs
+        document.querySelectorAll('input, select').forEach(el => {
+            el.addEventListener('focus', () => {
+                el.parentElement.querySelector('label')?.classList.add('text-primary');
+            });
+            el.addEventListener('blur', () => {
+                el.parentElement.querySelector('label')?.classList.remove('text-primary');
+            });
+        });
+
+        // Toggle functionality (Visual only)
+        const toggleButtons = document.querySelectorAll('button.rounded-full');
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const parent = btn.parentElement;
+                parent.querySelectorAll('button').forEach(b => {
+                    b.classList.remove('bg-white', 'shadow-sm', 'text-primary');
+                    b.classList.add('text-on-surface-variant');
+                });
+                btn.classList.add('bg-white', 'shadow-sm', 'text-primary');
+                btn.classList.remove('text-on-surface-variant');
+            });
+        });
+    </script>
+</body></html>

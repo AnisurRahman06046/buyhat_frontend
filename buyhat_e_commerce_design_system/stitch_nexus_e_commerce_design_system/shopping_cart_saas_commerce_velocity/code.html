@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Cart | LUXE RETAIL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@700;800&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cart-item-card:hover {
+            box-shadow: 0px 8px 20px rgba(15, 23, 42, 0.08);
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#6cf8bb",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "on-background": "#1a1b21",
+                        "surface-container-low": "#f4f3fa",
+                        "surface-variant": "#e3e1e9",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-tertiary-fixed-variant": "#783200",
+                        "inverse-primary": "#b6c4ff",
+                        "outline-variant": "#c5c5d3",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-surface-variant": "#444651",
+                        "surface-dim": "#dad9e1",
+                        "on-secondary-container": "#00714d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbca",
+                        "surface-container": "#eeedf4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e9e7ef",
+                        "primary-fixed": "#dce1ff",
+                        "on-error-container": "#93000a",
+                        "surface": "#faf8ff",
+                        "on-surface": "#1a1b21",
+                        "on-secondary-fixed-variant": "#005236",
+                        "secondary-fixed": "#6ffbbe",
+                        "secondary": "#006c49",
+                        "on-primary-fixed": "#00164e",
+                        "on-primary-container": "#90a8ff",
+                        "on-tertiary-container": "#ff8f4f",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "outline": "#757682",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary-container": "#6e2d00",
+                        "on-error": "#ffffff",
+                        "tertiary": "#4b1c00",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-on-surface": "#f1f0f7",
+                        "surface-bright": "#faf8ff",
+                        "inverse-surface": "#2f3036",
+                        "primary-container": "#1e3a8a",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "background": "#faf8ff",
+                        "surface-container-highest": "#e3e1e9",
+                        "surface-tint": "#4059aa",
+                        "primary": "#00236f",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xl": "64px"
+                    },
+                    "fontFamily": {
+                        "button-text": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "display-lg-mobile": ["Manrope"],
+                        "headline-md": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Manrope"],
+                        "price-xl": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "button-text": ["16px", { "lineHeight": "20px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "price-xl": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-[#F8FAFC] text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant shadow-sm">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-sm max-w-container-max mx-auto w-full gap-4">
+<div class="font-display-lg text-headline-md font-extrabold text-primary flex items-center">
+                LUXE RETAIL
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Shop All</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">New Arrivals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Best Sellers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">Categories</a>
+</nav>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container rounded-xl border-none focus:ring-2 focus:ring-primary-container w-48 lg:w-64" placeholder="Search..." type="text"/>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant">
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-all cursor-pointer"><span class="material-symbols-outlined" data-icon="favorite">favorite</span></button>
+<button class="p-2 bg-primary-container text-white rounded-full transition-all cursor-pointer relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute -top-1 -right-1 bg-[#F97316] text-[10px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white">3</span>
+</button>
+<button class="p-2 hover:bg-surface-container-high rounded-full transition-all cursor-pointer"><span class="material-symbols-outlined" data-icon="person">person</span></button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow max-w-container-max mx-auto px-gutter py-xl w-full">
+<div class="mb-lg">
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary">Shopping Cart</h1>
+<p class="text-on-surface-variant font-body-lg">You have 3 items in your cart.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xl">
+<!-- Cart Items List (Bento-style Cards) -->
+<div class="lg:col-span-8 space-y-md">
+<!-- Item 1 -->
+<div class="cart-item-card bg-white p-md rounded-xl border border-[#E2E8F0] flex flex-col md:flex-row gap-md items-center transition-all">
+<div class="w-32 h-32 flex-shrink-0 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A premium high-tech wireless headphone with a sleek midnight blue finish and leather padding, shot in professional studio lighting with soft highlights on the metallic surfaces. The aesthetic is clean, luxurious, and minimalist against a soft grey background that complements the corporate modern design system." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrcR3QDDH3Okrkdy0IqkY7s7OzlQhK4l1Ijqvam3ejK2Cw-ZXAq8WUhnZgVxxgCYmO-gKhMqsLom46UFB4SS3UNStjwCYyMjnwDOdlEFED3R0lj1oXNdh_swSM6UjWrvCslFeGgo4gOpCU13OOkyokrplgdQB9ttB8FvY4WHniZHxMR1vr18Y1ea2_gvw3IT7ZDXZFg5wfvswY1iI8Y1vAnc6Or3AMwl2F_x0NVCVVaBYCF9st884UtTULAMaZtc838AxnHJsLvkc"/>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h3 class="font-headline-md text-headline-md text-on-surface">Acoustic Pro-X Wireless</h3>
+<p class="text-on-surface-variant font-body-md">Midnight Blue | Over-ear</p>
+<div class="mt-xs inline-flex items-center gap-1 text-[#006c49]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-caps font-label-caps">In Stock</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center border border-outline-variant rounded-xl overflow-hidden bg-surface-container-lowest">
+<button class="p-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<input class="w-10 text-center border-none focus:ring-0 font-bold bg-transparent" type="number" value="1"/>
+<button class="p-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+<div class="text-right min-w-[100px]">
+<p class="font-price-xl text-primary">$299.00</p>
+</div>
+<button class="text-error hover:bg-error-container/20 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="cart-item-card bg-white p-md rounded-xl border border-[#E2E8F0] flex flex-col md:flex-row gap-md items-center transition-all">
+<div class="w-32 h-32 flex-shrink-0 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A sophisticated mechanical wristwatch with a brushed stainless steel case and a deep green dial, featuring intricate watch details and a classic leather strap. The image is crisp and elegant, emphasizing the precision craftsmanship and high-end quality of the luxury accessory, fitting the retail luxury brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOhcYF1AoQR9HHzkp_DlOoTMcwiYkheCWMfxDsyW4lESM8zqNj_cQdD0dwLB5HUvZgbmaycsIUOdyWTahMjQLHRuidUDrGiJ4fPDfn9YpA3fCIMkWLbshgJNmi1huWOljactvDSQwuq3qsBf3LzvzZEKLVKoIIv6IUZNgw1FaqStz1DEUj92QoosZ2xHx0KmkYC_H8VEI8w8KwcnJQsankJ_ZNfGUNNUOnTXzcf-c_fzPx0isUDe2q3amtLGFU5eJli0WYmejxbzI"/>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h3 class="font-headline-md text-headline-md text-on-surface">Evergreen Chronograph</h3>
+<p class="text-on-surface-variant font-body-md">Silver / Forest Leather</p>
+<div class="mt-xs inline-flex items-center gap-1 text-error">
+<span class="material-symbols-outlined text-[18px]">error</span>
+<span class="text-label-caps font-label-caps">Low Stock (2 Left)</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center border border-outline-variant rounded-xl overflow-hidden bg-surface-container-lowest">
+<button class="p-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<input class="w-10 text-center border-none focus:ring-0 font-bold bg-transparent" type="number" value="1"/>
+<button class="p-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+<div class="text-right min-w-[100px]">
+<p class="font-price-xl text-primary">$1,250.00</p>
+</div>
+<button class="text-error hover:bg-error-container/20 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="cart-item-card bg-white p-md rounded-xl border border-[#E2E8F0] flex flex-col md:flex-row gap-md items-center transition-all">
+<div class="w-32 h-32 flex-shrink-0 bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A sleek, modern desk lamp with an adjustable neck and warm LED lighting, featuring a minimalist matte black finish. The lamp is positioned in a home office setting with soft shadows, highlighting its functional elegance and modern aesthetic for a premium living experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1qxojILcDTr45Tlmr6dOVMtqPypKNqOrpNKMCMERMnKHRXsO9QlTdVvqTzXHMTeuCxcfl357l12S3uK3TnpxsEVyzOPCJelxUQkWLDX-yLzjz6u5l9YUpxFJxKBX-AXLlu1R9dFtClBegeYB3d-Z0JWyj6KhEFqUDmFHmACQONfhOVhRlaWHG_BUp674NhkhZmBjTemi0H0PpRwQgotgF-7GMhTTfXDfV_D-0WklwGa-ZN24iBMIFysEgZAODgM0coeyaJvIo0NY"/>
+</div>
+<div class="flex-grow text-center md:text-left">
+<h3 class="font-headline-md text-headline-md text-on-surface">Lumina Desk Lamp</h3>
+<p class="text-on-surface-variant font-body-md">Matte Black | Warm LED</p>
+<div class="mt-xs inline-flex items-center gap-1 text-[#006c49]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-label-caps font-label-caps">In Stock</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center border border-outline-variant rounded-xl overflow-hidden bg-surface-container-lowest">
+<button class="p-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">remove</span></button>
+<input class="w-10 text-center border-none focus:ring-0 font-bold bg-transparent" type="number" value="1"/>
+<button class="p-2 hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">add</span></button>
+</div>
+<div class="text-right min-w-[100px]">
+<p class="font-price-xl text-primary">$89.00</p>
+</div>
+<button class="text-error hover:bg-error-container/20 p-2 rounded-full transition-all">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<!-- Recommendation Section (Asymmetric / Friction Reduction) -->
+<div class="mt-lg p-md bg-secondary-fixed/10 border border-secondary/20 rounded-xl flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-secondary-container rounded-full text-on-secondary-container">
+<span class="material-symbols-outlined">local_shipping</span>
+</div>
+<div>
+<p class="font-button-text text-on-surface">Free Express Shipping Unlocked!</p>
+<p class="text-sm text-on-surface-variant">Your order exceeds $500. Enjoy priority delivery.</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary hidden sm:block">celebration</span>
+</div>
+</div>
+<!-- Sidebar: Summary -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 bg-white border border-[#E2E8F0] rounded-xl p-md shadow-sm space-y-md">
+<h2 class="font-headline-md text-headline-md text-primary mb-sm">Order Summary</h2>
+<!-- Coupon Code -->
+<div class="space-y-2">
+<label class="text-label-caps font-label-caps text-on-surface-variant">Promo Code</label>
+<div class="flex gap-2">
+<input class="flex-grow border-outline-variant rounded-xl focus:border-primary-container focus:ring-1 focus:ring-primary-container text-body-md px-4 py-2" placeholder="Enter code" type="text"/>
+<button class="bg-primary text-white font-button-text px-4 py-2 rounded-xl hover:opacity-90 transition-all">Apply</button>
+</div>
+</div>
+<div class="pt-sm space-y-3">
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span>$1,638.00</span>
+</div>
+<div class="flex justify-between font-body-md text-[#006c49]">
+<span>Discount (WELCOME10)</span>
+<span>-$163.80</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Shipping</span>
+<span class="font-bold">FREE</span>
+</div>
+<div class="flex justify-between font-body-md text-on-surface-variant">
+<span>Estimated Tax</span>
+<span>$117.93</span>
+</div>
+<div class="pt-md border-t border-outline-variant flex justify-between items-baseline">
+<span class="font-headline-md text-headline-md text-primary">Total</span>
+<span class="font-price-xl text-primary">$1,592.13</span>
+</div>
+</div>
+<!-- CTA Section -->
+<button class="w-full bg-[#F97316] text-white py-4 rounded-xl font-button-text text-button-text flex items-center justify-center gap-2 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:scale-[1.02] active:scale-[0.98] transition-all">
+                        Proceed to Checkout
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<!-- Trust Signals -->
+<div class="pt-md space-y-3">
+<div class="flex items-center gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<span>Secure encrypted checkout</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary">assignment_return</span>
+<span>30-day effortless returns</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant text-sm">
+<span class="material-symbols-outlined text-secondary">workspace_premium</span>
+<span>Authenticity Guaranteed</span>
+</div>
+</div>
+<div class="pt-sm flex justify-center gap-3 grayscale opacity-50">
+<img alt="Visa" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVJmnm94Rogm2RPhNuPL2kEBXsuzfIjV0TNcWJq_nYBzA6fZLWrgOCzNHHtxCV9wIy8uIIpy9lMQmqziXYP_2UcfAl6K01mdzjZ3rNngMnDikQRcE62sVqVThpyWYqhgDCq9VwBY_pRRbQqKounnrn8dIlH3vf2svaFQ7d8heIH44KcJ9tY44SCNuVUv2aeCU8H1NwrV-Dc-lRg8dOTVtM3T9xuQ-Cm4O3hWe9jaesxeXcQ1hv7HzEoYbHULgCuPPV4Vff05VE4eM"/>
+<img alt="Mastercard" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi-Fh2J_Q5uFc1GDqi05CUz2T1SD2IJEPf-V5G0Q90hFf3fzfRLxtovvoJwmJo4xizlr-pEg9_Yx9FNC4dIVHupzTnNdsFNxxlbImd0jqUf2LrJ2COmosmijeZ_7V8XbfjvdAOTJwbc2ZMyvrLCCIJ0Af23PhX3HatcdPNSYPN9NYDXx3o0jxhUGYjfe5W-JzthuDmcePtfXw94mDkYycCyb0T11biri1NTBdVFXIeZ06y5VbROUaoBygYM1yvN566p1m1f9J7uUY"/>
+<img alt="Paypal" class="h-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAsyH5Ykpmjtrhfb_BndL_1qXpo33RuF5SUGrmvzx6P0AG8P33hLw8AFeYIuedJBoh6fSkiQUZLl1EhUiTHkih01D5S95-HqPLt9C23w4UPqJL8lWra-85uLGwdawcyoOksFvBOybl-BGK28Jnxr_2IhjsATgWpV02TgRBEgV7vIO0XgsaBZy7XnMyvj25jdDndhCn-goUOUT5Gd2oF9oSC6gmajnopRKvcUJH8pGETdZ-hQl8hZfNQFXkcOpDbZQJU4V1tcmPf1s"/>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-high">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-gutter py-xl max-w-container-max mx-auto">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md font-bold text-primary">LUXE RETAIL</div>
+<p class="text-on-surface-variant font-body-md">Curating excellence for the modern buyer since 2018.</p>
+</div>
+<div>
+<h4 class="font-button-text text-primary mb-4">Customer Care</h4>
+<ul class="space-y-2 font-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors cursor-pointer" href="#">Shipping Info</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" href="#">Returns</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-button-text text-primary mb-4">Company</h4>
+<ul class="space-y-2 font-body-md text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors cursor-pointer" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary transition-colors cursor-pointer" href="#">Affiliates</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-button-text text-primary mb-4">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-surface rounded-xl border-none p-3 text-sm flex-grow focus:ring-2 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary-container text-white p-3 rounded-xl"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant py-4 text-center text-on-surface-variant text-sm">
+            © 2024 Luxe Retail Corp. All rights reserved.
+        </div>
+</footer>
+<script>
+        // Simple Interaction logic for quantity buttons
+        document.querySelectorAll('.material-symbols-outlined').forEach(icon => {
+            if (icon.textContent === 'add' || icon.textContent === 'remove') {
+                icon.parentElement.addEventListener('click', function() {
+                    const input = this.parentElement.querySelector('input');
+                    let val = parseInt(input.value);
+                    if (icon.textContent === 'add') {
+                        input.value = val + 1;
+                    } else if (icon.textContent === 'remove' && val > 1) {
+                        input.value = val - 1;
+                    }
+                });
+            }
+        });
+    </script>
+</body></html>

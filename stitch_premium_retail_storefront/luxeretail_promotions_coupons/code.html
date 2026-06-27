@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Promotions &amp; Coupons | LuxeRetail Admin</title>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Design System Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#dae2fd",
+                        "tertiary-container": "#996100",
+                        "primary-container": "#2563eb",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface-dim": "#d9d9e5",
+                        "surface-container-low": "#f3f3fe",
+                        "on-tertiary-fixed": "#2a1700",
+                        "on-secondary-container": "#5c647a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "inverse-on-surface": "#f0f0fb",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface": "#faf8ff",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e1e2ed",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "surface-container-high": "#e7e7f3",
+                        "on-surface-variant": "#434655",
+                        "on-surface": "#191b23",
+                        "on-background": "#191b23",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "background": "#faf8ff",
+                        "outline": "#737686",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#faf8ff",
+                        "secondary-container": "#dae2fd",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#eeefff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#784b00",
+                        "on-tertiary-container": "#ffeedd",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "outline-variant": "#c3c6d7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-tint": "#0053db",
+                        "primary": "#004ac6",
+                        "inverse-surface": "#2e3039",
+                        "surface-container-highest": "#e1e2ed",
+                        "secondary": "#565e74",
+                        "surface-container": "#ededf9",
+                        "on-secondary-fixed": "#131b2e"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "md": "16px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "3xl": "64px",
+                        "xl": "32px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "display-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+        }
+        .glass-header {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .card-shadow {
+            box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+        }
+        .card-shadow:hover {
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+        }
+        input:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 4px #004ac6 !important;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen">
+<!-- Shared Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 dark:border-outline/20 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface dark:text-on-background">LuxeRetail</span>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="font-body-md text-body-md font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Shop All</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="font-body-md text-body-md font-medium text-primary dark:text-primary-fixed border-b-2 border-primary pb-1" href="#">Promotions</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant dark:text-surface-variant hover:text-primary transition-colors" href="#">Best Sellers</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="search">search</span>
+</button>
+<button class="p-sm hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="favorite">favorite</span>
+</button>
+<button class="p-sm hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-all active:scale-90 relative">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-primary rounded-full"></span>
+</button>
+<button class="p-sm hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-full transition-all active:scale-90">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-3xl px-margin-mobile md:px-xl max-w-container-max mx-auto space-y-lg">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-md">
+<div class="space-y-xs">
+<div class="flex items-center gap-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Promotions &amp; Coupons</h1>
+<span class="px-sm py-xs bg-primary-container/10 text-primary font-label-sm text-label-sm rounded-full">14 Active</span>
+</div>
+<p class="text-on-surface-variant font-body-md">Manage your marketing campaigns and discount strategies from one central dashboard.</p>
+</div>
+<button class="flex items-center gap-sm bg-primary text-on-primary px-lg py-md rounded-lg font-label-md text-label-md hover:shadow-lg active:scale-95 transition-all" onclick="openModal()">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Create Coupon
+            </button>
+</div>
+<!-- Summary Statistics -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl card-shadow border border-outline-variant/10">
+<div class="flex justify-between items-start mb-md">
+<span class="p-sm bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</span>
+<span class="text-on-tertiary-fixed-variant font-label-sm bg-tertiary-fixed/30 px-xs rounded flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span> 12%
+                    </span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Total Discounts Given</h3>
+<p class="text-on-surface font-headline-md text-headline-md mt-xs">$42,590.20</p>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl card-shadow border border-outline-variant/10">
+<div class="flex justify-between items-start mb-md">
+<span class="p-sm bg-secondary/10 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="campaign">campaign</span>
+</span>
+<span class="text-on-surface-variant font-label-sm bg-surface-variant/30 px-xs rounded">Last 30 Days</span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Active Campaigns</h3>
+<p class="text-on-surface font-headline-md text-headline-md mt-xs">8 Campaigns</p>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl card-shadow border border-outline-variant/10">
+<div class="flex justify-between items-start mb-md">
+<span class="p-sm bg-tertiary/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" data-icon="conversion_path">conversion_path</span>
+</span>
+<span class="text-on-tertiary-fixed-variant font-label-sm bg-tertiary-fixed/30 px-xs rounded flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="arrow_upward">arrow_upward</span> 3.4%
+                    </span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Conversion Rate</h3>
+<p class="text-on-surface font-headline-md text-headline-md mt-xs">18.4%</p>
+</div>
+<!-- Metric 4 -->
+<div class="bg-surface-container-lowest p-lg rounded-xl card-shadow border border-outline-variant/10">
+<div class="flex justify-between items-start mb-md">
+<span class="p-sm bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="award_star">award_star</span>
+</span>
+<span class="text-on-surface-variant font-label-sm bg-surface-variant/30 px-xs rounded">Best Perfomer</span>
+</div>
+<h3 class="text-on-surface-variant font-label-md text-label-md">Top Performing Code</h3>
+<p class="text-primary font-headline-md text-headline-md mt-xs tracking-tight">SUMMER24</p>
+</div>
+</div>
+<!-- Filters & Search -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-md flex flex-col md:flex-row gap-md items-center shadow-sm">
+<div class="relative w-full md:w-96 group">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant transition-colors group-focus-within:text-primary" data-icon="search">search</span>
+<input class="w-full pl-12 pr-md py-md bg-surface border-outline-variant rounded-lg font-body-md focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search by code or campaign..." type="text"/>
+</div>
+<div class="flex items-center gap-md w-full md:w-auto overflow-x-auto pb-xs md:pb-0 scrollbar-hide">
+<select class="bg-surface border-outline-variant rounded-lg font-label-sm py-md px-lg focus:ring-primary/20">
+<option>All Statuses</option>
+<option>Active</option>
+<option>Scheduled</option>
+<option>Expired</option>
+<option>Disabled</option>
+</select>
+<select class="bg-surface border-outline-variant rounded-lg font-label-sm py-md px-lg focus:ring-primary/20">
+<option>Discount Type</option>
+<option>Percentage</option>
+<option>Fixed Amount</option>
+<option>Free Shipping</option>
+</select>
+<button class="flex items-center gap-xs px-lg py-md border border-outline-variant rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="filter_list">filter_list</span>
+                    More Filters
+                </button>
+</div>
+</div>
+<!-- Coupon Management Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/50">
+<th class="px-lg py-md font-label-sm text-on-surface-variant uppercase tracking-wider">Coupon Code</th>
+<th class="px-lg py-md font-label-sm text-on-surface-variant uppercase tracking-wider">Type &amp; Value</th>
+<th class="px-lg py-md font-label-sm text-on-surface-variant uppercase tracking-wider">Usage Count</th>
+<th class="px-lg py-md font-label-sm text-on-surface-variant uppercase tracking-wider">Expiry Date</th>
+<th class="px-lg py-md font-label-sm text-on-surface-variant uppercase tracking-wider">Status</th>
+<th class="px-lg py-md font-label-sm text-on-surface-variant uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-lg">
+<div class="flex items-center gap-md">
+<span class="font-mono bg-surface-variant/50 px-sm py-xs rounded text-on-surface font-semibold select-all">SUMMER24</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</td>
+<td class="px-lg py-lg">
+<div class="space-y-xs">
+<p class="font-body-md text-on-surface font-medium">Percentage</p>
+<p class="font-body-sm text-primary font-bold">20% Off</p>
+</div>
+</td>
+<td class="px-lg py-lg">
+<div class="w-48 space-y-xs">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>450 / 1000</span>
+<span>45%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full" style="width: 45%"></div>
+</div>
+</div>
+</td>
+<td class="px-lg py-lg">
+<div class="flex flex-col">
+<span class="font-body-md text-on-surface">Aug 31, 2024</span>
+<span class="text-error font-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="schedule">schedule</span> 5 days left
+                                    </span>
+</div>
+</td>
+<td class="px-lg py-lg">
+<span class="px-md py-xs bg-primary-container/10 text-primary font-label-sm rounded-full">Active</span>
+</td>
+<td class="px-lg py-lg text-right">
+<div class="flex items-center justify-end gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded transition-all" title="Edit">
+<span class="material-symbols-outlined" data-icon="edit">edit</span>
+</button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded transition-all" title="Duplicate">
+<span class="material-symbols-outlined" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-xs text-error hover:bg-error/10 rounded transition-all" title="Terminate">
+<span class="material-symbols-outlined" data-icon="cancel">cancel</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-lg py-lg">
+<div class="flex items-center gap-md">
+<span class="font-mono bg-surface-variant/50 px-sm py-xs rounded text-on-surface font-semibold select-all">FIRSTBUY</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</td>
+<td class="px-lg py-lg">
+<div class="space-y-xs">
+<p class="font-body-md text-on-surface font-medium">Fixed Amount</p>
+<p class="font-body-sm text-primary font-bold">$15.00 Off</p>
+</div>
+</td>
+<td class="px-lg py-lg">
+<div class="w-48 space-y-xs">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>Unlimited</span>
+<span>∞</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary/30 h-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="px-lg py-lg">
+<span class="font-body-md text-on-surface-variant italic">No Expiry</span>
+</td>
+<td class="px-lg py-lg">
+<span class="px-md py-xs bg-primary-container/10 text-primary font-label-sm rounded-full">Active</span>
+</td>
+<td class="px-lg py-lg text-right">
+<div class="flex items-center justify-end gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded transition-all"><span class="material-symbols-outlined" data-icon="edit">edit</span></button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded transition-all"><span class="material-symbols-outlined" data-icon="content_copy">content_copy</span></button>
+<button class="p-xs text-error hover:bg-error/10 rounded transition-all"><span class="material-symbols-outlined" data-icon="cancel">cancel</span></button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-low/50 transition-colors opacity-75 grayscale-[0.5]">
+<td class="px-lg py-lg">
+<div class="flex items-center gap-md">
+<span class="font-mono bg-surface-variant/50 px-sm py-xs rounded text-on-surface font-semibold select-all">WELCOME10</span>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+</button>
+</div>
+</td>
+<td class="px-lg py-lg">
+<div class="space-y-xs">
+<p class="font-body-md text-on-surface font-medium">Percentage</p>
+<p class="font-body-sm text-on-surface-variant font-bold">10% Off</p>
+</div>
+</td>
+<td class="px-lg py-lg">
+<div class="w-48 space-y-xs">
+<div class="flex justify-between font-label-sm text-on-surface-variant">
+<span>500 / 500</span>
+<span>100%</span>
+</div>
+<div class="w-full bg-surface-variant rounded-full h-1.5 overflow-hidden">
+<div class="bg-secondary h-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="px-lg py-lg">
+<span class="font-body-md text-on-surface-variant">Jan 01, 2024</span>
+</td>
+<td class="px-lg py-lg">
+<span class="px-md py-xs bg-surface-variant text-on-surface-variant font-label-sm rounded-full">Expired</span>
+</td>
+<td class="px-lg py-lg text-right">
+<div class="flex items-center justify-end gap-sm">
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded transition-all"><span class="material-symbols-outlined" data-icon="history">history</span></button>
+<button class="p-xs text-on-surface-variant hover:bg-surface-variant rounded transition-all"><span class="material-symbols-outlined" data-icon="content_copy">content_copy</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-lg bg-surface-container-low flex justify-between items-center border-t border-outline-variant/50">
+<p class="font-body-sm text-on-surface-variant">Showing 1 to 3 of 14 promotions</p>
+<div class="flex items-center gap-sm">
+<button class="p-sm rounded-lg hover:bg-surface-variant text-on-surface-variant disabled:opacity-30" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded-lg bg-primary text-on-primary font-label-sm">1</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-variant text-on-surface-variant font-label-sm">2</button>
+<button class="w-8 h-8 rounded-lg hover:bg-surface-variant text-on-surface-variant font-label-sm">3</button>
+<button class="p-sm rounded-lg hover:bg-surface-variant text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Modal Background -->
+<div class="fixed inset-0 bg-on-surface/40 backdrop-blur-sm z-[60] hidden flex items-center justify-center p-margin-mobile" id="modalOverlay">
+<!-- Create Coupon Modal -->
+<div class="bg-surface-container-lowest w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden scale-95 opacity-0 transition-all duration-300 transform" id="couponModal">
+<div class="p-xl border-b border-outline-variant/30 flex justify-between items-center">
+<h2 class="font-headline-md text-headline-md text-on-surface">Create New Coupon</h2>
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-all" onclick="closeModal()">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div class="p-xl max-h-[716px] overflow-y-auto custom-scrollbar space-y-xl">
+<!-- Basic Info -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">Coupon Code</label>
+<div class="relative">
+<input class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-mono uppercase focus:ring-primary/20" id="couponInput" placeholder="e.g., SAVE20" type="text"/>
+<button class="absolute right-md top-1/2 -translate-y-1/2 text-primary font-label-sm hover:underline" onclick="generateCode()">Auto-generate</button>
+</div>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">Discount Type</label>
+<select class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary/20">
+<option>Percentage (%)</option>
+<option>Fixed Amount ($)</option>
+<option>Free Shipping</option>
+</select>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">Discount Value</label>
+<input class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary/20" placeholder="20" type="number"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">Minimum Purchase ($)</label>
+<input class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary/20" placeholder="0.00" type="number"/>
+</div>
+</div>
+<!-- Usage Limits -->
+<div class="space-y-md pt-md border-t border-outline-variant/20">
+<h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-widest">Usage Limits</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">Total Usage Limit</label>
+<input class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary/20" placeholder="Unlimited" type="number"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">Usage Limit Per Customer</label>
+<input class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary/20" placeholder="1" type="number"/>
+</div>
+</div>
+</div>
+<!-- Dates -->
+<div class="space-y-md pt-md border-t border-outline-variant/20">
+<h3 class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-widest">Validity Period</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">Start Date</label>
+<input class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary/20" type="date"/>
+</div>
+<div class="space-y-xs">
+<label class="font-label-md text-label-md text-on-surface-variant block">End Date (Optional)</label>
+<input class="w-full px-md py-md bg-surface border border-outline-variant rounded-lg font-body-md focus:ring-primary/20" type="date"/>
+</div>
+</div>
+</div>
+</div>
+<div class="p-xl border-t border-outline-variant/30 bg-surface-container-low flex justify-end gap-md">
+<button class="px-lg py-md text-on-surface-variant font-label-md hover:bg-surface-variant rounded-lg transition-all" onclick="closeModal()">Cancel</button>
+<button class="px-xl py-md bg-primary text-on-primary font-label-md rounded-lg shadow-md hover:shadow-lg active:scale-95 transition-all">Create Coupon</button>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest dark:bg-surface-dim border-t border-outline-variant/20 w-full pt-3xl pb-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="space-y-md">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">LuxeRetail</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">The premium all-in-one retail management suite for modern brands.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-sm text-on-surface font-bold">Platform</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Sustainability</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">About Us</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-sm text-on-surface font-bold">Support</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Contact Support</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Shipping &amp; Returns</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-sm text-on-surface font-bold">Legal</span>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Privacy Policy</a>
+<a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline underline-offset-4" href="#">Terms of Service</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl mt-2xl pt-lg border-t border-outline-variant/10 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">© 2024 LuxeRetail. All rights reserved.</p>
+</div>
+</footer>
+<script>
+        const modalOverlay = document.getElementById('modalOverlay');
+        const couponModal = document.getElementById('couponModal');
+        const couponInput = document.getElementById('couponInput');
+
+        function openModal() {
+            modalOverlay.classList.remove('hidden');
+            modalOverlay.classList.add('flex');
+            setTimeout(() => {
+                couponModal.classList.remove('scale-95', 'opacity-0');
+                couponModal.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeModal() {
+            couponModal.classList.add('scale-95', 'opacity-0');
+            couponModal.classList.remove('scale-100', 'opacity-100');
+            setTimeout(() => {
+                modalOverlay.classList.remove('flex');
+                modalOverlay.classList.add('hidden');
+            }, 300);
+        }
+
+        function generateCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 8; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            couponInput.value = result;
+            couponInput.classList.add('animate-pulse');
+            setTimeout(() => couponInput.classList.remove('animate-pulse'), 500);
+        }
+
+        // Close modal on click outside
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) closeModal();
+        });
+
+        // Copy functionality micro-interaction
+        document.querySelectorAll('.font-mono').forEach(el => {
+            el.addEventListener('click', () => {
+                const text = el.innerText;
+                navigator.clipboard.writeText(text).then(() => {
+                    const originalText = el.innerText;
+                    el.innerText = 'COPIED!';
+                    el.classList.add('text-primary');
+                    setTimeout(() => {
+                        el.innerText = originalText;
+                        el.classList.remove('text-primary');
+                    }, 1000);
+                });
+            });
+        });
+    </script>
+</body></html>

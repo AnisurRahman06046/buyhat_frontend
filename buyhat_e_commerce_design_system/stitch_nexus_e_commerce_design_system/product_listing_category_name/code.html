@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shop All | LUXE RETAIL</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@700;800&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#6cf8bb",
+                        "tertiary-fixed-dim": "#ffb690",
+                        "on-background": "#1a1b21",
+                        "surface-container-low": "#f4f3fa",
+                        "surface-variant": "#e3e1e9",
+                        "on-primary-fixed-variant": "#264191",
+                        "on-tertiary-fixed-variant": "#783200",
+                        "inverse-primary": "#b6c4ff",
+                        "outline-variant": "#c5c5d3",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#4edea3",
+                        "on-surface-variant": "#444651",
+                        "surface-dim": "#dad9e1",
+                        "on-secondary-container": "#00714d",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbca",
+                        "surface-container": "#eeedf4",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e9e7ef",
+                        "primary-fixed": "#dce1ff",
+                        "on-error-container": "#93000a",
+                        "surface": "#faf8ff",
+                        "on-surface": "#1a1b21",
+                        "on-secondary-fixed-variant": "#005236",
+                        "secondary-fixed": "#6ffbbe",
+                        "secondary": "#006c49",
+                        "on-primary-fixed": "#00164e",
+                        "on-primary-container": "#90a8ff",
+                        "on-tertiary-container": "#ff8f4f",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "outline": "#757682",
+                        "on-tertiary-fixed": "#341100",
+                        "tertiary-container": "#6e2d00",
+                        "on-error": "#ffffff",
+                        "tertiary": "#4b1c00",
+                        "on-secondary-fixed": "#002113",
+                        "inverse-on-surface": "#f1f0f7",
+                        "surface-bright": "#faf8ff",
+                        "inverse-surface": "#2f3036",
+                        "primary-container": "#1e3a8a",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "background": "#faf8ff",
+                        "surface-container-highest": "#e3e1e9",
+                        "surface-tint": "#4059aa",
+                        "primary": "#00236f",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "40px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "container-max": "1280px",
+                        "xl": "64px"
+                    },
+                    "fontFamily": {
+                        "button-text": ["inter"],
+                        "label-caps": ["jetbrainsMono"],
+                        "display-lg-mobile": ["manrope"],
+                        "headline-md": ["manrope"],
+                        "body-md": ["inter"],
+                        "body-lg": ["inter"],
+                        "display-lg": ["manrope"],
+                        "price-xl": ["manrope"]
+                    },
+                    "fontSize": {
+                        "button-text": ["16px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "price-xl": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .card-shadow { shadow-sm: 0px 4px 12px rgba(15, 23, 42, 0.05); }
+        .card-hover:hover { box-shadow: 0px 8px 20px rgba(15, 23, 42, 0.08); transform: translateY(-2px); }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface-container-lowest dark:bg-inverse-surface border-b border-outline-variant dark:border-outline shadow-sm dark:shadow-none">
+<div class="flex flex-col md:flex-row justify-between items-center px-gutter py-sm max-w-container-max mx-auto gap-4">
+<div class="font-display-lg text-headline-md font-extrabold text-primary dark:text-primary-fixed-dim cursor-pointer">
+                LUXE RETAIL
+            </div>
+<nav class="hidden md:flex items-center gap-md">
+<!-- Shop All is active -->
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed border-b-2 border-primary pb-1 font-bold cursor-pointer active:opacity-80 transition-all" href="#">Shop All</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-80" href="#">New Arrivals</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Best Sellers</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Categories</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-80 text-error" href="#">Sale</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 cursor-pointer active:opacity-80" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-sm">
+<div class="relative hidden sm:block">
+<input class="bg-surface-container-low border border-outline-variant rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 w-48 lg:w-64" placeholder="Search..." type="text"/>
+<span class="material-symbols-outlined absolute right-3 top-2 text-on-surface-variant">search</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors cursor-pointer"><span class="material-symbols-outlined">person</span></button>
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors cursor-pointer"><span class="material-symbols-outlined">favorite</span></button>
+<button class="p-2 hover:bg-surface-variant rounded-full transition-colors cursor-pointer relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow max-w-container-max mx-auto w-full px-gutter py-lg">
+<div class="flex flex-col md:flex-row gap-lg">
+<!-- Left Filter Panel -->
+<aside class="w-full md:w-64 flex-shrink-0 space-y-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md">Filters</h2>
+<button class="text-primary font-button-text text-sm hover:underline">Clear all</button>
+</div>
+<!-- Price Range -->
+<div class="border-b border-outline-variant pb-md">
+<h3 class="font-bold text-on-surface mb-sm">Price Range</h3>
+<div class="space-y-4">
+<input class="w-full h-1 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" max="5000" min="0" type="range"/>
+<div class="flex items-center justify-between text-sm text-on-surface-variant">
+<span class="bg-surface-container-lowest border border-outline-variant px-2 py-1 rounded-lg">$0</span>
+<span class="bg-surface-container-lowest border border-outline-variant px-2 py-1 rounded-lg">$5,000</span>
+</div>
+</div>
+</div>
+<!-- Brand -->
+<div class="border-b border-outline-variant pb-md">
+<h3 class="font-bold text-on-surface mb-sm">Brand</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Luxe Originals</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Avant-Garde</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Modern Minimal</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Heritage</span>
+</label>
+</div>
+</div>
+<!-- Rating -->
+<div class="border-b border-outline-variant pb-md">
+<h3 class="font-bold text-on-surface mb-sm">Rating</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 border-outline-variant text-primary focus:ring-primary" name="rating" type="radio"/>
+<div class="flex items-center gap-1 text-[#FACC15]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-on-surface-variant text-sm ml-1">&amp; Up</span>
+</div>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 border-outline-variant text-primary focus:ring-primary" name="rating" type="radio"/>
+<div class="flex items-center gap-1 text-[#FACC15]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="text-on-surface-variant text-sm ml-1">&amp; Up</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Availability -->
+<div>
+<h3 class="font-bold text-on-surface mb-sm">Availability</h3>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">In Stock</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<span class="text-body-md">Pre-order</span>
+</label>
+</div>
+</div>
+</aside>
+<!-- Product Grid -->
+<div class="flex-grow">
+<!-- Sorting & Top Bar -->
+<div class="flex flex-col sm:flex-row justify-between items-center mb-md gap-4">
+<p class="text-on-surface-variant">Showing <span class="font-bold text-on-surface">48</span> products</p>
+<div class="flex items-center gap-sm">
+<span class="text-sm text-on-surface-variant">Sort by:</span>
+<select class="bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 outline-none">
+<option>Featured</option>
+<option>Newest Arrivals</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+</select>
+</div>
+</div>
+<!-- Cards Grid -->
+<div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-md">
+<!-- Product Card 1 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-2 transition-all duration-300 card-hover">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A professional studio product shot of a minimalist, high-end designer leather bag in a cream color. The lighting is soft and directional, highlighting the premium grain and stitching details against a clean, off-white background. The aesthetic is extremely clean and luxurious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp1NokqKOd_3kWnCztrjECpjuzUje_Be-Ifr6rC8tR4zMYgC30eiLdoSv1tSviPY7tqfRKY0ER9GAuUs6cqT_atHMVNDsT8VguRyBpGgJKJH6TgCAJ4ZuKE1C7x5GSFmNxZU4xMOdiGmnC58eztfHl9P5u2powbtypje-nX45Wq158HvjwmUIRp4az1DJXOtaXNpo9Ek2brIP3WIwUUxcfkK3T9UvsZdo2ZHY_RFxorg6sQkCiqWK04OEptk_mYW53ZA_1rg6nhzc"/>
+<span class="absolute top-2 left-2 bg-error text-on-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">20% OFF</span>
+<button class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+</div>
+<div class="mt-sm p-2">
+<p class="text-[10px] text-primary font-label-caps uppercase mb-1">Avant-Garde</p>
+<h4 class="font-bold text-on-surface truncate">Signature Leather Tote</h4>
+<div class="flex items-center gap-1 mt-1 mb-2">
+<div class="flex text-[#FACC15]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">(124)</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-primary">$450.00</span>
+<span class="text-on-surface-variant line-through text-sm">$560.00</span>
+</div>
+<button class="w-full mt-sm bg-[#F97316] text-white font-button-text py-2 rounded-xl hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] active:scale-95 transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-2 transition-all duration-300 card-hover">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A macro close-up of a premium mechanical wristwatch featuring a deep blue dial and silver accents. The lighting uses high-contrast shadows to emphasize the metallic textures and the complexity of the internal gears seen through the glass back. A professional, sleek, and authoritative product photograph." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp0oCewjukOZfMuULWagFXftm--ZAJeyXYUmTnq3VqSbHyKUgkXkHw21W00HUd6JHYv9dX3Q9Bb1jXKAp6Ynp3miCXBlUbff5dYi3PF89pclybAajZJC3SV6aGdkqh8wmWxcvb6GCptkDOdw_D6_vH5QIHM9xa4fLvCbMGPj2RY8co4bHqz4103IuPAniWmkPApWa39ETCDnQgbfPA5jrN5EDAyfrvYZMKpc4-lYu_JwGZUSXdUktFWS8EAWFYujxRmpMiCG6roS8"/>
+<span class="absolute top-2 left-2 bg-secondary text-on-secondary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">New Arrival</span>
+<button class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+</div>
+<div class="mt-sm p-2">
+<p class="text-[10px] text-primary font-label-caps uppercase mb-1">Heritage</p>
+<h4 class="font-bold text-on-surface truncate">Chrono Classic Silver</h4>
+<div class="flex items-center gap-1 mt-1 mb-2">
+<div class="flex text-[#FACC15]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">(89)</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-primary">$1,200.00</span>
+</div>
+<button class="w-full mt-sm bg-[#F97316] text-white font-button-text py-2 rounded-xl hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] active:scale-95 transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-2 transition-all duration-300 card-hover">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Modern geometric decorative vase set on a polished marble surface. The vases have a matte charcoal finish and striking architectural angles. The setting is a bright, high-end living space with natural light streaming from a window, creating long, soft shadows. Clean, professional composition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyAaCpRPDWw1KAyKRWjLhi1U-LYFQh3KdHE7aReDwLCFMw7kq2hgFUBiga8JZb6hf4Kp-8vy6iFp9BiT_b_g7L8GcI29iBTm8gUc6xXpv2yrMMES-8LZYx8nIpTIlY8H9j_g4rO3ZijmtMe6kMZYhPFnMve5Ye-gd49-exUIIrkuyUt7J4_-bkRWKF7mwDjfgdANfZmDdupSMrZbikB212ngzUScv7XAgq4AcBdV-54OU3YbeAFHBKT2G38LZwL1aW0YAzTl5vBTg"/>
+<button class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+</div>
+<div class="mt-sm p-2">
+<p class="text-[10px] text-primary font-label-caps uppercase mb-1">Modern Minimal</p>
+<h4 class="font-bold text-on-surface truncate">Arch Ceramic Set</h4>
+<div class="flex items-center gap-1 mt-1 mb-2">
+<div class="flex text-[#FACC15]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">(45)</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-primary">$85.00</span>
+</div>
+<button class="w-full mt-sm bg-[#F97316] text-white font-button-text py-2 rounded-xl hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] active:scale-95 transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-2 transition-all duration-300 card-hover">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-fidelity wireless over-ear headphones in brushed aluminum and black leather. They are suspended in mid-air against a soft gradient background of deep blue and silver. Subtle glowing accents on the earcups suggest high-tech capabilities. Sleek, professional electronics product photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHNRvTXRtIupcDDECbY6QhiPaaW-W94CtXuu9WHj2sUfBbwT-5GtgrRexMhZZKS4KZJQUxWqCayclq5fhPRLYZdpP0v4wFvRhnS6O8bEKKwTgSz44sKvLuL2xb9gdAyPEOytgw8yGifzz1_F3oba4Q5kfzaC7QB4NaH4wEirsq6tRZXFmZ7tzqtyqu8Ml3EB1cJJmqtSdAeXRBO_2Q4yoWePNc63jKS_87qbYPDDsGd8BRMXs5bLSiVYwQypXCkQ48z68sOgwrnRA"/>
+<span class="absolute top-2 left-2 bg-error text-on-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Low Stock</span>
+<button class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+</div>
+<div class="mt-sm p-2">
+<p class="text-[10px] text-primary font-label-caps uppercase mb-1">Avant-Garde</p>
+<h4 class="font-bold text-on-surface truncate">Sonic Pro Wireless</h4>
+<div class="flex items-center gap-1 mt-1 mb-2">
+<div class="flex text-[#FACC15]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">(256)</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-primary">$299.00</span>
+<span class="text-on-surface-variant line-through text-sm">$350.00</span>
+</div>
+<button class="w-full mt-sm bg-[#F97316] text-white font-button-text py-2 rounded-xl hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] active:scale-95 transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Additional repeated cards for grid effect -->
+<!-- Product Card 5 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-2 transition-all duration-300 card-hover">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A luxury silk scarf featuring a vibrant, hand-painted floral pattern in deep reds and oranges. The fabric is draped elegantly over a minimal white stand. The lighting is soft and even, highlighting the lustrous texture and intricate detail of the print. High-end fashion editorial style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8ArIK5ldUZyGtHPpJ6m2hJhaqKeM8qpef3nYhJQuj5ujJChbzxtkTesKi4Q0AmsgWR9WXlk9Rk61PZOJOBTfZ4w3udNy9NUuMwS2znXz95vaTaEiJzDYEcDpp3YldsIpKWTbl9hGIoxG-OJ3EAHLcxXwna62YRCcVdClkZyBuX6fPnUt2AJ4_jgQ-bOP0nNJCtT1fYt7gPU6zc40itdHq3h_xslQOFQWk_NNIPq4Ss-VqUOoMr4MIFERyX9yWeVmpOM576QKTIz0"/>
+<button class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+</div>
+<div class="mt-sm p-2">
+<p class="text-[10px] text-primary font-label-caps uppercase mb-1">Luxe Originals</p>
+<h4 class="font-bold text-on-surface truncate">Hand-Painted Silk Scarf</h4>
+<div class="flex items-center gap-1 mt-1 mb-2">
+<div class="flex text-[#FACC15]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">(18)</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-primary">$150.00</span>
+</div>
+<button class="w-full mt-sm bg-[#F97316] text-white font-button-text py-2 rounded-xl hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] active:scale-95 transition-all">Add to Cart</button>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group bg-white rounded-xl border border-outline-variant p-2 transition-all duration-300 card-hover">
+<div class="relative aspect-square rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist desk lamp with a matte black finish and a sleek, adjustable arm. The lamp is placed on a modern oak desk with a few curated stationery items nearby. The overall aesthetic is calm, organized, and professional with soft, natural lighting. A perfect architectural and interior design product shot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt-aHHZ7NglYV82nLT5ozFqCCA798cPnLQ7r9bgHNOugG-Tu_THp2n5RujghmfzewtgSM5CMJwnoGzEfF3NWk-gI0060hkOX4LUaEDeKoKHKG5oZQOxhOLs7lobe_kyAKv-FtS-XoLRQotUQcOXW_w7NRFWmJCHjczTsluZGlY1bacyIFTALjI1ZdmfSs33lkvyqLtJtzTflifEhfh0eXMXWEIiub_3fHfnJ_Ga1S6PGnnikuVNz6JON_dSJHjHwsC_C0E2wugEa8"/>
+<span class="absolute top-2 left-2 bg-secondary text-on-secondary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Sustainable</span>
+<button class="absolute top-2 right-2 bg-white/80 backdrop-blur-md p-1.5 rounded-full hover:bg-white transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+</div>
+<div class="mt-sm p-2">
+<p class="text-[10px] text-primary font-label-caps uppercase mb-1">Modern Minimal</p>
+<h4 class="font-bold text-on-surface truncate">Linear Desk Lamp</h4>
+<div class="flex items-center gap-1 mt-1 mb-2">
+<div class="flex text-[#FACC15]">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">(62)</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-price-xl text-primary">$185.00</span>
+</div>
+<button class="w-full mt-sm bg-[#F97316] text-white font-button-text py-2 rounded-xl hover:shadow-[0_0_12px_rgba(249,115,22,0.4)] active:scale-95 transition-all">Add to Cart</button>
+</div>
+</div>
+</div>
+<!-- Pagination/Infinite Scroll Loader -->
+<div class="mt-xl flex flex-col items-center gap-md">
+<button class="px-xl py-3 border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary hover:text-on-primary transition-all active:scale-95">Load More</button>
+<div class="w-full max-w-xs h-1 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-1/3 h-full bg-primary rounded-full transition-all duration-1000 animate-pulse"></div>
+</div>
+<p class="text-sm text-on-surface-variant">You've viewed 6 of 48 products</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-auto bg-surface-container-high dark:bg-surface-dim">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-md px-gutter py-xl max-w-container-max mx-auto">
+<div>
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-md">
+                    LUXE RETAIL
+                </div>
+<p class="text-body-md text-on-surface-variant dark:text-surface-variant max-w-xs">
+                    Redefining high-performance e-commerce with a curated selection of luxury products.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface dark:text-on-surface-variant">Customer Service</h4>
+<ul class="space-y-2 text-body-md">
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer" href="#">Shipping Info</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer" href="#">Returns</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer" href="#">Contact Us</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer" href="#">Support Center</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface dark:text-on-surface-variant">Company</h4>
+<ul class="space-y-2 text-body-md">
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer" href="#">Affiliates</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer" href="#">Terms of Service</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer" href="#">Privacy Policy</a></li>
+<li><a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-secondary-fixed transition-colors cursor-pointer underline" href="#">Newsletter</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h4 class="font-bold text-on-surface dark:text-on-surface-variant">Newsletter</h4>
+<p class="text-sm text-on-surface-variant dark:text-surface-variant">Get updates on new collections and sales.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container-lowest border border-outline-variant rounded-lg px-4 py-2 text-sm focus:outline-none w-full" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary px-4 py-2 rounded-lg font-bold hover:opacity-90 transition-opacity">Join</button>
+</div>
+</div>
+</div>
+<div class="border-t border-outline-variant dark:border-outline py-md px-gutter text-center text-sm text-on-surface-variant dark:text-surface-variant">
+            © 2024 Luxe Retail Corp. All rights reserved.
+        </div>
+</footer>
+<!-- Back to Top FAB -->
+<button class="fixed bottom-8 right-8 bg-primary text-on-primary p-4 rounded-full shadow-lg opacity-0 translate-y-10 transition-all duration-300 hover:scale-110 active:scale-95 z-40" id="backToTop">
+<span class="material-symbols-outlined">arrow_upward</span>
+</button>
+<script>
+        // Micro-interactions and scroll effects
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.classList.remove('opacity-0', 'translate-y-10');
+                backToTop.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                backToTop.classList.add('opacity-0', 'translate-y-10');
+                backToTop.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Add to cart toast simulation
+        const cartButtons = document.querySelectorAll('button:contains("Add to Cart")');
+        // Since :contains isn't standard CSS, we'll loop manually
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.innerText.includes('Add to Cart')) {
+                btn.addEventListener('click', function() {
+                    const originalText = this.innerText;
+                    this.innerText = 'Added!';
+                    this.classList.remove('bg-[#F97316]');
+                    this.classList.add('bg-secondary');
+                    
+                    setTimeout(() => {
+                        this.innerText = originalText;
+                        this.classList.add('bg-[#F97316]');
+                        this.classList.remove('bg-secondary');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body></html>

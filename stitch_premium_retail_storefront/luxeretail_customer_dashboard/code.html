@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Dashboard | LuxeRetail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "on-secondary-fixed": "#131b2e",
+                    "primary-container": "#2563eb",
+                    "on-primary-fixed-variant": "#003ea8",
+                    "inverse-surface": "#2e3039",
+                    "tertiary": "#784b00",
+                    "background": "#faf8ff",
+                    "on-secondary-container": "#5c647a",
+                    "tertiary-fixed": "#ffddb8",
+                    "outline-variant": "#c3c6d7",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-container": "#eeefff",
+                    "primary-fixed-dim": "#b4c5ff",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "surface-dim": "#d9d9e5",
+                    "surface-container": "#ededf9",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#e1e2ed",
+                    "on-surface-variant": "#434655",
+                    "secondary-fixed-dim": "#bec6e0",
+                    "surface": "#faf8ff",
+                    "on-background": "#191b23",
+                    "on-primary-fixed": "#00174b",
+                    "surface-tint": "#0053db",
+                    "inverse-on-surface": "#f0f0fb",
+                    "inverse-primary": "#b4c5ff",
+                    "on-surface": "#191b23",
+                    "tertiary-container": "#996100",
+                    "primary-fixed": "#dbe1ff",
+                    "surface-container-low": "#f3f3fe",
+                    "on-error-container": "#93000a",
+                    "surface-bright": "#faf8ff",
+                    "surface-container-highest": "#e1e2ed",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#ffeedd",
+                    "outline": "#737686",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#2a1700",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#dae2fd",
+                    "surface-container-high": "#e7e7f3",
+                    "secondary": "#565e74",
+                    "secondary-fixed": "#dae2fd",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "primary": "#004ac6",
+                    "on-secondary-fixed-variant": "#3f465c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "gutter": "24px",
+                    "base": "4px",
+                    "md": "16px",
+                    "margin-mobile": "16px",
+                    "xs": "4px",
+                    "xl": "32px",
+                    "3xl": "64px",
+                    "2xl": "48px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "label-sm": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "display-xl": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "headline-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-md": ["Inter"],
+                    "display-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-card-shadow {
+            shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
+        }
+        .hover-card-shadow:hover {
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">LuxeRetail</div>
+<nav class="hidden md:flex gap-lg items-center font-body-md text-body-md font-medium">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Shop All</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Best Sellers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Categories</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Sale</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all text-on-surface-variant relative">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="absolute top-0 right-0 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full">2</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-full transition-all text-primary border-b-2 border-primary">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-3xl pb-3xl px-margin-mobile md:px-xl max-w-container-max mx-auto min-h-screen">
+<div class="flex flex-col md:flex-row gap-lg mt-sm">
+<!-- Left Sidebar -->
+<aside class="w-full md:w-64 flex-shrink-0">
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/20 p-md space-y-base sticky top-24">
+<h3 class="px-md py-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Account</h3>
+<nav class="flex flex-col gap-xs">
+<a class="flex items-center gap-md px-md py-3 rounded-lg bg-primary-container text-on-primary-container font-medium transition-all group" href="#">
+<span class="material-symbols-outlined text-on-primary-container" data-icon="dashboard">dashboard</span>
+<span class="font-body-md text-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="local_shipping">local_shipping</span>
+<span class="font-body-md text-body-md">Orders</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="location_on">location_on</span>
+<span class="font-body-md text-body-md">Addresses</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="favorite">favorite</span>
+<span class="font-body-md text-body-md">Wishlist</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all group border-t border-outline-variant/10 mt-sm" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="person">person</span>
+<span class="font-body-md text-body-md">Profile</span>
+</a>
+<a class="flex items-center gap-md px-md py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-all group" href="#">
+<span class="material-symbols-outlined group-hover:text-primary" data-icon="security">security</span>
+<span class="font-body-md text-body-md">Security</span>
+</a>
+<button class="flex items-center gap-md px-md py-3 rounded-lg text-error hover:bg-error-container/50 transition-all mt-3xl">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md text-body-md">Sign Out</span>
+</button>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-grow space-y-lg">
+<!-- Welcome Card -->
+<section class="relative overflow-hidden bg-primary-container rounded-lg p-xl text-on-primary-container flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="relative z-10 space-y-sm text-center md:text-left">
+<h1 class="font-headline-lg text-headline-lg font-bold">Welcome back, Johnathan!</h1>
+<p class="font-body-md text-body-md text-on-primary-container/80">You've completed 3 orders this month. Your next tier is only 250 points away.</p>
+<div class="flex flex-wrap gap-md mt-md justify-center md:justify-start">
+<div class="bg-surface-container-lowest/20 backdrop-blur-md px-lg py-sm rounded-full flex items-center gap-sm border border-on-primary-container/20">
+<span class="material-symbols-outlined text-tertiary-fixed" data-icon="stars" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="font-label-md text-label-md font-bold">1,250 Luxe Points</span>
+</div>
+<button class="bg-on-primary text-primary px-lg py-sm rounded-full font-label-md text-label-md hover:bg-primary-fixed transition-colors shadow-lg">Redeem Rewards</button>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute right-0 top-0 h-full w-1/3 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[200px]" data-icon="shopping_bag">shopping_bag</span>
+</div>
+</section>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<!-- Recent Orders Table (Col-Span 2) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-lg border border-outline-variant/20 overflow-hidden shadow-sm">
+<div class="px-xl py-lg border-b border-outline-variant/20 flex justify-between items-center">
+<h2 class="font-headline-sm text-headline-sm">Recent Orders</h2>
+<button class="text-primary font-label-md text-label-md hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-surface-container-low">
+<tr>
+<th class="px-xl py-md font-label-sm text-label-sm text-secondary-fixed-variant">Order ID</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-secondary-fixed-variant">Date</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-secondary-fixed-variant">Status</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-secondary-fixed-variant">Total</th>
+<th class="px-xl py-md font-label-sm text-label-sm text-secondary-fixed-variant text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-xl py-lg font-medium text-on-surface">#LX-90210</td>
+<td class="px-xl py-lg text-on-surface-variant">May 12, 2024</td>
+<td class="px-xl py-lg">
+<span class="px-md py-1 rounded-full bg-success-container/10 bg-green-100 text-green-700 font-medium text-[12px] flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> Delivered
+                                            </span>
+</td>
+<td class="px-xl py-lg font-bold text-on-surface">$1,450.00</td>
+<td class="px-xl py-lg text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all text-primary">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-xl py-lg font-medium text-on-surface">#LX-88342</td>
+<td class="px-xl py-lg text-on-surface-variant">May 05, 2024</td>
+<td class="px-xl py-lg">
+<span class="px-md py-1 rounded-full bg-blue-100 text-blue-700 font-medium text-[12px] flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Shipped
+                                            </span>
+</td>
+<td class="px-xl py-lg font-bold text-on-surface">$320.50</td>
+<td class="px-xl py-lg text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all text-primary">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="px-xl py-lg font-medium text-on-surface">#LX-77129</td>
+<td class="px-xl py-lg text-on-surface-variant">Apr 28, 2024</td>
+<td class="px-xl py-lg">
+<span class="px-md py-1 rounded-full bg-amber-100 text-amber-700 font-medium text-[12px] flex items-center w-fit gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span> Processing
+                                            </span>
+</td>
+<td class="px-xl py-lg font-bold text-on-surface">$2,100.00</td>
+<td class="px-xl py-lg text-right">
+<button class="p-2 hover:bg-surface-container-high rounded-lg transition-all text-primary">
+<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Right Column Widgets -->
+<div class="space-y-lg">
+<!-- Account Summary Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/20 p-xl shadow-sm">
+<h3 class="font-headline-sm text-headline-sm mb-lg">Account Summary</h3>
+<div class="grid grid-cols-2 gap-md">
+<div class="bg-surface-container-low p-md rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Total Orders</p>
+<p class="font-headline-md text-headline-md font-bold text-primary">24</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-1">Saved Addresses</p>
+<p class="font-headline-md text-headline-md font-bold text-primary">3</p>
+</div>
+</div>
+<div class="mt-lg pt-lg border-t border-outline-variant/10">
+<div class="flex items-center gap-md text-on-surface">
+<div class="w-12 h-12 rounded-full bg-primary-fixed-dim flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="credit_card">credit_card</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-bold">Luxe Card Platinum</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Ending in 4492</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Wishlist Preview Card -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/20 overflow-hidden shadow-sm">
+<div class="px-xl py-lg border-b border-outline-variant/20 flex justify-between items-center">
+<h3 class="font-headline-sm text-headline-sm">Wishlist</h3>
+<a class="text-primary font-label-md text-label-md hover:underline" href="#">See All</a>
+</div>
+<div class="p-lg space-y-md">
+<div class="flex gap-md group cursor-pointer">
+<div class="w-16 h-16 rounded bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Red sneaker" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="A premium high-performance athletic sneaker in vibrant scarlet red, presented on a minimal white background. The studio lighting is bright and clean, emphasizing the sleek textures and technical materials of the footwear. This high-end e-commerce product shot represents the luxury and performance aesthetic of the LuxeRetail brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqwgG1QGYEqT_kbe77YOgHxW8hy0yeiqbED1TPpXCt893NyQhi29v9ItqwKgBIgy-4CAhBJsRLRai9dEGAoH0rkgFYpIL2STg5gdYawOXlZsVDSwjd1gORKwoeTKuB7U6vAORGPAy87kgyqLVwnU0YRu1Uu2XmJ8-qFm1Naz0jtVnAOjeMzdz7OCBS7Uer-whqemVsfdPsWkJDMs-U8LN4XNVVmIAR2ILS4n431FBv4hGVamjjd5Z2gKLk35mozQkKyn1w-IztGeo"/>
+</div>
+<div class="flex-grow">
+<p class="font-label-md text-label-md font-semibold line-clamp-1 group-hover:text-primary transition-colors">Elite Performance Trainers</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$220.00</p>
+<button class="text-primary font-label-sm text-label-sm mt-1 flex items-center gap-1">Add to Cart <span class="material-symbols-outlined text-[14px]" data-icon="shopping_cart">shopping_cart</span></button>
+</div>
+</div>
+<div class="flex gap-md group cursor-pointer">
+<div class="w-16 h-16 rounded bg-surface-container-high overflow-hidden flex-shrink-0">
+<img alt="Designer Watch" class="w-full h-full object-cover transition-transform group-hover:scale-110" data-alt="A luxurious silver chronograph wristwatch with a minimalist white face and polished stainless steel link bracelet. The watch is captured in sharp detail with soft bokeh in the background, highlighting its premium craftsmanship. The lighting is sophisticated and editorial, suggesting a high-status accessory within a modern luxury collection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh-f6hVW2UGvdy_Hw9Rv2eaK2kS5TaHRZWQIH1Jmasa8JDxFug4B_POYcbrO1QU_0JSi0Mb_7eR1-AvflQR0JSuzUtnq5NR5oXxX039NusUNHNIJCZ4ijsyHIYx8FTCNpsb9aEuNfVPz5hAbLUNJ-BMgYJQgJOJYBZz0fYc4_UZvTeswkwpyvxrV4tNSlUGI1I-s04DDlO1iAg5ODomeMbKTHAu6Ib7ElqDP2a6IPYW4SRNEzT3BRaqlRBiCuVKf4ob7uP6YEpUvg"/>
+</div>
+<div class="flex-grow">
+<p class="font-label-md text-label-md font-semibold line-clamp-1 group-hover:text-primary transition-colors">Nomos Minimalist Chronograph</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">$1,850.00</p>
+<button class="text-primary font-label-sm text-label-sm mt-1 flex items-center gap-1">Add to Cart <span class="material-symbols-outlined text-[14px]" data-icon="shopping_cart">shopping_cart</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20 w-full pt-3xl pb-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="col-span-1 space-y-md">
+<div class="font-headline-sm text-headline-sm font-bold text-primary">LuxeRetail</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Experience premium retail curated for the modern connoisseur. Quality, sustainability, and style at your fingertips.</p>
+<div class="flex gap-md">
+<a class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="facebook">face_nod</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="photo_camera">photo_camera</span>
+</a>
+<a class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface hover:bg-primary hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]" data-icon="alternate_email">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-md">Company</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">About Us</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Sustainability</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-md">Customer Support</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Contact Support</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">FAQs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md font-bold mb-md">Legal</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Terms of Service</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline-offset-4 hover:underline" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl mt-3xl pt-lg border-t border-outline-variant/10 text-center">
+<p class="font-body-sm text-body-sm text-on-surface-variant opacity-80">© 2024 LuxeRetail. All rights reserved. Crafted for excellence.</p>
+</div>
+</footer>
+<script>
+        // Micro-interactions for table rows and cards
+        document.querySelectorAll('tr').forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                row.querySelector('.material-symbols-outlined')?.classList.add('scale-110');
+            });
+            row.addEventListener('mouseleave', () => {
+                row.querySelector('.material-symbols-outlined')?.classList.remove('scale-110');
+            });
+        });
+
+        // Simple smooth scroll behavior for dashboard nav
+        document.querySelectorAll('aside nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // If it was a real app, we'd handle navigation here
+                // For this demo, just prevent default to keep the view static
+                if(link.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+    </script>
+</body></html>

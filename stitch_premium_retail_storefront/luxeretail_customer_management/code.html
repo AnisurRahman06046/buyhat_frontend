@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LuxeRetail | Customer Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-bright": "#faf8ff",
+                "on-secondary": "#ffffff",
+                "secondary-fixed-dim": "#bec6e0",
+                "on-primary-fixed": "#00174b",
+                "inverse-primary": "#b4c5ff",
+                "on-tertiary-fixed": "#2a1700",
+                "on-primary": "#ffffff",
+                "on-primary-container": "#eeefff",
+                "on-error-container": "#93000a",
+                "surface-container-low": "#f3f3fe",
+                "error-container": "#ffdad6",
+                "tertiary": "#784b00",
+                "secondary-container": "#dae2fd",
+                "on-primary-fixed-variant": "#003ea8",
+                "outline": "#737686",
+                "background": "#faf8ff",
+                "primary-container": "#2563eb",
+                "surface-container": "#ededf9",
+                "primary-fixed-dim": "#b4c5ff",
+                "on-background": "#191b23",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed": "#131b2e",
+                "on-tertiary-container": "#ffeedd",
+                "surface-dim": "#d9d9e5",
+                "surface": "#faf8ff",
+                "inverse-surface": "#2e3039",
+                "on-surface-variant": "#434655",
+                "on-tertiary": "#ffffff",
+                "surface-container-high": "#e7e7f3",
+                "surface-variant": "#e1e2ed",
+                "surface-tint": "#0053db",
+                "on-surface": "#191b23",
+                "secondary-fixed": "#dae2fd",
+                "inverse-on-surface": "#f0f0fb",
+                "primary": "#004ac6",
+                "outline-variant": "#c3c6d7",
+                "on-secondary-fixed-variant": "#3f465c",
+                "error": "#ba1a1a",
+                "tertiary-container": "#996100",
+                "on-secondary-container": "#5c647a",
+                "primary-fixed": "#dbe1ff",
+                "on-error": "#ffffff",
+                "tertiary-fixed": "#ffddb8",
+                "tertiary-fixed-dim": "#ffb95f",
+                "secondary": "#565e74",
+                "on-tertiary-fixed-variant": "#653e00",
+                "surface-container-highest": "#e1e2ed"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "md": "16px",
+                "margin-mobile": "16px",
+                "lg": "24px",
+                "3xl": "64px",
+                "xs": "4px",
+                "xl": "32px",
+                "container-max": "1280px",
+                "2xl": "48px",
+                "base": "4px",
+                "sm": "8px",
+                "gutter": "24px"
+            },
+            "fontFamily": {
+                "body-md": ["Inter"],
+                "display-xl": ["Inter"],
+                "label-md": ["Inter"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Inter"],
+                "body-sm": ["Inter"],
+                "headline-sm": ["Inter"],
+                "label-sm": ["Inter"],
+                "headline-lg": ["Inter"],
+                "display-lg": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body { background-color: #F8FAFC; }
+        .sidebar-active { background-color: #2563eb; color: white; }
+        .glass-effect { backdrop-filter: blur(12px); background-color: rgba(255, 255, 255, 0.8); }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+</head>
+<body class="font-body-md text-on-surface antialiased overflow-hidden h-screen flex">
+<!-- Persistent Sidebar -->
+<aside class="w-72 bg-surface-container-lowest border-r border-outline-variant/30 flex flex-col z-40">
+<div class="h-20 flex items-center px-lg border-b border-outline-variant/20">
+<h1 class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">LuxeRetail</h1>
+</div>
+<nav class="flex-1 overflow-y-auto py-md px-sm space-y-1 custom-scrollbar">
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span class="font-label-md text-label-md">Products</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">category</span>
+<span class="font-label-md text-label-md">Categories</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-label-md text-label-md">Inventory</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+<span class="font-label-md text-label-md">Orders</span>
+</a>
+<a class="sidebar-active flex items-center gap-md px-md py-sm rounded-lg font-medium shadow-sm transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="font-label-md text-label-md">Customers</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">confirmation_number</span>
+<span class="font-label-md text-label-md">Coupons</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="font-label-md text-label-md">CMS</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">reviews</span>
+<span class="font-label-md text-label-md">Reviews</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-md text-label-md">Analytics</span>
+</a>
+<div class="pt-2xl pb-sm">
+<div class="h-px bg-outline-variant/30 mb-sm mx-md"></div>
+<a class="flex items-center gap-md px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+</div>
+</nav>
+<div class="p-md border-t border-outline-variant/20 flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of a senior retail operations executive in a minimalist studio setting. The lighting is soft and corporate, featuring cool grey tones and high-key brightness that aligns with a clean e-commerce admin interface. The individual looks confident and approachable, wearing professional attire." src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="flex-1 min-w-0">
+<p class="font-label-md text-label-md text-on-surface truncate">Admin User</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant truncate">Operations Lead</p>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">logout</span>
+</button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 relative">
+<!-- Header -->
+<header class="h-20 flex items-center justify-between px-xl bg-surface-container-lowest border-b border-outline-variant/20 sticky top-0 z-30">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Customers</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Total Customers: 12,450</p>
+</div>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-sm px-lg py-sm bg-surface border border-outline-variant/50 rounded-lg text-on-surface hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined text-[20px]">download</span>
+<span class="font-label-md text-label-md">Export</span>
+</button>
+<button class="flex items-center gap-sm px-lg py-sm bg-primary-container text-white rounded-lg hover:shadow-lg transition-all transform active:scale-95">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="font-label-md text-label-md">Add Customer</span>
+</button>
+</div>
+</header>
+<!-- Page Content -->
+<div class="flex-1 overflow-y-auto p-xl space-y-lg custom-scrollbar">
+<!-- Filters Bar -->
+<div class="bg-surface-container-lowest p-md rounded-xl shadow-sm flex flex-wrap items-center gap-md">
+<div class="flex-1 min-w-[300px] relative">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-11 pr-md py-sm bg-surface border border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary-container focus:border-primary border-none text-body-sm" placeholder="Search by name or email..." type="text"/>
+</div>
+<div class="flex items-center bg-surface-container p-1 rounded-lg">
+<button class="px-md py-1.5 rounded-md font-label-md text-label-md bg-white shadow-sm text-primary">All</button>
+<button class="px-md py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface">New</button>
+<button class="px-md py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface">VIP</button>
+<button class="px-md py-1.5 rounded-md font-label-md text-label-md text-on-surface-variant hover:text-on-surface">Inactive</button>
+</div>
+<button class="flex items-center gap-sm px-md py-sm text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+<span class="font-label-md text-label-md">More Filters</span>
+</button>
+</div>
+<!-- Customer Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden border border-outline-variant/10">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/20">
+<th class="px-lg py-md font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Customer</th>
+<th class="px-lg py-md font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant text-center">Orders</th>
+<th class="px-lg py-md font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Lifetime Value</th>
+<th class="px-lg py-md font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Last Purchase</th>
+<th class="px-lg py-md font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group bg-surface-container-low/50">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A detailed studio portrait of Eleanor Pena, a professional woman in her early 30s. The lighting is crisp and sophisticated, highlighting natural skin tones against a soft, clean cream background. The image has an airy, premium retail aesthetic with a focus on friendly professionalism, fitting for a top-tier e-commerce customer profile." src=""/>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Eleanor Pena</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">eleanor.pena@example.com</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center font-body-md">24</td>
+<td class="px-lg py-md font-body-md font-medium text-primary">$4,250.00</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">2 days ago</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 rounded-full text-label-sm font-bold border border-green-200">Active</span>
+</td>
+</tr>
+<!-- Repeat Rows for Visual Density -->
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold">JD</div>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Jerome Bell</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">jerome.b@gmail.com</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center font-body-md">12</td>
+<td class="px-lg py-md font-body-md font-medium text-primary">$1,840.50</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">1 week ago</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-green-100 text-green-700 rounded-full text-label-sm font-bold border border-green-200">Active</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A high-quality portrait of a male customer for a premium dashboard. The lighting is bright and natural, reflecting a clean and professional atmosphere. The subject is smiling subtly, presenting a trustworthy and engaged consumer profile within a high-end retail context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvZ5g6XHpqPObJkmKS6QEmlo0HNVSZ7i129rOJ9cZ-iH1cYi2Dr9Jq1HRJJtflKCSYYhuGU-mKD3DssLQyUviWvTf0tTAbo47h8HKT5ZeUXUNM7h2I7aYt7XITUNTG5AiaBh7YX2kuqCuE9aWNoiSb0WSTgmrHhxbe-zhy3ppPIqpP3VLi6crPsXt7ZIFYomaLvvvnIyQRQNTgwsQvCLISK4SkL0VK_IfVHcEnBimoNwblcyqOHwi1xu9TNSX3jUl-IpG4ipjRG5Y"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Robert Fox</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">robert.fox@outlook.com</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center font-body-md">3</td>
+<td class="px-lg py-md font-body-md font-medium text-primary">$210.00</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">3 months ago</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-surface-variant text-on-surface-variant rounded-full text-label-sm font-bold border border-outline-variant/50">Inactive</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional profile photo of a premium customer in a modern studio setting. The aesthetic is clean, bright, and focused on clarity. High-end lighting creates soft shadows and vibrant skin tones, reflecting a sophisticated consumer persona for an administrative retail dashboard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX6rD3EiLQQ6StwgX1BfmMS2LyASoVsIl2X8SkhwZI18H6fZlnMW2ZxdpHCYSThkPdQyf6-9YNiqrp3JTpvNocwauTID6VhqiXo9ZRa95_1sygrLyLaCOLyXcFNWF-Z2jnTY8sS3IVyTM1IwRcoGG_JPwcr_4-q-vvx52xH2EzVgdlwcBvz9ZbCHYHbMr94X706_44BkYNmmCDjnkYkKqoJ1rIHubJZtO8rabCO5BmMf4Sffi59LBdYpLNnLvS9mUKw7jioh4WtnU"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Kathryn Murphy</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">kat.murphy@yahoo.com</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center font-body-md">56</td>
+<td class="px-lg py-md font-body-md font-medium text-primary">$12,940.00</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">Today</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-primary/10 text-primary rounded-full text-label-sm font-bold border border-primary/20">VIP</span>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors cursor-pointer group">
+<td class="px-lg py-md">
+<div class="flex items-center gap-md">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A masculine customer profile portrait with a focus on a high-end lifestyle brand aesthetic. The lighting is balanced and elegant, featuring a soft-focus background that makes the subject stand out. The color palette is composed of natural, warm tones, presenting a modern and reliable customer profile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAPTIjVCGsdJo5IIVmZK9NarOiPe5fXp5R_xW5V0DCa6OORqgahilSdoTL-Gyq05qeNzl295tPTMuH-v4CjzyHehSeWZ0Km5DjFh6N_CDKDkfsEO6WlLLVxdV-66BuQf-TgwKvpejXpZAvdIrGpqOSf3HP1sH2yNt0-0T5EFZ9gu5HKdHIH2XJ5Bnkdpd8V_e5xAu-5MKeTokCcPSTA8t7COkdWV0TKPsolGLqFC-1nMBaElgN7F0uxF7DBEW2R8p55nTykbR-e2A"/>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Arlene McCoy</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">arlene.mccoy@protonmail.com</p>
+</div>
+</div>
+</td>
+<td class="px-lg py-md text-center font-body-md">0</td>
+<td class="px-lg py-md font-body-md font-medium text-primary">$0.00</td>
+<td class="px-lg py-md font-body-sm text-on-surface-variant">N/A</td>
+<td class="px-lg py-md">
+<span class="px-sm py-1 bg-error-container text-error rounded-full text-label-sm font-bold border border-error/20">Blocked</span>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-lg py-md bg-surface border-t border-outline-variant/20 flex items-center justify-between">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Showing 1 to 10 of 12,450 customers</p>
+<div class="flex items-center gap-base">
+<button class="p-1 rounded hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-8 h-8 rounded bg-primary text-white font-label-sm">1</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container transition-colors font-label-sm">2</button>
+<button class="w-8 h-8 rounded hover:bg-surface-container transition-colors font-label-sm">3</button>
+<span class="px-1 text-on-surface-variant">...</span>
+<button class="w-8 h-8 rounded hover:bg-surface-container transition-colors font-label-sm">1245</button>
+<button class="p-1 rounded hover:bg-surface-container transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Customer Profile Side Panel -->
+<aside class="w-[400px] bg-surface-container-lowest border-l border-outline-variant/30 flex flex-col shadow-2xl z-50 transform translate-x-0 transition-transform duration-300 overflow-hidden" id="profilePanel">
+<div class="p-lg border-b border-outline-variant/20 flex items-center justify-between bg-surface">
+<h3 class="font-headline-sm text-headline-sm">Customer Details</h3>
+<button class="text-on-surface-variant hover:text-primary p-1 rounded-full hover:bg-surface-container transition-all" onclick="document.getElementById('profilePanel').classList.toggle('translate-x-full')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar">
+<!-- Header Identity -->
+<div class="p-xl text-center space-y-md border-b border-outline-variant/10">
+<div class="relative inline-block">
+<img class="w-24 h-24 rounded-full object-cover mx-auto ring-4 ring-primary/10" data-alt="A detailed studio portrait of Eleanor Pena, a professional woman in her early 30s. The lighting is crisp and sophisticated, highlighting natural skin tones against a soft, clean cream background. The image has an airy, premium retail aesthetic with a focus on friendly professionalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB8AU5i-HjwcVrSOzI-ABj5Ttl6yLDF_YJSC9n29-qNKgO-QP_6P_x90EGtRkRFJg--Q9R1AR-IUT9J-O0jeo71wSnLlvjxHNhdYaHVfaGwByt-tQjgwBUwRe00FyzwmZ0GEqY1t_C700mKNN8TAk7ENBB5lS9m1oVLY2Bb0J6smpmr3j4miKgptpWz1Cv4P2R5PwRmpOLEsZpzFKyMp-zhMnxaXoKb_p9iHD0q2jcm_jAoGiX7iuhDfBqnHSSzMN06WpkYvoG6Kk"/>
+<span class="absolute bottom-1 right-1 w-5 h-5 bg-green-500 border-2 border-white rounded-full"></span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm font-bold">Eleanor Pena</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                        London, United Kingdom
+                    </p>
+<p class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Member since Jan 12, 2022</p>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-3 gap-px bg-outline-variant/20 border-b border-outline-variant/20">
+<div class="bg-surface p-md text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Total Spent</p>
+<p class="font-label-md text-label-md font-bold text-primary">$4,250</p>
+</div>
+<div class="bg-surface p-md text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Orders</p>
+<p class="font-label-md text-label-md font-bold">24</p>
+</div>
+<div class="bg-surface p-md text-center">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Avg. Order</p>
+<p class="font-label-md text-label-md font-bold">$177</p>
+</div>
+</div>
+<!-- Recent Activity -->
+<div class="p-lg space-y-md">
+<h5 class="font-label-md text-label-md font-bold text-on-surface-variant uppercase tracking-widest">Recent Orders</h5>
+<div class="space-y-sm">
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div>
+<p class="font-label-md text-label-md font-semibold">#ORD-9021</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mar 14, 2024</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold">$1,200.00</p>
+<span class="font-label-sm text-label-sm text-green-600">Delivered</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div>
+<p class="font-label-md text-label-md font-semibold">#ORD-8854</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Feb 22, 2024</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold">$450.00</p>
+<span class="font-label-sm text-label-sm text-green-600">Delivered</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-outline-variant/10">
+<div>
+<p class="font-label-md text-label-md font-semibold">#ORD-8712</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Jan 10, 2024</p>
+</div>
+<div class="text-right">
+<p class="font-label-md text-label-md font-bold">$890.00</p>
+<span class="font-label-sm text-label-sm text-green-600">Delivered</span>
+</div>
+</div>
+</div>
+<button class="w-full text-center py-sm font-label-md text-label-md text-primary hover:underline transition-all">View All Orders</button>
+</div>
+<!-- Contact Information -->
+<div class="p-lg space-y-md border-t border-outline-variant/20">
+<h5 class="font-label-md text-label-md font-bold text-on-surface-variant uppercase tracking-widest">Contact Info</h5>
+<div class="space-y-md">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">mail</span>
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Email</p>
+<p class="font-body-sm text-body-sm">eleanor.pena@example.com</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">phone</span>
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Phone</p>
+<p class="font-body-sm text-body-sm">+44 7700 900221</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-on-surface-variant">home</span>
+<div class="flex-1">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Shipping Address</p>
+<p class="font-body-sm text-body-sm">221B Baker Street, London, NW1 6XE, UK</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Buttons -->
+<div class="p-lg border-t border-outline-variant/20 bg-surface grid grid-cols-2 gap-sm">
+<button class="flex items-center justify-center gap-sm px-md py-sm bg-primary-container text-white rounded-lg hover:shadow-md transition-all active:scale-95 col-span-2">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span class="font-label-md text-label-md">Send Email</span>
+</button>
+<button class="flex items-center justify-center gap-sm px-md py-sm border border-outline-variant/50 rounded-lg text-on-surface hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+<span class="font-label-md text-label-md">Edit Profile</span>
+</button>
+<button class="flex items-center justify-center gap-sm px-md py-sm border border-error/30 text-error rounded-lg hover:bg-error/5 transition-all">
+<span class="material-symbols-outlined text-[20px]">block</span>
+<span class="font-label-md text-label-md">Block</span>
+</button>
+</div>
+</aside>
+<script>
+        // Tab switching logic for the segment filter
+        const filterButtons = document.querySelectorAll('.flex.items-center.bg-surface-container button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-white', 'shadow-sm', 'text-primary');
+                    b.classList.add('text-on-surface-variant');
+                });
+                btn.classList.add('bg-white', 'shadow-sm', 'text-primary');
+                btn.classList.remove('text-on-surface-variant');
+            });
+        });
+
+        // Toggle side panel (simplified for demo)
+        const tableRows = document.querySelectorAll('tbody tr');
+        tableRows.forEach(row => {
+            row.addEventListener('click', () => {
+                const panel = document.getElementById('profilePanel');
+                if (panel.classList.contains('translate-x-full')) {
+                    panel.classList.remove('translate-x-full');
+                }
+                
+                // Highlight active row
+                tableRows.forEach(r => r.classList.remove('bg-surface-container-low/50'));
+                row.classList.add('bg-surface-container-low/50');
+            });
+        });
+    </script>
+</body></html>

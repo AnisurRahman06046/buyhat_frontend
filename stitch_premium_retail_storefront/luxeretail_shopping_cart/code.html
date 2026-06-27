@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Your Cart | LuxeRetail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#faf8ff",
+                        "secondary-container": "#dae2fd",
+                        "on-primary-container": "#eeefff",
+                        "primary-fixed": "#dbe1ff",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#784b00",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface-tint": "#0053db",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "outline-variant": "#c3c6d7",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "inverse-primary": "#b4c5ff",
+                        "surface-container": "#ededf9",
+                        "on-secondary-fixed": "#131b2e",
+                        "primary": "#004ac6",
+                        "inverse-surface": "#2e3039",
+                        "surface-container-highest": "#e1e2ed",
+                        "secondary": "#565e74",
+                        "surface-dim": "#d9d9e5",
+                        "surface-container-low": "#f3f3fe",
+                        "on-tertiary-fixed": "#2a1700",
+                        "secondary-fixed": "#dae2fd",
+                        "tertiary-container": "#996100",
+                        "primary-container": "#2563eb",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-primary-fixed": "#00174b",
+                        "tertiary-fixed": "#ffddb8",
+                        "surface": "#faf8ff",
+                        "on-secondary-container": "#5c647a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed-dim": "#b4c5ff",
+                        "on-primary-fixed-variant": "#003ea8",
+                        "inverse-on-surface": "#f0f0fb",
+                        "surface-container-high": "#e7e7f3",
+                        "on-surface-variant": "#434655",
+                        "on-surface": "#191b23",
+                        "on-primary": "#ffffff",
+                        "surface-variant": "#e1e2ed",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "background": "#faf8ff",
+                        "outline": "#737686",
+                        "on-error": "#ffffff",
+                        "on-background": "#191b23",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "xs": "4px",
+                        "3xl": "64px",
+                        "xl": "32px",
+                        "base": "4px",
+                        "gutter": "24px",
+                        "container-max": "1280px",
+                        "md": "16px",
+                        "2xl": "48px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-xl": ["60px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .skeleton {
+            background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+            background-size: 200% 100%;
+            animation: skeleton-pulse 1.5s infinite;
+        }
+        @keyframes skeleton-pulse {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .custom-shadow { box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05); }
+        .custom-shadow-hover:hover { box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.1); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center h-20 px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface" href="#">LuxeRetail</a>
+<div class="hidden md:flex items-center gap-lg">
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Shop All</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">New Arrivals</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Best Sellers</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Categories</a>
+<a class="font-body-md text-body-md font-medium text-on-surface-variant hover:text-primary transition-colors" href="#">Sale</a>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-all text-primary relative">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="absolute top-1 right-1 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+</button>
+<button class="p-sm hover:bg-surface-container-low rounded-full transition-all text-on-surface-variant">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-3xl px-margin-mobile md:px-xl max-w-container-max mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg lg:gap-3xl items-start">
+<!-- Cart Item List (Left) -->
+<section class="lg:col-span-8 space-y-lg">
+<header class="flex items-baseline justify-between mb-md">
+<h1 class="font-headline-lg text-headline-lg">Your Cart <span class="text-on-surface-variant font-normal">(3 items)</span></h1>
+<button class="text-primary font-label-md hover:underline">Continue Shopping</button>
+</header>
+<div class="space-y-md">
+<!-- Item 1: Nomad Chronograph -->
+<div class="bg-surface-container-lowest p-md md:p-lg rounded-xl custom-shadow flex flex-col md:flex-row gap-lg items-center transition-all custom-shadow-hover">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Nomad Chronograph" class="w-full h-full object-cover" data-alt="A high-end luxury minimalist chronograph watch with a matte black leather strap and a clean silver watch face. The watch is positioned elegantly on a soft grey silk background, reflecting a sophisticated and professional light-mode aesthetic. Soft, natural morning light creates gentle highlights on the metallic casing, emphasizing premium craftsmanship and timeless retail design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoI6a3vh6WA1FbQjgL_mNWoX-M__8t0w553fytI51irJR7fQBckNl5OL5nfAj_HqX3Q-XEHvi9jCZYnKaB-ux6q9xMWTDD0iA171-iGtokzqtqR7WgvEFFwrYkBarzKoDcedu6YVkH45sp7ZEhGYDIhMm5Ov4Bgi0i7VoVBRtEEFvflqCuzmxU-rQ4z6jrUjtEQwqhMg1HPEz7TXZOOKbORaIBNOVvbXwouVUglEG93nZeO_nn250Q2cHjhX1IRxt98onL062omSE"/>
+</div>
+<div class="flex-grow space-y-xs text-center md:text-left">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Nomad Chronograph</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Midnight / 42mm / Italian Leather</p>
+<p class="font-label-md text-label-md text-primary font-bold mt-sm">$249.00</p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-md">
+<div class="flex items-center border border-outline-variant rounded-full p-xs px-md">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<input class="w-10 text-center border-none focus:ring-0 font-label-md bg-transparent" readonly="" type="number" value="1"/>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<div class="flex items-center gap-md">
+<p class="font-label-md text-label-md text-on-surface font-bold">$249.00</p>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: Lumina Minimalist Lamp -->
+<div class="bg-surface-container-lowest p-md md:p-lg rounded-xl custom-shadow flex flex-col md:flex-row gap-lg items-center transition-all custom-shadow-hover">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Lumina Minimalist Lamp" class="w-full h-full object-cover" data-alt="A sleek, modern designer table lamp with a brushed brass base and a matte white globe shade. The lamp is displayed on a light oak wood surface in a bright, minimalist interior with plenty of negative space. The lighting is soft and airy, creating a professional showroom atmosphere. The overall palette is neutral with warm metal accents, embodying a premium and calm retail aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Ibjj_bETg6PZvlfLnRXshnKRL_fndERDkYrHP8VwFD1qeGPx9JVE_s-ccyguEGMUP0pg-6oMVjislh_RSZ_ZqwME3vvLUYrmCWtPr5ya8wvWJsBGxrcZsbaq863x09YPnK3ShJRwSlILTnW2quyR9JdqmXZ9zetf2MfcaetBAvhRZw1_sLlI_UeGwd5xiG_MyyDIdyFi0_785bXBDaTIbFosXnl-h8RCONE1QC8jwLu31PsDHHtxXnU5o_8JR8QItDiFXGpqoU8"/>
+</div>
+<div class="flex-grow space-y-xs text-center md:text-left">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Lumina Minimalist Lamp</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Matte White / Brass Base</p>
+<p class="font-label-md text-label-md text-primary font-bold mt-sm">$185.00</p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-md">
+<div class="flex items-center border border-outline-variant rounded-full p-xs px-md">
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+<input class="w-10 text-center border-none focus:ring-0 font-label-md bg-transparent" readonly="" type="number" value="1"/>
+<button class="p-xs text-on-surface-variant hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]">add</span></button>
+</div>
+<div class="flex items-center gap-md">
+<p class="font-label-md text-label-md text-on-surface font-bold">$185.00</p>
+<button class="text-on-surface-variant hover:text-error transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3: Loading State / Skeleton Placeholder -->
+<div class="bg-surface-container-lowest p-md md:p-lg rounded-xl custom-shadow flex flex-col md:flex-row gap-lg items-center opacity-60">
+<div class="w-32 h-32 md:w-40 md:h-40 rounded-lg skeleton flex-shrink-0"></div>
+<div class="flex-grow space-y-sm">
+<div class="h-6 w-48 skeleton rounded"></div>
+<div class="h-4 w-32 skeleton rounded"></div>
+<div class="h-5 w-20 skeleton rounded mt-md"></div>
+</div>
+<div class="flex flex-col items-end gap-md">
+<div class="h-10 w-24 skeleton rounded-full"></div>
+<div class="h-6 w-16 skeleton rounded"></div>
+</div>
+</div>
+</div>
+<!-- Recently Viewed -->
+<div class="mt-3xl pt-2xl border-t border-outline-variant/30">
+<h2 class="font-headline-md text-headline-md mb-lg">Recently Viewed</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-lg bg-surface-container overflow-hidden mb-sm relative">
+<img alt="Tech" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Premium wireless noise-canceling headphones in a sleek silver and white finish. Photographed in a bright, modern studio setting with soft shadows and high-key lighting. The style is clean and professional, focusing on industrial design excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAciforCkbg8OgrHMKUeTga72_WG3MRD875iaD2b8CValXz66b0weZNseuGzJXjGL9aDta6ShGs2lcaofe23SYn7kruj8IXftwze2Ln0Cj-dvHWYFHEHTPO6kevVGK2zsw9vThj8SvT2R2mYK80NB1g0J960e8GpsuzXysRg9Fx012CE1ptYJ2ic14ojBsG5gjlgG7f1WAiVverSsymXq0jV0QoSobgpUbOohNk35mB8OWyLzZ1qVOT9-AlAkcpoYaVMw-pdRHMhg"/>
+<div class="absolute top-2 right-2 bg-accent-amber px-2 py-0.5 rounded text-[10px] font-bold text-white bg-[#D97706]">BESTSELLER</div>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Audio Pro X1</h4>
+<p class="font-body-sm text-body-sm text-primary font-bold">$349.00</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square rounded-lg bg-surface-container overflow-hidden mb-sm">
+<img alt="Tech" class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="A minimalist grey stone essential oil diffuser on a clean white countertop. Soft daylight filters in from a nearby window, creating a serene and healthy living room aesthetic. The shot is high-contrast and follows a professional home-goods retail style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfAS0bRO0Ko5GpklDHZiWcAr_nhK_3uROEJNq8JNyhP8WcISOStOTb46Y1CLad4x_mBEHLyFSQrdbail9KhfDJYuOSEW-ZJVS-fZNtM6URm-j-S_fMxbAXsR8iOooF-IId-z7UeKhwdvnSuREMsUNRkJYe-84UprlqGyuB2DMQpVMscCGYoWtIaOyJx_N52UKs5jJnShAnE_PTgU3kmCzwsbJ3N9XAeFe8v9yjMkSIl43SD8H9pQ4jrL7UYh9bTqmHAnw_lrLFPuE"/>
+</div>
+<h4 class="font-label-md text-label-md text-on-surface">Zenith Diffuser</h4>
+<p class="font-body-sm text-body-sm text-primary font-bold">$89.00</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Summary Sidebar (Right) -->
+<aside class="lg:col-span-4 sticky top-28">
+<div class="bg-surface-container-lowest p-xl rounded-xl custom-shadow border border-outline-variant/10 space-y-xl">
+<h2 class="font-headline-sm text-headline-sm">Order Summary</h2>
+<div class="space-y-md">
+<label class="font-label-sm text-label-sm text-on-surface-variant block">Promo Code</label>
+<div class="flex gap-sm">
+<input class="flex-grow bg-surface-container-low border-outline-variant rounded-lg px-md py-sm focus:ring-2 focus:ring-primary focus:border-transparent outline-none font-body-md" placeholder="Enter code" type="text"/>
+<button class="px-lg py-sm bg-on-surface text-on-primary rounded-lg font-label-md hover:bg-on-surface-variant transition-colors">Apply</button>
+</div>
+</div>
+<div class="space-y-sm pt-md border-t border-outline-variant/30">
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Subtotal</span>
+<span>$434.00</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Shipping</span>
+<span class="text-secondary font-medium">Calculated at checkout</span>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant">
+<span>Estimated Tax</span>
+<span>$32.55</span>
+</div>
+<div class="flex justify-between pt-md mt-sm border-t border-outline-variant/30">
+<span class="font-headline-sm text-headline-sm">Total</span>
+<span class="font-headline-sm text-headline-sm text-primary">$466.55</span>
+</div>
+</div>
+<button class="w-full py-lg bg-primary text-white rounded-xl font-label-md text-[16px] shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                        Checkout Securely
+                    </button>
+<div class="space-y-md pt-xl">
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Secure Checkout</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Encrypted transactions for your peace of mind.</p>
+</div>
+</div>
+<div class="flex items-start gap-md">
+<span class="material-symbols-outlined text-secondary text-[20px]">local_shipping</span>
+<div>
+<p class="font-label-sm text-label-sm text-on-surface">Free 30-Day Returns</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px]">Shop with confidence with our easy return policy.</p>
+</div>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-3xl pb-xl bg-surface-container-lowest border-t border-outline-variant/20 mt-3xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg max-w-container-max mx-auto px-margin-mobile md:px-xl">
+<div class="space-y-md">
+<a class="font-headline-sm text-headline-sm font-bold text-primary" href="#">LuxeRetail</a>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Elevating everyday life through precision-crafted essentials and timeless design.</p>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-md">Shop</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline" href="#">All Products</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline" href="#">New Arrivals</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-md">Support</h4>
+<ul class="space-y-sm">
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline" href="#">Shipping &amp; Returns</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline" href="#">Contact Support</a></li>
+<li><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface mb-md">Newsletter</h4>
+<div class="flex gap-xs">
+<input class="bg-surface border-outline-variant rounded-lg px-md py-sm w-full font-body-sm outline-none" placeholder="Email" type="email"/>
+<button class="bg-primary text-white px-md rounded-lg"><span class="material-symbols-outlined text-[20px]">arrow_forward</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-xl mt-3xl pt-xl border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-body-sm text-body-sm text-on-surface-variant">© 2024 LuxeRetail. All rights reserved.</p>
+<div class="flex gap-lg">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">brand_awareness</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">public</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">social_distance</span>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Micro-interactions
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => btn.classList.add('scale-95'));
+            btn.addEventListener('mouseup', () => btn.classList.remove('scale-95'));
+            btn.addEventListener('mouseleave', () => btn.classList.remove('scale-95'));
+        });
+
+        // Navigation Highlight Simulation
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            if (link.textContent === 'Shop All') {
+                link.classList.add('text-primary', 'border-b-2', 'border-primary', 'pb-1');
+            }
+        });
+    </script>
+</body></html>

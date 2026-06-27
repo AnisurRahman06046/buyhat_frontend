@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CMS Builder | Commerce Velocity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;family=Manrope:wght@700;800&amp;family=JetBrains+Mono:wght@600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#00164e",
+                    "on-primary-container": "#90a8ff",
+                    "secondary": "#006c49",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-container": "#ff8f4f",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#341100",
+                    "outline": "#757682",
+                    "tertiary-container": "#6e2d00",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#faf8ff",
+                    "tertiary": "#4b1c00",
+                    "on-secondary-fixed": "#002113",
+                    "inverse-on-surface": "#f1f0f7",
+                    "primary-container": "#1e3a8a",
+                    "inverse-surface": "#2f3036",
+                    "surface-container-highest": "#e3e1e9",
+                    "background": "#faf8ff",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#4059aa",
+                    "primary": "#00236f",
+                    "tertiary-fixed-dim": "#ffb690",
+                    "on-background": "#1a1b21",
+                    "secondary-container": "#6cf8bb",
+                    "surface-variant": "#e3e1e9",
+                    "on-primary-fixed-variant": "#264191",
+                    "surface-container-low": "#f4f3fa",
+                    "outline-variant": "#c5c5d3",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#783200",
+                    "inverse-primary": "#b6c4ff",
+                    "tertiary-fixed": "#ffdbca",
+                    "surface-container": "#eeedf4",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#dad9e1",
+                    "on-secondary-container": "#00714d",
+                    "secondary-fixed-dim": "#4edea3",
+                    "on-surface-variant": "#444651",
+                    "primary-fixed": "#dce1ff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e9e7ef",
+                    "surface": "#faf8ff",
+                    "on-surface": "#1a1b21",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-secondary-fixed-variant": "#005236"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xl": "64px",
+                    "md": "24px",
+                    "container-max": "1280px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xs": "4px",
+                    "lg": "40px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "price-xl": ["manrope"],
+                    "display-lg": ["manrope"],
+                    "headline-md": ["manrope"],
+                    "body-md": ["inter"],
+                    "body-lg": ["inter"],
+                    "label-caps": ["jetbrainsMono"],
+                    "display-lg-mobile": ["manrope"],
+                    "button-text": ["inter"]
+            },
+            "fontSize": {
+                    "price-xl": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "button-text": ["16px", {"lineHeight": "20px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .section-card-active { border-left: 4px solid #00236f; }
+        .preview-frame {
+            transform: scale(0.9);
+            transform-origin: top center;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-hidden h-screen">
+<!-- Global Layout Wrapper -->
+<div class="flex h-full">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="flex flex-col h-full py-md bg-surface-container-low border-r border-outline-variant shadow-sm w-64 fixed left-0 top-0 z-50">
+<div class="px-md mb-lg">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Commerce Velocity</h1>
+<p class="text-xs font-label-caps text-on-surface-variant opacity-70">ENTERPRISE ADMIN</p>
+</div>
+<nav class="flex-1 space-y-1 px-sm">
+<!-- Active: CMS Builder (Determined by Intent) -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="warehouse">warehouse</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg font-bold" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span>CMS Builder</span>
+</a>
+</nav>
+<div class="px-sm pt-md border-t border-outline-variant">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<div class="mt-4 flex items-center gap-3 px-4">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold text-xs">AU</div>
+<div class="text-xs">
+<p class="font-bold">Admin User</p>
+<p class="opacity-60">Super Admin</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Workspace -->
+<main class="ml-64 flex flex-col flex-1 w-full bg-surface-container-lowest">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="sticky top-0 z-40 w-full bg-surface border-b border-outline-variant shadow-sm h-16 flex justify-between items-center px-md">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="web">web</span>
+<h2 class="font-headline-md text-headline-md font-extrabold text-primary">Homepage Editor</h2>
+<div class="h-6 w-[1px] bg-outline-variant"></div>
+<span class="text-sm font-medium text-on-surface-variant italic">v2.4 Draft - Last saved 2m ago</span>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-4 py-2 text-on-surface font-button-text hover:bg-surface-container transition-colors rounded-lg">
+                        Discard
+                    </button>
+<button class="px-6 py-2 bg-[#F97316] text-white font-button-text rounded-xl shadow-lg shadow-orange-500/20 hover:scale-[1.02] transition-all">
+                        Save Changes
+                    </button>
+<div class="h-6 w-[1px] bg-outline-variant mx-2"></div>
+<span class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full cursor-pointer" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined p-2 hover:bg-surface-container rounded-full cursor-pointer" data-icon="help_outline">help_outline</span>
+</div>
+</header>
+<!-- CMS Builder Content Area -->
+<div class="flex-1 flex overflow-hidden">
+<!-- 1. Left Panel: Homepage Sections -->
+<section class="w-72 bg-surface-container-low flex flex-col border-r border-outline-variant">
+<div class="p-md">
+<h3 class="font-label-caps text-on-surface-variant mb-4">PAGE STRUCTURE</h3>
+<div class="space-y-3 custom-scrollbar overflow-y-auto max-h-[calc(100vh-200px)]">
+<!-- Hero Slider (Active) -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-primary shadow-sm flex items-center gap-3 cursor-grab group section-card-active">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="drag_indicator">drag_indicator</span>
+<div class="flex-1">
+<p class="text-sm font-bold text-primary">Hero Slider</p>
+<p class="text-[10px] text-on-surface-variant">3 Slides • Auto-play</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer" data-icon="visibility">visibility</span>
+</div>
+<!-- Flash Sale -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary-fixed-dim transition-all flex items-center gap-3 cursor-grab group">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="drag_indicator">drag_indicator</span>
+<div class="flex-1">
+<p class="text-sm font-medium">Flash Sale Banner</p>
+<p class="text-[10px] text-on-surface-variant text-error font-bold italic">Active Countdown</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer" data-icon="visibility">visibility</span>
+</div>
+<!-- Featured Products -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary-fixed-dim transition-all flex items-center gap-3 cursor-grab group">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="drag_indicator">drag_indicator</span>
+<div class="flex-1">
+<p class="text-sm font-medium">Featured Products</p>
+<p class="text-[10px] text-on-surface-variant">Grid • 8 Items</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer" data-icon="visibility">visibility</span>
+</div>
+<!-- Categories -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant opacity-60 hover:border-primary-fixed-dim transition-all flex items-center gap-3 cursor-grab group">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="drag_indicator">drag_indicator</span>
+<div class="flex-1">
+<p class="text-sm font-medium">Categories Grid</p>
+<p class="text-[10px] text-on-surface-variant">Hidden from view</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer" data-icon="visibility_off">visibility_off</span>
+</div>
+<!-- New Arrival -->
+<div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant hover:border-primary-fixed-dim transition-all flex items-center gap-3 cursor-grab group">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary transition-colors" data-icon="drag_indicator">drag_indicator</span>
+<div class="flex-1">
+<p class="text-sm font-medium">New Arrivals</p>
+<p class="text-[10px] text-on-surface-variant">Horizontal Scroll</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant text-sm cursor-pointer" data-icon="visibility">visibility</span>
+</div>
+</div>
+<button class="w-full mt-6 flex items-center justify-center gap-2 py-3 border-2 border-dashed border-outline-variant text-on-surface-variant hover:border-primary hover:text-primary rounded-xl transition-all">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="font-button-text">Add Section</span>
+</button>
+</div>
+</section>
+<!-- 2. Center Panel: Live Preview -->
+<section class="flex-1 bg-surface-container-highest p-md flex flex-col items-center overflow-hidden">
+<!-- Responsive Switcher -->
+<div class="bg-surface-container-lowest p-1 rounded-full shadow-sm mb-4 flex gap-1">
+<button class="p-2 bg-primary text-white rounded-full"><span class="material-symbols-outlined text-sm" data-icon="desktop_windows">desktop_windows</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full"><span class="material-symbols-outlined text-sm" data-icon="tablet_mac">tablet_mac</span></button>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container rounded-full"><span class="material-symbols-outlined text-sm" data-icon="smartphone">smartphone</span></button>
+</div>
+<!-- Browser Mockup Shell -->
+<div class="w-full max-w-4xl bg-white rounded-t-2xl shadow-2xl flex-1 overflow-hidden flex flex-col">
+<div class="h-10 bg-surface-container flex items-center px-4 gap-2 border-b border-outline-variant">
+<div class="flex gap-1.5">
+<div class="w-2.5 h-2.5 rounded-full bg-error/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary-container/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-secondary-container/40"></div>
+</div>
+<div class="flex-1 mx-20 bg-surface-container-lowest h-6 rounded-lg text-[10px] flex items-center px-3 text-on-surface-variant/50">
+                                velocity-commerce.com/preview/draft-242
+                            </div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar bg-white">
+<!-- Simulated Website Header -->
+<div class="p-6 border-b flex justify-between items-center">
+<div class="font-headline-md text-primary scale-75 origin-left">VELOCITY</div>
+<div class="flex gap-4 text-xs font-medium">
+<span>Home</span><span>Shop</span><span>Blog</span><span>Contact</span>
+</div>
+</div>
+<!-- Selected Hero Slider Mockup -->
+<div class="relative h-64 w-full bg-surface-container-low overflow-hidden group">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center space-y-4 px-12 z-10">
+<h4 class="font-display-lg text-headline-md text-primary">Summer Essence Collection</h4>
+<p class="text-on-surface-variant text-sm">Discover the harmony of premium fabrics and timeless design.</p>
+<button class="px-8 py-3 bg-[#F97316] text-white rounded-xl text-xs font-bold">Shop Collection</button>
+</div>
+<div class="absolute inset-0 opacity-40 bg-gradient-to-r from-white via-transparent to-white"></div>
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A premium lifestyle photography of a high-end clothing collection being displayed in a bright, modern, sunlit studio with minimalist architectural elements. Soft natural light highlights the texture of natural linen fabrics. The color palette is composed of soft neutrals, off-whites, and deep navy blue accents, reflecting a sense of luxury and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVtJsjWcP7F568qLlnVfWFszl9Dd2I78YZTRyLeN46PMxdM2R6RhMc8_wG6ZJuGI85HSHiPEuM8ajlHOfqyobTg3lx0CypPsVrZH1t2IBs52UADGUQu8jPkQXYNpyi0rFdHCrVbdDRD89H6IyLUCLE3cUknWeBuj5DYws3eJ9EUb4ksP8AclfBelWglGoo6PtzkvTODvrKHEGkiQYxEEvZukGQIyn0xG0mfryyN0L6eyj5f_HgyxUHk7bAc5BQD8N2eTNV8sFpC3U"/>
+</div>
+<!-- Builder Overlay Indicators -->
+<div class="absolute inset-0 border-4 border-primary pointer-events-none opacity-100 ring-4 ring-primary/10">
+<div class="absolute top-2 right-2 bg-primary text-white text-[10px] px-2 py-1 rounded font-bold uppercase tracking-widest">Selected</div>
+</div>
+</div>
+<!-- Flash Sale Mockup -->
+<div class="p-8 bg-error/5 text-center space-y-2 border-y border-error/10">
+<div class="inline-block px-3 py-1 bg-error text-white text-[10px] font-bold rounded-full mb-2">FLASH SALE</div>
+<h5 class="text-xl font-bold text-error">UP TO 50% OFF FOR 24 HOURS</h5>
+<div class="flex justify-center gap-4 py-2">
+<div class="flex flex-col"><span class="text-lg font-bold">08</span><span class="text-[8px] uppercase">Hours</span></div>
+<span class="text-lg font-bold">:</span>
+<div class="flex flex-col"><span class="text-lg font-bold">42</span><span class="text-[8px] uppercase">Mins</span></div>
+<span class="text-lg font-bold">:</span>
+<div class="flex flex-col"><span class="text-lg font-bold">15</span><span class="text-[8px] uppercase">Secs</span></div>
+</div>
+</div>
+<!-- Featured Products Grid Mockup -->
+<div class="p-8 grid grid-cols-4 gap-6">
+<div class="space-y-3">
+<div class="aspect-square bg-surface-container rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A sleek, minimalist leather backpack in deep obsidian black, centered in a professional studio shot with soft three-point lighting. The background is a clean, neutral grey. Sharp focus on the premium stitching and silver hardware, evoking high-performance enterprise quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZ80qUU5dUy2gClH0nGRFyyfjQww_WUc8sec5u8irrwuu9U8apqqXIq21opArK4lgjK0SFFyetKXaEbkmCWlyIMz22SRCne8cTGcCwH53JUdmrstB2XkKNkhVUbS_nu5CXSdFmQpOl82QyeMYFtLKGSuRSaKIwnqpOBcBVE6DfyhiS6CiA8hEh4SblA8K_s_jmPdOJSIrCmy4OPIcuvjifnP87sl95Gal02wFmPaJ8F8JhC570ohDcd05UVTlYLwNatwd8IysWJ_g"/>
+</div>
+<div class="h-3 w-3/4 bg-surface-container rounded"></div>
+<div class="h-3 w-1/2 bg-primary/10 rounded"></div>
+</div>
+<div class="space-y-3">
+<div class="aspect-square bg-surface-container rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Modern ergonomic wireless headphones in a brushed metal finish, placed on a marble surface. The lighting is dramatic, high-contrast, featuring deep blue shadows and bright white highlights. Corporate luxury aesthetic, crisp edges, professional product placement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL-b5QZPMWLtpbHAMooTs7qZvscan0nWxR0eh5gt1ASJI9E69pUtsBiOUjid7VEC455LwLmYt7N9tEfyhajdZBrKRuv3zPN_k-1oW6ahairimz8GBRIhL31sJOBTFHTr_Edn2XQpDZyOWnBH3kKJLnQaJH6HkjHaIHFw_TS1l_-9p1mVwwoku57gVXz4_-5uQ1Q_by-8_1W5EHjqiM-eQ_H7lZBfn1EcaBt314PvXp68t7ObaqA-tnZS_6jpO8hBjPTFlqeiScgME"/>
+</div>
+<div class="h-3 w-3/4 bg-surface-container rounded"></div>
+<div class="h-3 w-1/2 bg-primary/10 rounded"></div>
+</div>
+<div class="space-y-3">
+<div class="aspect-square bg-surface-container rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A minimalist architectural coffee table book titled VELOCITY, featuring a bold geometric cover design. The book is resting on a clean white surface with a soft shadow. The scene is bright and airy, representing high-end retail sophistication." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoRidSGnUvybFpvYM-hEAnFwvy1c5knUAzL-NvTgXyTH-9HUMuPT8WYUZU8VHjDvx2b4MJRLTY9KikOkNpuSd_sGeV3sqCavb1YYRojcD6Z83ikyCS1gUWV_wbgHQ-K5giVTo-eHuwMc-QQ5drLHPCje_KtfsB1YSBaWw3lK4V9hPHEmDdIn4ExjeULS8nKq_JHPhpIoKqdB-I1JyCqFBTfUjTAGc7cXLbxd8-OO_MtzOgzKyRXnmL_1nctm8JazjRgVLLB7B0wfs"/>
+</div>
+<div class="h-3 w-3/4 bg-surface-container rounded"></div>
+<div class="h-3 w-1/2 bg-primary/10 rounded"></div>
+</div>
+<div class="space-y-3">
+<div class="aspect-square bg-surface-container rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A premium glass-encased scented candle with a minimalist label. The flame is burning steadily, creating a warm, cozy glow in a high-modern apartment setting during dusk. Soft bokeh background with city lights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1rwZtJofUxRP2bpyRDcuu6wl1XQqXs68Yy5BdduWg8BHQnh3tyVQ0cBKe13-vJWaA0HIgYhVoDQ7XceB5JGFgs-uLo6NUCGYTnuzO-j7bGVCfJ9_OMqSOqVh0LuDIHClLon5A3lKhy92CWDVfG04tckI-4ygXffdDOFxGp6hIsIQ3zjy_wz-16fGASDvfKjm0JU7l5tCQmxgjoI0kuA_mKEis_-m2WLtPnkVqah1tOkYYgGmXne7PuQWROfB20I0RiGcCZo8PZsY"/>
+</div>
+<div class="h-3 w-3/4 bg-surface-container rounded"></div>
+<div class="h-3 w-1/2 bg-primary/10 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Right Panel: Configuration Settings -->
+<section class="w-80 bg-surface flex flex-col border-l border-outline-variant overflow-y-auto custom-scrollbar">
+<div class="p-md space-y-8">
+<header>
+<h3 class="font-headline-md text-headline-md text-on-surface">Hero Slider</h3>
+<p class="text-sm text-on-surface-variant">Configure your primary conversion banner.</p>
+</header>
+<!-- Config Groups -->
+<div class="space-y-6">
+<!-- Slide Management -->
+<div class="space-y-4">
+<label class="font-label-caps text-on-surface-variant">CONTENT SLIDES (3)</label>
+<div class="space-y-3">
+<div class="p-3 bg-surface-container-low border border-primary/20 rounded-xl flex items-center gap-3">
+<div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close up of linen texture with soft neutral lighting, high-quality fabric shot for banner backgrounds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuANPdxhyzfeGzqWrl7i5kT8kcP4fQ91UQi18Ic51GSYmeUQcAegJDzQ1JUCR4rVw7vYowV4nc1kD6ZuDT_sbwUpvcWcWFPgDlrbiryb23i9xXDrw_M5bADC1jnv45IJpvn8OSKfvnG4dvzntEoF6G54CWYYfzkUao4AkyVT9-LPL5AasoE6MRfzUohMKJUOmCmTKBCq8trw2Ib7BnDPqPcFCMo525A0SDRGmBAbJPXW5yPdgJkYNAI4FdfVQgvjByNekvPlwHj9kS8"/>
+</div>
+<div class="flex-1 overflow-hidden">
+<p class="text-xs font-bold truncate">Summer Collection</p>
+<p class="text-[10px] text-on-surface-variant">Linked to /summer-24</p>
+</div>
+<span class="material-symbols-outlined text-sm text-on-surface-variant" data-icon="edit">edit</span>
+</div>
+<button class="w-full py-2 flex items-center justify-center gap-2 border border-outline-variant rounded-lg text-sm font-medium hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                                        Add New Slide
+                                    </button>
+</div>
+</div>
+<!-- Transition Settings -->
+<div class="space-y-4">
+<label class="font-label-caps text-on-surface-variant">BEHAVIOR</label>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm">Auto-play Slides</span>
+<div class="w-10 h-5 bg-primary rounded-full relative cursor-pointer">
+<div class="absolute right-1 top-1 w-3 h-3 bg-white rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-[10px] font-bold uppercase text-on-surface-variant">
+<span>Speed</span>
+<span>5.0s</span>
+</div>
+<input class="w-full h-1.5 bg-surface-container-highest rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
+</div>
+</div>
+</div>
+<!-- CTA Styling -->
+<div class="space-y-4">
+<label class="font-label-caps text-on-surface-variant">BUTTON STYLING</label>
+<div class="grid grid-cols-2 gap-2">
+<button class="p-3 border-2 border-primary rounded-xl flex flex-col items-center gap-2 bg-primary/5">
+<div class="w-full h-2 bg-primary rounded"></div>
+<span class="text-[10px] font-bold text-primary">Solid Primary</span>
+</button>
+<button class="p-3 border-2 border-outline-variant rounded-xl flex flex-col items-center gap-2">
+<div class="w-full h-2 border border-primary rounded"></div>
+<span class="text-[10px] font-bold">Outline Blue</span>
+</button>
+</div>
+</div>
+<!-- Visibility & Scheduling -->
+<div class="space-y-4">
+<label class="font-label-caps text-on-surface-variant">VISIBILITY</label>
+<div class="p-3 bg-surface-container-high rounded-xl flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="event_available">event_available</span>
+<div class="flex-1">
+<p class="text-xs font-bold">Scheduled Display</p>
+<p class="text-[10px] text-on-surface-variant">Start: Jun 21, 2024</p>
+</div>
+<span class="material-symbols-outlined text-sm" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- Danger Zone -->
+<div class="pt-8 border-t border-outline-variant">
+<button class="w-full flex items-center justify-center gap-2 py-3 text-error font-medium hover:bg-error/5 rounded-xl transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+                                Delete Section
+                            </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Micro-interaction Scripts -->
+<script>
+        // Simple UI reactivity for the demo
+        document.querySelectorAll('.section-card-active').forEach(card => {
+            card.addEventListener('mousedown', () => {
+                card.style.cursor = 'grabbing';
+            });
+            card.addEventListener('mouseup', () => {
+                card.style.cursor = 'grab';
+            });
+        });
+
+        // Toggle visibility simulation
+        document.querySelectorAll('[data-icon^="visibility"]').forEach(icon => {
+            icon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (this.innerText === 'visibility') {
+                    this.innerText = 'visibility_off';
+                    this.closest('.p-3').classList.add('opacity-50');
+                } else {
+                    this.innerText = 'visibility';
+                    this.closest('.p-3').classList.remove('opacity-50');
+                }
+            });
+        });
+    </script>
+</body></html>

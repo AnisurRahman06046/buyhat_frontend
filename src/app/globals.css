@@ -1,0 +1,264 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/*
+ * BuyHat Design System — nexus "SaaS Commerce Velocity".
+ * Tokens are declared as CSS variables in :root (light, canonical) with a .dark
+ * skeleton, then exposed to Tailwind via `@theme inline` so utilities like
+ * `bg-primary`, `text-cta`, `bg-success`, `text-gold`, `rounded-card`,
+ * `shadow-card`, `font-heading` resolve to these tokens. Dark overrides work
+ * because inline utilities emit `var(--token)` (runtime-resolved).
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Radius scale — 12px base (cards/inputs), 8px buttons. */
+  --radius: 0.75rem;
+
+  /* Surfaces & text */
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  /* Primary — deep blue: structure, nav, brand, prices, default buttons */
+  --primary: #1e3a8a;
+  --primary-foreground: #ffffff;
+
+  /* Secondary — slate chips/surfaces */
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+
+  /* Muted & accent */
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #eef2ff;
+  --accent-foreground: #1e3a8a;
+
+  /* Lines */
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #1e3a8a;
+
+  /* Brand semantic — distinct from shadcn primary */
+  --cta: #f97316; /* conversion only: Add to Cart / Checkout */
+  --cta-foreground: #ffffff;
+  --success: #059669; /* in-stock, paid, active */
+  --success-foreground: #ffffff;
+  --warning: #d97706; /* low-stock, urgency */
+  --warning-foreground: #ffffff;
+  --destructive: #dc2626; /* errors, delete, sold-out */
+  --destructive-foreground: #ffffff;
+  --gold: #facc15; /* star ratings */
+  --brand: #1e3a8a;
+
+  /* Elevation — soft ambient shadows */
+  --shadow-card: 0 4px 12px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 8px 20px rgba(15, 23, 42, 0.08);
+  --shadow-overlay: 0 24px 48px -12px rgba(15, 23, 42, 0.18);
+
+  --container-page: 1280px;
+}
+
+.dark {
+  --background: #0b1120;
+  --foreground: #e2e8f0;
+  --card: #111827;
+  --card-foreground: #e2e8f0;
+  --popover: #111827;
+  --popover-foreground: #e2e8f0;
+  --primary: #93b4ff;
+  --primary-foreground: #0b1120;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #93b4ff;
+  --border: #1f2a3c;
+  --input: #1f2a3c;
+  --ring: #93b4ff;
+  --cta: #fb8a3c;
+  --cta-foreground: #1a1206;
+  --success: #34d399;
+  --success-foreground: #052e1f;
+  --warning: #fbbf24;
+  --warning-foreground: #261a02;
+  --destructive: #f87171;
+  --destructive-foreground: #2a0a0a;
+  --gold: #facc15;
+  --brand: #93b4ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-cta: var(--cta);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-gold: var(--gold);
+  --color-brand: var(--brand);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, "JetBrains Mono", monospace;
+
+  --radius-sm: calc(var(--radius) - 0.5rem); /* 4px  */
+  --radius-md: calc(var(--radius) - 0.25rem); /* 8px  → buttons */
+  --radius-lg: var(--radius); /* 12px → cards/inputs */
+  --radius-xl: calc(var(--radius) + 0.25rem); /* 16px */
+  --radius-card: var(--radius);
+  --radius-button: calc(var(--radius) - 0.25rem);
+
+  --shadow-card: var(--shadow-card);
+  --shadow-card-hover: var(--shadow-card-hover);
+  --shadow-overlay: var(--shadow-overlay);
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--primary) 18%, transparent);
+  }
+}
+
+/* Typography scale — composable component classes (DESIGN.md). */
+@layer components {
+  .text-display-lg {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  .text-headline-lg {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+  .text-headline-md {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .text-price-xl {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  .text-body-lg {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+  .text-body-md {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .text-body-sm {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .text-label-caps {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .text-button {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .text-display-lg {
+      font-size: 3rem;
+      line-height: 3.5rem;
+    }
+    .text-headline-lg {
+      font-size: 2rem;
+      line-height: 2.5rem;
+    }
+  }
+
+  /* Centered, max-width page gutter (mobile 16px → desktop 32px). */
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: var(--container-page);
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+}
