@@ -36,9 +36,12 @@ function CountBadge({ count }: { count: number }) {
 export function ShopHeader({
   cartCount = 0,
   wishlistCount = 0,
+  onCartClick,
 }: {
   cartCount?: number;
   wishlistCount?: number;
+  /** When provided, the cart icon opens the drawer instead of navigating. */
+  onCartClick?: () => void;
 }) {
   const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -138,12 +141,25 @@ export function ShopHeader({
               <CountBadge count={wishlistCount} />
             </Link>
           </Button>
-          <Button variant="ghost" size="icon" aria-label="Cart" className="relative" asChild>
-            <Link href={routes.cart}>
+          {onCartClick ? (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Cart"
+              className="relative"
+              onClick={onCartClick}
+            >
               <ShoppingCart />
               <CountBadge count={cartCount} />
-            </Link>
-          </Button>
+            </Button>
+          ) : (
+            <Button variant="ghost" size="icon" aria-label="Cart" className="relative" asChild>
+              <Link href={routes.cart}>
+                <ShoppingCart />
+                <CountBadge count={cartCount} />
+              </Link>
+            </Button>
+          )}
         </div>
       </div>
     </header>

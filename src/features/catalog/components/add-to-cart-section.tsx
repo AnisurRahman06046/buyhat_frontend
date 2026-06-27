@@ -10,6 +10,7 @@ import { routes } from "@/config/routes";
 import { useAddToCart } from "@/features/cart/hooks/use-cart";
 import { useWishlist } from "@/hooks/use-wishlist";
 import { cn } from "@/lib/cn";
+import { useCartUiStore } from "@/store/cart-ui-store";
 import type { ProductDetail, Variant } from "@/types/catalog";
 
 const TRUST = [
@@ -47,7 +48,12 @@ export function AddToCartSection({
     if (!variant) return;
     addToCart.mutate(
       { variantId: variant.id, quantity: qty },
-      { onSuccess: () => router.push(routes.cart) },
+      {
+        onSuccess: () => {
+          useCartUiStore.getState().close();
+          router.push(routes.cart);
+        },
+      },
     );
   };
 
